@@ -10,7 +10,6 @@ const App = () => (
 <Router>
   <Fragment>
       <Navbar/>
-      {/* <Router exact path = '/' component = {Landing} /> */}
       <Landing />
       <section className="container">
         <Switch>
