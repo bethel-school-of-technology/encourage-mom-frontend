@@ -13,15 +13,15 @@ const Navbar = () => {
                                         <img src="/images/profile.png" width="45px"></img>
                                     </Link>
                                     <div className="dropdown-content" >
-                                        <Link to="/sign-up">Sign-up</Link>
-                                        <Link to="/login">Login</Link>
-                                        <Link to="/logout">Logout</Link>
+                                        <Link to = "/sign-up">Sign-up</Link>
+                                        <Link to = "/login">Login</Link>
+                                        <Link to = "/logout">Logout</Link>
                                     </div>
                                 </div>
                             </li>
                         <li className="nav-right"><Link to ="/contact">Contact</Link></li>
                         <li className="nav-right"><Link to = "/posts">Posts</Link></li>
-                        <li className="nav-right"><Link to = "/daily-encouragment">Daily Encouragment</Link> </li>
+                        <li className="nav-right"><Link to = "/encouragement">Weekly Encouragment</Link> </li>
                         <li className="nav-right"><Link to ="/home">Home</Link></li>
                     </ul>
                 </nav>
