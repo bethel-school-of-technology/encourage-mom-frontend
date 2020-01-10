@@ -117,7 +117,7 @@
 //                 <button
 //                     className="btn btn-primary"
 //                     id="login-link"
-//                     href="login.html">
+//                     href="/login">
 //                     Log In
 //                 </button>
 //             </p>
