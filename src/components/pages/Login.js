@@ -1,25 +1,11 @@
-import React, { Fragment, useState, Component } from 'react';
-// import axios from  'axios';
-import { Router} from 'react-router-dom';
-// import { login } from '../../actions/auth';
+import React, { Component } from 'react';
+
+// import { Router} from 'react-router-dom';
 
 class Login extends Component {
 
     render() {
-    // const [formData, setFormData] = useState({
-    //     username: '',
-    //     password: '',
-    // });
 
-    // const {username, password } = formData;
-
-    // const onChange = e => 
-    // setFormData({ ...formData, [e.target.name]: e.target.value});
-
-    // const onSubmit = async e => {
-    //     e.preventDefault();
-    //     console.log('SUCCESS');
-        // }
     return (
         <div>
             <h1>Log In!!</h1>

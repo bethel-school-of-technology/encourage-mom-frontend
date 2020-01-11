@@ -1,51 +1,9 @@
-import React, { useState, Component } from 'react';
-// import axios from  'axios';
-import { Router } from 'react-router-dom'
+import React, { /*useState, */ Component } from 'react';
+// import { Router } from 'react-router-dom'
 
 class Signup extends Component {
 
     render() {
-    // const [formData, setFormData] = useState({
-    //     name:'',
-    //     email:'',
-    //     username: '',
-    //     password: '',
-    //     password2: '',
-    // });
-
-    // const { name, email, username, password, password2 } = formData;
-
-    // const onChange = e => 
-    // setFormData({ ...formData, [e.target.name]: e.target.value});
-
-    // const onSubmit = async e => {
-    //     e.preventDefault();
-    //     if(password !== password2){
-    //         console.log('Passwords do not match')
-    //     } else {
-    //         console.log('SUCCESS');
-    //     }
-        // newUser = {
-        //     name,
-        //     email,
-        //     username,
-        //     password
-        // }
-
-        // try {
-        //     const config = {
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         }
-        //     }
-        //     const body = JSON.stringify(newUser);
-
-        //     const res = await axios.post('/routes/api/users', body, config);
-        //     console.log(res.data);
-        // } catch (err) {
-        //     console.error(err.response.data);
-
-        // }
     return (
         <div>
             <h1>Sign Up!!</h1>
