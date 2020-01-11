@@ -9,9 +9,18 @@ import home from './components/pages/home';
 import encouragment from './components/pages/weekly-encouragement';
 import posts from './components/pages/posts';
 import contact from './components/pages/contact';
+
+//redux
+import { Provider } from 'react-redux';
+import store from './store';
+
+
 import './App.css';
 
 const App = () => (
+
+<Provider store={store}>
+
 <Router>
   <Fragment>
       <Navbar/>
@@ -31,6 +40,7 @@ const App = () => (
       </section>
   </Fragment>
 </Router>
+</Provider>
 ) ;
 
 
