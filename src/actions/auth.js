@@ -1,28 +1,28 @@
-import axios from 'axios';
-import {setAlert} from './alert';
+// import axios from 'axios';
+// import {setAlert} from './alert';
 
-import {
-    SIGNUP_SUCCESS,
-    SIGNUP_FAIL,
-    USER_LOADED,
-    AUTH_ERROR,
-    LOGIN_SUCCESS,
-    LOGIN_FAIL
-} from './types'
+// import {
+//     SIGNUP_SUCCESS,
+//     SIGNUP_FAIL,
+//     USER_LOADED,
+//     AUTH_ERROR,
+//     LOGIN_SUCCESS,
+//     LOGIN_FAIL
+// } from './types'
 
-import setAuthToken from '../utils/setAuthToken'
+// import setAuthToken from '../utils/setAuthToken'
 
-//Load User
+// //Load User
 
-export const loadUser = () => async dispatch => {
-    if (localStorage.token) {
-        setAuthToken(localStorage.token);
-    }
+// export const loadUser = () => async dispatch => {
+//     if (localStorage.token) {
+//         setAuthToken(localStorage.token);
+//     }
 
-    try {
-        const res = await.axios.get('/api/auth');
-    }
-}
+//     try {
+//         const res = await.axios.get('/api/auth');
+//     }
+// }
 
 
 

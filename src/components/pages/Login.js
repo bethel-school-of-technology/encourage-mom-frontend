@@ -1,61 +1,82 @@
-// import React, { Fragment } from 'react'
-// import {Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import React, { Fragment, useState, Component } from 'react';
+// import axios from  'axios';
+import { Router} from 'react-router-dom';
+// import { login } from '../../actions/auth';
 
-// export default function Login(props) {
-//     const [username, setUsername] = useState("");
-//     const [password, setPassword] = useState("");
+class Login extends Component {
 
-//     function validateForm() {
-//         return email.length > 0 && password.length > 0;    }
-// }
+    render() {
+    // const [formData, setFormData] = useState({
+    //     username: '',
+    //     password: '',
+    // });
 
-//     function onSumbit(event) {
-//         event.preventDefault();
-//     }
+    // const {username, password } = formData;
+
+    // const onChange = e => 
+    // setFormData({ ...formData, [e.target.name]: e.target.value});
+
+    // const onSubmit = async e => {
+    //     e.preventDefault();
+    //     console.log('SUCCESS');
+        // }
+    return (
+        <div>
+            <h1>Log In!!</h1>
+            <p>Login to Your Account Here!!</p>
+            <form className="form" 
+                // onSubmit={e => onSubmit(e)}
+                 >
+                <div className='form-group'>
+                    Username:
+                    <input
+                        type='text'
+                        name='username'
+                        // value={username}
+                        // onChange={e => onChange(e)}
+                        required />
+                </div>
+                <br/>
+                <div className='form-group'>
+                    Password:
+                    <input
+                        type="password"
+                        name="password"
+                        // value={password}
+                        // onChange={e => onChange(e)}
+                        minLength="6" />
+                </div>
+            <br/>
+            <input
+                type="submit"
+                className="btn btn-primary"
+                value="Login" />
+            <br/>
+            </form>
+            {/* <p>
+                Don't have an account?
+                <Router exact path= "/Sigm">Log In</Router>
+            </p> */}
+    </div>
+) }
+}
+export default Login;
 
 
 
-// // const login = () => {
-//     return (
-//         <Fragment>
-//             <h1>Login</h1>
-//             <h4>Login Here</h4>
-//             <form class="form">
-//                 <div class="form-group">
-//                     Username:
-//                     <input
-//                         type='text'
-//                         value='username'
-//                         onChange={e => setUsername(e.targert.value)}
-//                         required />
-//                 </div>
-//                 <br/>
-//                 <div className="form">
-//                     Password:
-//                     <input
-//                         type="password"
-//                         value="password"
-//                         onChange={e => setPassword(e.target.value)}
-//                         required
-//                         />
-//                 </div>
-//                 <button disabled={!validateForm()} type="submit">Login</button>
-//                 </form>
-//                 <br/>
-//                 <p>
-//                 Don't have an account?
-//                  <button
-//                      className="btn btn-primary"
-//                      id="signup-link"
-//                      href="/signup">
-//                      Signup
-//                   </button>
-//                 </p>
-//         </Fragment>
-// );
 
 
-// export default Login
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
+
+
+
+
+
+
+
+
+
+
+
+
