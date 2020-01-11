@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
+import axios from 'axios';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
-import Signup from './components/auth/Signup';
-import Login from './components/auth/Login';
+import Signup from './components/pages/Signup';
+import Login from './components/pages/Login';
 import home from './components/pages/home';
 import encouragment from './components/pages/weekly-encouragement';
 import posts from './components/pages/posts';
@@ -30,6 +31,8 @@ const App = () => (
       </section>
   </Fragment>
 </Router>
-);
+) ;
+
+
 
 export default App;

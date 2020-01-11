@@ -13,7 +13,7 @@ const Navbar = () => {
                                         <img src="/images/profile.png" width="45px"></img>
                                     </Link>
                                     <div className="dropdown-content" >
-                                        <Link to = "/sign-up">Sign-up</Link>
+                                        <Link to = "/signup">Sign-up</Link>
                                         <Link to = "/login">Login</Link>
                                         <Link to = "/logout">Logout</Link>
                                     </div>
