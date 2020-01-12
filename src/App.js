@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
@@ -9,9 +9,18 @@ import home from './components/pages/home';
 import encouragment from './components/pages/weekly-encouragement';
 import posts from './components/pages/posts';
 import contact from './components/pages/contact';
+
+//redux
+import { Provider } from 'react-redux';
+import store from './store';
+
+
 import './App.css';
 
 const App = () => (
+
+<Provider store={store}>
+
 <Router>
   <Fragment>
       <Navbar/>
@@ -31,6 +40,7 @@ const App = () => (
       </section>
   </Fragment>
 </Router>
+</Provider>
 ) ;
 
 

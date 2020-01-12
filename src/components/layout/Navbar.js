@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import profile from '../img/profile.png'
 
 const Navbar = () => {
     return (
@@ -10,7 +11,7 @@ const Navbar = () => {
                             <li className="dropdown">
                                 <div className="dropbtn">
                                     <Link to = "/profile">
-                                        <img src="/images/profile.png" width="45px"></img>
+                                        <img src={profile}  width="45px" />
                                     </Link>
                                     <div className="dropdown-content" >
                                         <Link to = "/signup">Sign-up</Link>
