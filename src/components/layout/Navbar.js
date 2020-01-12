@@ -11,7 +11,7 @@ const Navbar = () => {
                             <li className="dropdown">
                                 <div className="dropbtn">
                                     <Link to = "/profile">
-                                        <img src={profile}  width="45px" />
+                                        <img alt='profile' src={profile}  width="45px" />
                                     </Link>
                                     <div className="dropdown-content" >
                                         <Link to = "/signup">Sign-up</Link>

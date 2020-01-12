@@ -3,9 +3,10 @@ import React, { Fragment } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
-import Signup from './components/pages/Signup';
-import Login from './components/pages/Login';
+import Signup from './components/auth/Signup';
+import Login from './components/auth/Login';
 import home from './components/pages/home';
+import Alert from './components/layout/Alert';
 import encouragment from './components/pages/weekly-encouragement';
 import posts from './components/pages/posts';
 import contact from './components/pages/contact';
@@ -32,9 +33,10 @@ const App = () => (
       <Route exact path="/contact" component={contact} />
       </section>
       <section className="container2">
-        <Switch>
-          <Route exact path ="/signup" component={Signup} />
-          <Route exact path ="/login" component={Login} />
+      <Alert />
+      <Switch>
+          <Route exact path="/signup" component={Signup}></Route>
+          <Route exact path="/login" component={Login}></Route>
           {/* <Route exact path="/logout" component={Logout} /> */}
         </Switch>
       </section>
