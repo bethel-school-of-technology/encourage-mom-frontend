@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import profile from '../img/profile.png'
+import menu from '../img/menu.png'
 
 const Navbar = () => {
     return (
@@ -11,12 +11,11 @@ const Navbar = () => {
                             <li className="dropdown">
                                 <div className="dropbtn">
                                     <Link to = "/profile">
-                                        <img alt='profile' src={profile}  width="45px" />
+                                        <img alt='menu' src={menu}  width="45px" />
                                     </Link>
                                     <div className="dropdown-content" >
                                         <Link to = "/signup">Sign-up</Link>
-                                        <Link to = "/login">Login</Link>
-                                        <Link to = "/logout">Logout</Link>
+                                        <Link to = "/login">Login</Link> 
                                     </div>
                                 </div>
                             </li>
@@ -24,6 +23,8 @@ const Navbar = () => {
                         <li className="nav-right"><Link to = "/posts">Posts</Link></li>
                         <li className="nav-right"><Link to = "/encouragement">Weekly Encouragment</Link> </li>
                         <li className="nav-right"><Link to ="/home">Home</Link></li>
+
+
                     </ul>
                 </nav>
         </header>
