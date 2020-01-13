@@ -1,10 +1,11 @@
 import React, {useState, Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { setAlert } from '../../actions/alert'
 // import propTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, setAlert, isAuthenticated }) => {
     const [formData, setFormData ] = useState({
         username: '',
         password: ''
@@ -70,7 +71,10 @@ return (
 
 
 
-export default connect({login})(Login);
+export default connect(
+    null,
+        { setAlert, login}
+        )(Login);
 
 
 

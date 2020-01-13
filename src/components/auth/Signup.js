@@ -6,7 +6,7 @@ import { signup } from '../../actions/auth';
 import propTypes from 'prop-types';
 import axios_create from '../../utils/API'
 
-const Signup = ({ setAlert, signup }) => {        
+const Signup = ({ setAlert}) => {        
     const [ formData, setFormData ] =  useState ({
             firstName:'',
             lastName:'',
