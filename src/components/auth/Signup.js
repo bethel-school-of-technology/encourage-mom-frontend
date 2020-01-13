@@ -4,32 +4,35 @@ import { Link } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { signup } from '../../actions/auth';
 import propTypes from 'prop-types';
+import axios_create from '../../utils/API'
 
-const Signup = ({ setAlert,}) => {        
+const Signup = ({ setAlert, signup }) => {        
     const [ formData, setFormData ] =  useState ({
             firstName:'',
             lastName:'',
             email:'',
             username: '',
             password:'',
-            password2:'',
+            confirmPassword:'',
         });
 
-    const {firstName, lastName, email, username, password, password2 } = formData
+    const {firstName, lastName, email, username, password, confirmPassword } = formData;
 
     const onChange = e => 
-        setFormData({...FormData, [e.target.name]: e.target.value});
+        setFormData({...formData, [e.target.name]: e.target.value});
 
      const onSubmit = async e => {
         e.preventDefault();
-        if (password !== password2) {
-            // setAlert('Passwords do not match', 'danger')
+
+        if (password !== confirmPassword) {
+            setAlert('Passwords do not match', 'danger')
             console.log('Passwords do not match')
         } else {
-                signup ({firstName, lastName, email, username, password})
-                // console.log('SUCCESS')
-                // console.log(FormData)
-             }
+            console.log(formData)
+            axios_create.post('api/users', formData)
+                .then(res => console.log(res, 'success'))
+                .catch(error => console.log(error, 'error'))
+        }
       };
 
             // if (isAuthenticated) {
@@ -65,7 +68,7 @@ return (
                 <div className='form-group'>
                     Email:
                     <input
-                        type='text'
+                        type='email'
                         name='email'
                         value={email}
                         onChange={e => onChange(e)}
@@ -96,8 +99,8 @@ return (
                     Please Confirm Password:
                     <input
                         type= 'password'
-                        name='password2'
-                        value={password2} 
+                        name='confirmPassword'
+                        value={confirmPassword} 
                         onChange={e => onChange(e)} 
                         minLength="6" />
                 </div>
@@ -105,9 +108,8 @@ return (
             <input
                 type="submit"
                 className="btn btn-primary"
-                value="Signup" 
+                value='Signup' 
                  />
-            <br/>
             </form>
             <p>
                 Already have an account?
@@ -131,5 +133,5 @@ Signup.propTypes = {
 
 export default connect(
     null,
-    { setAlert }
+    { setAlert, signup }
   )(Signup);
