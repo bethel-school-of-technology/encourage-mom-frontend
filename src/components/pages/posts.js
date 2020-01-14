@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 
+
 class Posts extends Component {
     handleChange(e) {
         const currentPostList = []
@@ -55,6 +56,7 @@ class Posts extends Component {
                 <h2>Most Recent:</h2>
             </div>
             </div>
+
         );
     }
 }

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+
 // import axios from 'axios';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
@@ -10,6 +11,7 @@ import Alert from './components/layout/Alert';
 import encouragment from './components/pages/weekly-encouragement';
 import posts from './components/pages/posts';
 import contact from './components/pages/contact';
+import postForm from './components/posts/postForm';
 
 //redux
 import { Provider } from 'react-redux';
@@ -38,6 +40,11 @@ const App = () => (
           <Route exact path="/signup" component={Signup}></Route>
           <Route exact path="/login" component={Login}></Route>
           {/* <Route exact path="/logout" component={Logout} /> */}
+        </Switch>
+      </section>
+      <section className="container3">
+        <Switch>
+        <Route exact path="/create-post" component={postForm}></Route>
         </Switch>
       </section>
   </Fragment>

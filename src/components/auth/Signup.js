@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { signup } from '../../actions/auth';
 import propTypes from 'prop-types';
-import axios_create from '../../utils/API'
+import axios from '../../utils/API'
 
 const Signup = ({ setAlert}) => {        
     const [ formData, setFormData ] =  useState ({
@@ -29,7 +29,7 @@ const Signup = ({ setAlert}) => {
             console.log('Passwords do not match')
         } else {
             console.log(formData)
-            axios_create.post('api/users', formData)
+            axios.post('api/users', formData)
                 .then(res => console.log(res, 'success'))
                 .catch(error => console.log(error, 'error'))
         }
