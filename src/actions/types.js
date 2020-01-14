@@ -9,7 +9,22 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGOUT = 'LOGOUT';
 
+export const GET_PROFILE = "GET_PROFILE";
+export const UPDATE_PROFILE = "UPDATE_PROFILE";
+export const DELETE_PROFILE = "DELETE_POST"
+export const PROFILE_ERROR = "PROFILE_ERROR"
+
 export const GET_POST = "GET_POST";
 export const CREATE_POST = "CREATE_POST";
 export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
+export const POST_ERROR = "POST_ERROR"
+
+export const GET_POSTS = "GET_POSTS"
+export const POSTS_ERROR = "POSTS_ERROR"
+
+export const ADD_LIKE = "ADD_LIKE"
+
+export const ADD_COMMENT = "ADD_COMMENT"
+export const REMOVE_COMMENT = "REMOVE COMMENT"
+export const COMMENT_ERROR = "COMMENT_ERRORS"
