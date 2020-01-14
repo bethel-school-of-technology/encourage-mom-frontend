@@ -1,8 +1,7 @@
 import React, {useState, Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setAlert } from '../../actions/alert'
-// import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
 const Login = ({ login, setAlert, isAuthenticated }) => {
@@ -22,7 +21,7 @@ const onSubmit = async e => {
 };
 
 if (isAuthenticated) {
-    return <Redirect to='/profile' />
+    return <Redirect to='/dashboard' />
 }
 
 return (
@@ -69,11 +68,19 @@ return (
 );
 };
 
+Login.propTypes = {
+    login: PropTypes.func.isRequired,
+    isAuthenticated:PropTypes.bool
+};
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
 
 
 export default connect(
-    null,
-        { setAlert, login}
+    mapStateToProps,
+        { login}
         )(Login);
 
 
