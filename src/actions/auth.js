@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {setAlert} from './alert';
 import {
     SIGNUP_SUCCESS,
@@ -10,7 +9,7 @@ import {
     LOGOUT
 } from './types';
 
-import axios_create from '../utils/API'
+import axios from '../utils/API'
 
 import setAuthToken from '../utils/setAuthToken';
 
@@ -21,7 +20,7 @@ export const loadUser = () => async dispatch => {
         setAuthToken(localStorage.token)
     } 
     try {
-        const res = await axios_create.get('/api/auth');
+        const res = await axios.get('/api/auth');
 
         dispatch({
             type: USER_LOADED,
@@ -43,7 +42,7 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
     const body = JSON.stringify({firstName, lastName, email, username, password });
 
     try{
-        const res = await axios_create.post('/api/users', body, config);
+        const res = await axios.post('/api/users', body, config);
 
         dispatch({
             type: SIGNUP_SUCCESS,

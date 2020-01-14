@@ -1,5 +1,6 @@
-import React , { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React , {  Fragment } from 'react';
+import  { createProfile } from '../../actions/profile';
+
 
 const CreateProfile = ({}) => {
     const [profileInfo, profileInfo] = useState({
@@ -7,7 +8,7 @@ const CreateProfile = ({}) => {
         username: '',
         location: '',
         bio:''
-    })
+    });
 
     const {name, username, location, bio } = profileInfo
     
@@ -24,4 +25,6 @@ const CreateProfile = ({}) => {
             <h1>Create Your Profile</h1>
         </Fragment>
     )
-})
+}
+
+export default CreateProfile;
