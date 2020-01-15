@@ -29,7 +29,7 @@ const Navbar = () => {
               <Link to='/posts'>Posts</Link>
             </li>
             <li className='nav-right'>
-              <Link to='/encouragement'>Weekly Encouragment</Link>{' '}
+              <Link to='/encouragement'>Weekly Encouragement</Link>{' '}
             </li>
             <li className='nav-right'>
               <Link to='/home'>Home</Link>
