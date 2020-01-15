@@ -9,10 +9,10 @@ import {
     LOGOUT
 } from './types';
 
-import axios from '../utils/API'
-
+import axios from 'axios'
 import setAuthToken from '../utils/setAuthToken';
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 //Load User 
 export const loadUser = () => async dispatch => {
@@ -20,7 +20,7 @@ export const loadUser = () => async dispatch => {
         setAuthToken(localStorage.token)
     } 
     try {
-        const res = await axios.get('/api/auth');
+        const res = await axios.get(`${baseUrl}auth`);
 
         dispatch({
             type: USER_LOADED,
@@ -32,7 +32,7 @@ export const loadUser = () => async dispatch => {
         });
     }
 }; 
-//register user
+// register user
 export const signup = ({firstName, lastName, email, username, password }) => async dispatch => {
     const config = {
         headers: {
@@ -42,7 +42,7 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
     const body = JSON.stringify({firstName, lastName, email, username, password });
 
     try{
-        const res = await axios.post('/api/users', body, config);
+        const res = await axios.post(`${baseUrl}/users/signup`, body, config);
 
         dispatch({
             type: SIGNUP_SUCCESS,
@@ -60,7 +60,6 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
     }
 };
 
-// login user
 
 export const login = (username, password) => async dispatch => {
     const config = {
@@ -72,25 +71,25 @@ export const login = (username, password) => async dispatch => {
     const body  = JSON.stringify({username, password});
 
     try {
-        const res = await axios.post('/api/auth', body, config);
+        const res = await axios.post(`${baseUrl}/auth`, body, config);
 
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
         });
         dispatch(loadUser());
-    } catch (err) {
-        const errors = err.response.data.errors
-        
-        if(errors) {
-            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    } catch  (err){
+        const errors = err.response.data.errors;
+    
+            if(errors){
+                errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+            }
+            dispatch({
+                type: LOGIN_FAIL
+            });
         }
-
-        dispatch({
-            type: LOGIN_FAIL
-        });
     };
-};
+        
 
 // Logout / Clear Profile
 
@@ -114,34 +113,3 @@ export const logout = () => dispatch => {
 
 
 
-
-
-// import axios from 'axios';
-// import { setAlert }
-
-// // const baseUrl = process.env.REACT_APP_BASE_URL;
-
-// import { useState, useEffect } from 'react';
-
-// export const useAuth = auth => {
-//   const [authenticated, setAuthenticated] = useState(null);
-//   const [user, setUser] = useState(null);
-
-//   useEffect(() => {
-//     auth.isAuthenticated().then(isAuthenticated => {
-//       if (isAuthenticated !== authenticated) {
-//         setAuthenticated(isAuthenticated);
-//       }
-//     });
-//   });
-
-//   useEffect(() => {
-//     if (authenticated) {
-//       auth.getUser().then(setUser);
-//     } else {
-//       setUser(null);
-//     }
-//   }, [authenticated]);
-
-//   return [authenticated, user];
-// };

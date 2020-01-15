@@ -17,7 +17,8 @@ const onChange = e =>
 
 const onSubmit = async e => {
     e.preventDefault();
-    login(username, password);
+    alert("Login Successful")
+    // login(username, password);
 };
 
 // if (isAuthenticated) {
@@ -73,13 +74,13 @@ return (
 //     isAuthenticated:PropTypes.bool
 // };
 
-const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
-});
+// const mapStateToProps = state => ({
+//     isAuthenticated: state.auth.isAuthenticated
+// });
 
 
 export default connect(
-    mapStateToProps,
+null,
         { login}
         )(Login);
 
