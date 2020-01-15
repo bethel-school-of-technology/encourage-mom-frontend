@@ -10,7 +10,9 @@ import {
 
 import axios from '../utils/API';
 
-// const baseUrl = process.env.REACT_APP_BASE;
+
+
+const baseUrl = process.env.REACT_APP_BASE;
 
 export const createPost = ({username, title, PostText}) => dispatch => {
     const config = {
@@ -22,7 +24,7 @@ export const createPost = ({username, title, PostText}) => dispatch => {
     const body = JSON.stringify({username, title, PostText});
 
     try {
-        const res = axios.post('/api/posts', body, config);
+        const res = axios.post(`${baseUrl}/api/posts`, body, config);
         
         dispatch({
             type: CREATE_POST,
@@ -32,3 +34,4 @@ export const createPost = ({username, title, PostText}) => dispatch => {
         const errors = err.response.data.errors;
     }
 }
+

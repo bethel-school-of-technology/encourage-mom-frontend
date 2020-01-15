@@ -42,7 +42,7 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
     const body = JSON.stringify({firstName, lastName, email, username, password });
 
     try{
-        const res = await axios.post(`${baseUrl}/users/signup`, body, config);
+        const res = await axios.post(`${baseUrl}/users`, body, config);
 
         dispatch({
             type: SIGNUP_SUCCESS,
