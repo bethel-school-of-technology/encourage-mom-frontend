@@ -1,5 +1,6 @@
 import React from 'react';
-import { getCurrentProfile } from '../../actions/profile'
+import { editProfile } from '../../actions/profile';
+// import {}
 
 
 const EditProfile = ({
