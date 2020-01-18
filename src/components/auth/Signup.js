@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { signup } from '../../actions/auth';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 
-const Signup = ({ setAlert}) => {        
+const Signup = ({ setAlert, signup}) => {        
     const [ formData, setFormData ] =  useState ({
             firstName:'',
             lastName:'',
@@ -29,7 +29,7 @@ const Signup = ({ setAlert}) => {
             console.log('Passwords do not match')
         } else {
             console.log(formData)
-            signup(formData)
+            signup(firstName, lastName, email, username, password)
   
             // axios.post('http://localhost:5000/api/users/signup', formData)
             //     .then(res => console.log(res, 'success'))
@@ -123,8 +123,8 @@ return (
 };
 
 Signup.propTypes = {
-    setAlert: propTypes.func.isRequired,
-    // signup: PropTypes.func.isRequired,
+    setAlert: PropTypes.func.isRequired,
+    signup: PropTypes.func.isRequired,
     // isAuthenticated: PropTypes.bool
   };
   
