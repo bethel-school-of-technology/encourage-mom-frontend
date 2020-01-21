@@ -15,12 +15,12 @@ import setAuthToken from '../utils/setAuthToken';
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 //Load User 
-export const loadUser = () => async dispatch => {
+export const loadUser = userData => async dispatch => {
     if (localStorage.token) {
         setAuthToken(localStorage.token)
     } 
     try {
-        const res = await axios.get(`${baseUrl}auth`);
+        const res = await axios.get(`${baseUrl}/auth`, userData);
 
         dispatch({
             type: USER_LOADED,
@@ -38,7 +38,7 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
         headers: {
             'Content-Type': 'application/json'
         }
-};
+}
     const body = JSON.stringify({firstName, lastName, email, username, password });
 
     try{
@@ -48,6 +48,8 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
             type: SIGNUP_SUCCESS,
             payload: res.data
         });
+
+        // dispatch(loadUser());
     } catch (err){
         const errors = err.response.data.errors;
 
@@ -60,7 +62,7 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
     }
 };
 
-
+//login user
 export const login = (username, password) => async dispatch => {
     const config = {
         headers: {
@@ -80,7 +82,6 @@ export const login = (username, password) => async dispatch => {
         dispatch(loadUser());
     } catch  (err){
         const errors = err.response.data.errors;
-    
             if(errors){
                 errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
             }
@@ -89,7 +90,6 @@ export const login = (username, password) => async dispatch => {
             });
         }
     };
-        
 
 // Logout / Clear Profile
 

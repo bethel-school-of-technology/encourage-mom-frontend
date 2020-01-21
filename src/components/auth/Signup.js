@@ -1,12 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { signup } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
 
-const Signup = ({ setAlert, signup}) => {        
+const Signup = ({ setAlert, signup, isAuthenticated}) => {        
     const [ formData, setFormData ] =  useState ({
             firstName:'',
             lastName:'',
@@ -30,16 +30,11 @@ const Signup = ({ setAlert, signup}) => {
         } else {
             console.log(formData)
             signup(firstName, lastName, email, username, password)
-  
-            // axios.post('http://localhost:5000/api/users/signup', formData)
-            //     .then(res => console.log(res, 'success'))
-            //     .catch(error => console.log(error, 'error'))
         }
       };
-
-            // if (isAuthenticated) {
-            //     return <Redirect to='/profile'/>
-            // }
+            if (isAuthenticated) {
+                return <Redirect to='/profile'/>
+            }
 return (
     <Fragment>
         <div>
@@ -110,8 +105,7 @@ return (
             <input
                 type="submit"
                 className="btn btn-primary"
-                value='Signup' 
-                 />
+                value='Signup'/>
             </form>
             <p>
                 Already have an account?
@@ -125,15 +119,15 @@ return (
 Signup.propTypes = {
     setAlert: PropTypes.func.isRequired,
     signup: PropTypes.func.isRequired,
-    // isAuthenticated: PropTypes.bool
-  };
+    isAuthenticated: PropTypes.bool
+  }
   
 
-//   const mapStateToProps = state => ({
-//     isAuthenticated: state.auth.isAuthenticated
-//   });
+  const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+  });
 
 export default connect(
-    null,
+    mapStateToProps,
     { setAlert, signup }
   )(Signup);
