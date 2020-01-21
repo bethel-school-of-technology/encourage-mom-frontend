@@ -28,6 +28,7 @@ export default function (state = intitalState, action) {
                 user: payload
             };
         case SIGNUP_SUCCESS:
+        case LOGIN_SUCCESS:
             localStorage.setItem('token', payload.token);
             return {
                 ...state,
@@ -35,14 +36,6 @@ export default function (state = intitalState, action) {
                 isAuthenticated: true,
                 loading: false
             }
-        case LOGIN_SUCCESS:
-            localStorage.setItem('token', payload.token);
-            return {
-                ...state,
-                token: null,
-                isAuthenticated: true,
-                loading: false
-            };
         case SIGNUP_FAIL:
         case AUTH_ERROR:
         case LOGIN_FAIL:
