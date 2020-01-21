@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 
 // import axios from 'axios';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -12,16 +12,25 @@ import encouragment from './components/pages/weekly-encouragement';
 import posts from './components/pages/posts';
 import contact from './components/pages/contact';
 import postForm from './components/posts/postForm';
+import { loadUser } from './actions/auth';
 
+import setAuthToken from './utils/setAuthToken';
 //redux
 import { Provider } from 'react-redux';
 import store from './store';
 
-
 import './App.css';
 
-const App = () => (
 
+  if(localStorage.token){
+    setAuthToken(localStorage.token);
+  }
+
+const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser())
+  }, []);
+return(
 <Provider store={store}>
 
 <Router>
@@ -50,7 +59,7 @@ const App = () => (
   </Fragment>
 </Router>
 </Provider>
-) ;
+)} ;
 
 
 
