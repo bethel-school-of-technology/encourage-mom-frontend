@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
-const Login = ({ login }) => {
+const Login = ({ login, isAuthenticated }) => {
     const [formData, setFormData ] = useState({
         username: '',
         password: ''
@@ -18,12 +18,12 @@ const onChange = e =>
 const onSubmit = async e => {
     e.preventDefault();
     alert("Login Successful")
-    // login(username, password);
+    login(username, password);
 };
 
-// if (isAuthenticated) {
-//     return <Redirect to='/dashboard' />
-// }
+if (isAuthenticated) {
+    return <Redirect to='/dashboard' />
+}
 
 return (
     <Fragment>
@@ -69,18 +69,18 @@ return (
 );
 };
 
-// Login.propTypes = {
-//     login: PropTypes.func.isRequired,
-//     isAuthenticated:PropTypes.bool
-// };
+Login.propTypes = {
+    login: PropTypes.func.isRequired,
+    isAuthenticated:PropTypes.bool,
+};
 
-// const mapStateToProps = state => ({
-//     isAuthenticated: state.auth.isAuthenticated
-// });
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
 
 
 export default connect(
-null,
+mapStateToProps,
         { login}
         )(Login);
 

@@ -38,12 +38,12 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
         headers: {
             'Content-Type': 'application/json'
         }
-}
+};
     const body = JSON.stringify({firstName, lastName, email, username, password });
 
     try{
         const res = await axios.post(`${baseUrl}/users`, body, config);
-
+            
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: res.data

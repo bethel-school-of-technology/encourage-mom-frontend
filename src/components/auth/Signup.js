@@ -33,7 +33,7 @@ const Signup = ({ setAlert, signup, isAuthenticated}) => {
         }
       };
             if (isAuthenticated) {
-                return <Redirect to='/profile'/>
+                return <Redirect to='/login'/>
             }
 return (
     <Fragment>
