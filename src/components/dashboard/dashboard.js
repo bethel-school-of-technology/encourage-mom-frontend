@@ -4,7 +4,9 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-            <h1>Welcome {user.username} </h1>
+            <h1>Welcome 
+                {/* { user.username}  */}
+                </h1>
             
             </div>
 
