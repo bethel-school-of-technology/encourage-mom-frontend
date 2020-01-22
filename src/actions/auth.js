@@ -15,12 +15,14 @@ import setAuthToken from '../utils/setAuthToken';
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 //Load User 
-export const loadUser = userData => async dispatch => {
+export const loadUser = () => async dispatch => {
     if (localStorage.token) {
         setAuthToken(localStorage.token)
     } 
     try {
-        const res = await axios.get(`${baseUrl}/auth`, userData);
+        // const res = await axios.get(`${baseUrl}/auth`, userData);
+        const res = await axios.get('http://localhost:5000/api/auth');
+        // const res = await axios.get('https://localhost:5000/api/auth');
 
         dispatch({
             type: USER_LOADED,
@@ -38,27 +40,21 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
         headers: {
             'Content-Type': 'application/json'
         }
-}
+};
     const body = JSON.stringify({firstName, lastName, email, username, password });
 
     try{
-        const res = await axios.post(`${baseUrl}/users`, body, config);
-
+        // const res = await axios.post(`${baseUrl}/users`, body, config);
+        const res = await axios.post('http://localhost:5000/api/auth', body, config);
+        // const res = await axios.post('https://localhost:5000/api/auth', body, config);
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: res.data
         });
 
-        // dispatch(loadUser());
+        dispatch(loadUser());
     } catch (err){
-        const errors = err.response.data.errors;
-
-        if(errors){
-            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-        }
-        dispatch({
-            type: SIGNUP_FAIL
-        });
+        console.log(err)
     }
 };
 

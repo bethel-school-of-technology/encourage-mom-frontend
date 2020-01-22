@@ -55,9 +55,14 @@ export const createPost = ({username, title, PostText}) => dispatch => {
         });
     } catch(err) {
         const errors = err.response.data.errors;
+        if(errors){
+            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+        }
+        dispatch({
+            type: POST_ERROR
+        });
     }
-}
-
+};
 export const updataPost = (post, _id) => async dispatch => {
     const res = await axios.put(`${baseUrl}/post/${_id}`, post);
     dispatch({
@@ -71,7 +76,8 @@ export const deletePost = id => async dispatch => {
         try {
             const res = await axios.delete(`${baseUrl}/api/profile`);
             dispatch({type: DELETE_POST,
-            payload: id
+            payload: res.id
+            //payload: id
         })
             dispatch(setAlert('Post Deleted', 'success'));
         } catch (err) {
