@@ -41,7 +41,7 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
     const body = JSON.stringify({firstName, lastName, email, username, password });
 
     try{
-        const res = await axios.post('http://localhost:5000/api/auth', body, config);
+        const res = await axios.post('http://localhost:5000/api/users/signup', body, config);
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: res.data
@@ -64,7 +64,7 @@ export const login = (username, password) => async dispatch => {
     const body  = JSON.stringify({username, password});
 
     try {
-        const res = await axios.post(`${baseUrl}/auth`, body, config);
+        const res = await axios.post('http://localhost:5000/api/auth', body, config);
 
         dispatch({
             type: LOGIN_SUCCESS,
@@ -72,16 +72,9 @@ export const login = (username, password) => async dispatch => {
         });
         dispatch(loadUser());
     } catch  (err){
-        const errors = err.response.data.errors;
-            if(errors){
-                errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-            }
-            dispatch({
-                type: LOGIN_FAIL
-            });
-        }
+        console.log(err)
     };
-
+}
 // Logout / Clear Profile
 
 export const logout = () => dispatch => {

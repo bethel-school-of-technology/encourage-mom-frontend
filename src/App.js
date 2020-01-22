@@ -13,6 +13,7 @@ import posts from './components/pages/posts';
 import contact from './components/pages/contact';
 import postForm from './components/posts/postForm';
 import { loadUser } from './actions/auth';
+import dashboard from './components/dashboard/dashboard';
 
 import setAuthToken from './utils/setAuthToken';
 //redux
@@ -54,6 +55,11 @@ return(
       <section className="container3">
         <Switch>
         <Route exact path="/create-post" component={postForm}></Route>
+        </Switch>
+      </section>
+      <section className="container4">
+        <Switch>
+          <Route exact path ="/dashboard" component={dashboard}></Route>
         </Switch>
       </section>
   </Fragment>
