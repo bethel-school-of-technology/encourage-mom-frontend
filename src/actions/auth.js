@@ -40,7 +40,9 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
     const body = JSON.stringify({firstName, lastName, email, username, password });
 
     try{
-        const res = await axios.post('http://localhost:5000/api/users', body, config);
+        const res = await axios.post(
+            'http://localhost:5000/api/users/signup'
+            , body, config);
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: res.data

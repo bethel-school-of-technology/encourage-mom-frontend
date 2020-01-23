@@ -75,7 +75,7 @@ return(
         <Switch>
           <Route exact path='/create-profile' component={CreateProfile} />
           <Route exact path='/edit-profile' component={EditProfile} />
-          <Route exact path='/profile' component={profile} />
+          {/* <Route exact path='/profile' component={profile} /> */}
           <Route exact path ="/dashboard" component={dashboard}/>
         </Switch>
       </section>
