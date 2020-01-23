@@ -12,7 +12,6 @@ import {
 import axios from 'axios'
 import setAuthToken from '../utils/setAuthToken';
 
-const baseUrl = process.env.REACT_APP_BASE_URL;
 
 //Load User 
 export const loadUser = () => async dispatch => {
@@ -41,7 +40,7 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
     const body = JSON.stringify({firstName, lastName, email, username, password });
 
     try{
-        const res = await axios.post('http://localhost:5000/api/users/signup', body, config);
+        const res = await axios.post('http://localhost:5000/api/users', body, config);
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: res.data

@@ -11,6 +11,8 @@ export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGOUT = 'LOGOUT';
 
 export const GET_PROFILE = "GET_PROFILE";
+export const GET_PROFILES = "GET_PROFILES";
+export const CREATE_PROFILE = "CREATE_PROFILE"
 export const UPDATE_PROFILE = "UPDATE_PROFILE";
 export const DELETE_PROFILE = "DELETE_POST"
 export const PROFILE_ERROR = "PROFILE_ERROR"
