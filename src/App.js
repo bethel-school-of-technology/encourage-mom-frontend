@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 // import axios from 'axios';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Signup from './components/pages/Signup';
@@ -13,7 +13,6 @@ import contact from './components/pages/contact';
 //redux
 import { Provider } from 'react-redux';
 import store from './store';
-
 
 import './App.css';
 
@@ -39,9 +38,6 @@ const App = () => (
       </Fragment>
     </Router>
   </Provider>
-); ;
-
-
+);
 
 export default App;
-
