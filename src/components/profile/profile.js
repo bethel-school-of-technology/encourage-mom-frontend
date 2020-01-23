@@ -1,3 +1,17 @@
+import React, {Component} from "react";
+
+class Profile extends Component {
+    render() {
+        return(
+            <div>
+                Welcome
+            </div>
+        )
+    }
+}
+
+export default Profile
+
 // import React, {Fragment, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';

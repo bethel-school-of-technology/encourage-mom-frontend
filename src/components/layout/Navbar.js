@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import profile from '../img/profile.png';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -20,8 +20,10 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                             </Link>
                             <div className="dropdown-content" >
                                 <Link to = "/create-post">Create Post</Link>
-                                <a onClick={logout} href="#!">Logout</a> 
+                                <a onClick={logout} href='!#'>Logout</a> 
+                                {/* <Link to = "/logout">Logout</Link> */}
                             </div>
+                        
                         </div>
                     </li>
                 <li className="nav-right"><Link to ="/contact">Contact</Link></li>

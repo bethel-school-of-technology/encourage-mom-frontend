@@ -7,7 +7,7 @@ import Landing from './components/layout/Landing';
 import Alert from './components/layout/Alert';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
-
+// import Logout from './components/auth/Logout'
 
 import home from './components/pages/home';
 import encouragment from './components/pages/weekly-encouragement';
@@ -75,7 +75,7 @@ return(
         <Switch>
           <Route exact path='/create-profile' component={CreateProfile} />
           <Route exact path='/edit-profile' component={EditProfile} />
-          {/* <Route exact path='/profile' component={profile} /> */}
+          <Route exact path='/profile' component={profile} />
           <Route exact path ="/dashboard" component={dashboard}/>
         </Switch>
       </section>

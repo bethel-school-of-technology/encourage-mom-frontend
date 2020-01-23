@@ -11,6 +11,7 @@ import {
 
 import axios from 'axios'
 import setAuthToken from '../utils/setAuthToken';
+import { Redirect } from 'react-router-dom';
 
 
 //Load User 
@@ -80,7 +81,7 @@ export const login = (username, password) => async dispatch => {
 
 export const logout = () => dispatch => {
     dispatch({ type: LOGOUT});
-    
+
 }
 
 

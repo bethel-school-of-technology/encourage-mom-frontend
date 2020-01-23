@@ -23,7 +23,7 @@ const onSubmit = async e => {
 
 if (isAuthenticated) {
     console.log(formData)
-    return <Redirect to='/dashboard' />
+    return <Redirect to='/profile' />
 
 }
 
