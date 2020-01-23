@@ -1,49 +1,49 @@
-import React , { Fragment } from 'react';
+import React , { useState } from 'react';
 import { connect } from 'react-redux'
 import { createPost } from '../../actions/post'
+import PropTypes from 'prop-types'
 
-
-const postForm = () => {
-    const [postData, setPostData] =  ({
-        username: '',
-        title: '',
-        postText: ''
-    });
-
-    const {username, title, postText } = postData
-    
-    const onChange = e =>
-        setPostData({ ...postData, [e.target.name]: e.target.value});
-
-    const onSubmit = e => {
-        e.preventDefault();
-        createPost(postData)
-    };
-
-    return (
-        <Fragment>
-            <h1>Share your thoughts and tips and by writing a post</h1>
-            <div className="form">
-                <form className="posts-from"
-                    onSubmit={e => onSubmit(e)}>
+const CreatePost = ({ createPost }) => {
+    const [ username, setUsername] = useState('')
+    const [ text, setText ] = useState('');
+    const [ title, setTitle ] = useState('');
+    return(
+        <div className="form">
+            <form className="posts-form"
+                    onSubmit={e => {e.preventDefault();
+                    createPost({username, title, text});
+                    setText('');
+                    setTitle('');
+                    }}
+                    >
+                <div>
                     <input 
                         type="text"
                         name="username"
                         value={username}
-                        onChange={e => onChange(e)}
+                        onChange={e => setUsername(e.target.value)}
                         required />
+                </div>
+                <br />
+                <div> Post Title: 
                     <input
                         type="text"
                         name="title"
                         value={title}
-                        onChange={e => onChange(e)}
+                        onChange={e => setTitle(e.target.value)}
                         required />
+                </div>
+                <br/>
+                <div>
+                    Post Content:
                     <textarea 
                         type="text"
                         name="text"
-                        value={postText}
-                        onChange={e => onChange(e)}
+                        value={text}
+                        onChange={e => setText(e.target.value)}
+                        required
                         />
+                </div>
                     <input 
                         type="submit"
                         className="btn btn-primary"
@@ -51,14 +51,12 @@ const postForm = () => {
                         />
                 </form>
             </div>
-        </Fragment>
     )
 }
 
-export default connect(
-    null,
-    {createPost}
- )(postForm)
+CreatePost.propTypes = {
+    createPost: PropTypes.func.isRequired,
+}
 
-
+export default connect(null, {createPost})(CreatePost)
 

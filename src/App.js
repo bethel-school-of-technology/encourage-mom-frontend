@@ -4,22 +4,35 @@ import React, { Fragment, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
+import Alert from './components/layout/Alert';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
+
+
 import home from './components/pages/home';
-import Alert from './components/layout/Alert';
 import encouragment from './components/pages/weekly-encouragement';
 import posts from './components/pages/posts';
 import contact from './components/pages/contact';
+
+import CreateProfile from './components/profile/create-profile';
+import EditProfile from './components/profile/edit-profile';
+import profiles from './components/profile/profiles';
+import profile from './components/profile/profile';
+
 import postForm from './components/posts/postForm';
+import EditPost from './components/posts/edit.post';
+import postFeed from './components/posts/post-feed'
+
+
 import { loadUser } from './actions/auth';
+
 import dashboard from './components/dashboard/dashboard';
 
 import setAuthToken from './utils/setAuthToken';
+
 //redux
 import { Provider } from 'react-redux';
 import store from './store';
-
 import './App.css';
 
 
@@ -55,11 +68,15 @@ return(
       <section className="container3">
         <Switch>
         <Route exact path="/create-post" component={postForm}></Route>
+        <Route exact patch='/edit-post' componet={EditPost}/>
         </Switch>
       </section>
       <section className="container4">
         <Switch>
-          <Route exact path ="/dashboard" component={dashboard}></Route>
+          <Route exact path='/create-profile' component={CreateProfile} />
+          <Route exact path='/edit-profile' component={EditProfile} />
+          <Route exact path='/profile' component={profile} />
+          <Route exact path ="/dashboard" component={dashboard}/>
         </Switch>
       </section>
   </Fragment>

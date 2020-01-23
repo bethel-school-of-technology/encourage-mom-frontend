@@ -33,9 +33,11 @@ const Signup = ({ setAlert, signup, isAuthenticated}) => {
             signup(firstName, lastName, email, username, password)
         }
       };
-            if (isAuthenticated) {
-                return <Redirect to='/login'/>
-            }
+        if (isAuthenticated) {
+                console.log("Authenticated")
+                return <Redirect to='/dashboard'/>
+               
+    }
 return (
     <Fragment>
         <div>

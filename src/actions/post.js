@@ -63,7 +63,7 @@ export const createPost = ({username, title, PostText}) => dispatch => {
         });
     }
 };
-export const updataPost = (post, _id) => async dispatch => {
+export const updatePost = (post, _id) => async dispatch => {
     const res = await axios.put(`${baseUrl}/post/${_id}`, post);
     dispatch({
         type: UPDATE_POST,
