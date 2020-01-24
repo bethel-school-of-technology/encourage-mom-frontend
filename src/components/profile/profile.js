@@ -1,3 +1,55 @@
+import React, {Component} from "react";
+import {Link} from 'react-router-dom';
+
+class Profile extends Component {
+    render() {
+        return(
+            <div>
+                <h1>
+                Welcome (username)
+                </h1>
+                <br/>
+                <div>
+                <p>(If don't have a profile...)</p>
+                </div>
+                <br/>
+                <Link to ="/create-profile">Create profile</Link>
+                <br/>
+                <div>
+                    <h3>
+                    Profile (FirstName and LastName)
+                    </h3>
+                </div>
+                <br/>
+                <div>
+                    <h3>
+                    Profile (Username)
+                    </h3>
+                </div>
+                <br/>
+                <div>
+                    <h4>
+                        Profile (Location)
+                    </h4>
+                </div>
+                <br/>
+                <div>
+                    <h5>
+                        Profile Bio
+                    </h5>
+                </div>
+                <br/>
+                <div>
+                    <p>Want to Edit Profile</p>
+
+                </div>
+            </div>
+        )
+    }
+}
+
+export default Profile
+
 // import React, {Fragment, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';

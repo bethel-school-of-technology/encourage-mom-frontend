@@ -35,8 +35,7 @@ const Signup = ({ setAlert, signup, isAuthenticated}) => {
       };
         if (isAuthenticated) {
                 console.log("Authenticated")
-                return <Redirect to='/dashboard'/>
-               
+                return <Redirect to='/profile'/>
     }
 return (
     <Fragment>

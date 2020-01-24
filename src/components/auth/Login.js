@@ -17,12 +17,14 @@ const onChange = e =>
 
 const onSubmit = async e => {
     e.preventDefault();
-    alert("Login Successful")
+    // alert("Login Successful")
     login(username, password);
 };
 
 if (isAuthenticated) {
-    return <Redirect to='/dashboard' />
+    console.log(formData)
+    return <Redirect to='/profile' />
+
 }
 
 return (
@@ -56,7 +58,6 @@ return (
             <input
                 type="submit"
                 className="btn btn-primary"
-                onSubmit
                 value="Login" />
             <br/>
             </form>
