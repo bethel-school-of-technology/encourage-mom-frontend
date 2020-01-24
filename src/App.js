@@ -11,7 +11,7 @@ import Login from './components/auth/Login';
 
 import home from './components/pages/home';
 import encouragment from './components/pages/weekly-encouragement';
-import posts from './components/pages/posts';
+import post from './components/pages/posts';
 import contact from './components/pages/contact';
 
 import CreateProfile from './components/profile/create-profile';
@@ -21,7 +21,7 @@ import profile from './components/profile/profile';
 
 import postForm from './components/posts/postForm';
 import EditPost from './components/posts/edit.post';
-import postFeed from './components/posts/post-feed'
+// import postFeed from './components/posts/post-feed'
 
 
 import { loadUser } from './actions/auth';
@@ -54,7 +54,7 @@ return(
       <section className="container1">
       <Route exact path="/home" component={home} />
       <Route exact path="/encouragement" component={encouragment} />
-      <Route exact path="/posts" component={posts} />
+      <Route exact path="/posts" component={post} />
       <Route exact path="/contact" component={contact} />
       </section>
       <section className="container2">
