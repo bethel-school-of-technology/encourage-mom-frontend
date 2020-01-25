@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {setAlert} from './alert';
 import {
     SIGNUP_SUCCESS,
@@ -10,9 +9,9 @@ import {
     LOGOUT
 } from './types';
 
-import axios_create from '../utils/API'
-
+import axios from 'axios'
 import setAuthToken from '../utils/setAuthToken';
+import { Redirect } from 'react-router-dom';
 
 
 //Load User 
@@ -21,8 +20,7 @@ export const loadUser = () => async dispatch => {
         setAuthToken(localStorage.token)
     } 
     try {
-        const res = await axios_create.get('/api/auth');
-
+        const res = await axios.get('http://localhost:5000/api/auth');
         dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -33,7 +31,7 @@ export const loadUser = () => async dispatch => {
         });
     }
 }; 
-//register user
+// register user
 export const signup = ({firstName, lastName, email, username, password }) => async dispatch => {
     const config = {
         headers: {
@@ -43,26 +41,21 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
     const body = JSON.stringify({firstName, lastName, email, username, password });
 
     try{
-        const res = await axios_create.post('/api/users', body, config);
-
+        const res = await axios.post(
+            'http://localhost:5000/api/users/signup'
+            , body, config);
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: res.data
         });
-    } catch (err){
-        const errors = err.response.data.errors;
 
-        if(errors){
-            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-        }
-        dispatch({
-            type: SIGNUP_FAIL
-        });
+        dispatch(loadUser());
+    } catch (err){
+        console.log(err)
     }
 };
 
-// login user
-
+//login user
 export const login = (username, password) => async dispatch => {
     const config = {
         headers: {
@@ -73,30 +66,22 @@ export const login = (username, password) => async dispatch => {
     const body  = JSON.stringify({username, password});
 
     try {
-        const res = await axios.post('/api/auth', body, config);
+        const res = await axios.post('http://localhost:5000/api/auth', body, config);
 
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
         });
         dispatch(loadUser());
-    } catch (err) {
-        const errors = err.response.data.errors
-        
-        if(errors) {
-            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-        }
-
-        dispatch({
-            type: LOGIN_FAIL
-        });
+    } catch  (err){
+        console.log(err)
     };
-};
-
+}
 // Logout / Clear Profile
 
 export const logout = () => dispatch => {
     dispatch({ type: LOGOUT});
+
 }
 
 
@@ -115,34 +100,3 @@ export const logout = () => dispatch => {
 
 
 
-
-
-// import axios from 'axios';
-// import { setAlert }
-
-// // const baseUrl = process.env.REACT_APP_BASE_URL;
-
-// import { useState, useEffect } from 'react';
-
-// export const useAuth = auth => {
-//   const [authenticated, setAuthenticated] = useState(null);
-//   const [user, setUser] = useState(null);
-
-//   useEffect(() => {
-//     auth.isAuthenticated().then(isAuthenticated => {
-//       if (isAuthenticated !== authenticated) {
-//         setAuthenticated(isAuthenticated);
-//       }
-//     });
-//   });
-
-//   useEffect(() => {
-//     if (authenticated) {
-//       auth.getUser().then(setUser);
-//     } else {
-//       setUser(null);
-//     }
-//   }, [authenticated]);
-
-//   return [authenticated, user];
-// };
