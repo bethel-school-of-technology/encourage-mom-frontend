@@ -1,12 +1,13 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { signup } from '../../actions/auth';
-import propTypes from 'prop-types';
-import axios_create from '../../utils/API'
+import PropTypes from 'prop-types';
 
-const Signup = ({ setAlert}) => {        
+
+
+const Signup = ({ setAlert, signup, isAuthenticated}) => {        
     const [ formData, setFormData ] =  useState ({
             firstName:'',
             lastName:'',
@@ -29,15 +30,13 @@ const Signup = ({ setAlert}) => {
             console.log('Passwords do not match')
         } else {
             console.log(formData)
-            axios_create.post('api/users', formData)
-                .then(res => console.log(res, 'success'))
-                .catch(error => console.log(error, 'error'))
+            signup(firstName, lastName, email, username, password)
         }
       };
-
-            // if (isAuthenticated) {
-            //     return <Redirect to='/profile'/>
-            // }
+        if (isAuthenticated) {
+                console.log("Authenticated")
+                return <Redirect to='/profile'/>
+    }
 return (
     <Fragment>
         <div>
@@ -108,8 +107,7 @@ return (
             <input
                 type="submit"
                 className="btn btn-primary"
-                value='Signup' 
-                 />
+                value='Signup'/>
             </form>
             <p>
                 Already have an account?
@@ -121,17 +119,17 @@ return (
 };
 
 Signup.propTypes = {
-    setAlert: propTypes.func.isRequired,
-    // signup: PropTypes.func.isRequired,
-    // isAuthenticated: PropTypes.bool
-  };
+    setAlert: PropTypes.func.isRequired,
+    signup: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool
+  }
   
 
-//   const mapStateToProps = state => ({
-//     isAuthenticated: state.auth.isAuthenticated
-//   });
+  const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+  });
 
 export default connect(
-    null,
+    mapStateToProps,
     { setAlert, signup }
   )(Signup);
