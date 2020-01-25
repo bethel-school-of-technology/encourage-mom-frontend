@@ -27,8 +27,8 @@ a {
     padding: 5px;
     margin: 5px;
     text-align: center;
-    font-size: 35px;
-    color: white;
+    /* font-size: 35px;
+    color: white; */
 }
 
 
@@ -133,9 +133,22 @@ nav ul li:first-child{
     float: right;
 }
 
-.landing{
+.landing {
     text-align: center;
     background-color: rgba(223, 233, 233, 0.226);
     padding: 5px;
 
+}
+
+.contact-page {
+    text-align: center;
+}
+
+.post-page {
+    text-align: center;
+}
+
+Link {
+    color: black !important;
+    font-size: 10px !important;
 }
