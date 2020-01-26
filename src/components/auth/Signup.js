@@ -14,11 +14,19 @@ const Signup = ({ setAlert, signup, isAuthenticated}) => {
             email:'',
             username: '',
             password:'',
-            confirmPassword:'',
+            confirmPassword:''
         });
-
+        
     const {firstName, lastName, email, username, password, confirmPassword } = formData;
 
+    // const body = {
+    //     firstName:formData.firstName,
+    //     lastName:formData.lastName,
+    //     username:formData.username,
+    //     email:formData.email,
+    //     password:formData.password    
+    // }
+    console.log(firstName);
     const onChange = e => 
         setFormData({...formData, [e.target.name]: e.target.value});
 
@@ -30,7 +38,7 @@ const Signup = ({ setAlert, signup, isAuthenticated}) => {
             console.log('Passwords do not match')
         } else {
             console.log(formData)
-            signup(firstName, lastName, email, username, password)
+            signup({firstName, lastName, email, username, password})
         }
       };
         if (isAuthenticated) {

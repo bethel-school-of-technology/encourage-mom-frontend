@@ -38,7 +38,9 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
             'Content-Type': 'application/json'
         }
 };
-    const body = JSON.stringify({firstName, lastName, email, username, password });
+    const body = ({firstName, lastName, email, username, password });
+
+    console.log(body);
 
     try{
         const res = await axios.post(
