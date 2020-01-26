@@ -17,12 +17,13 @@ const onChange = e =>
 
 const onSubmit = async e => {
     e.preventDefault();
-    // alert("Login Successful")
+    console.log(formData);
     login(username, password);
 };
 
 if (isAuthenticated) {
     console.log(formData)
+    console.log("Authenticated")
     return <Redirect to='/profile' />
 
 }
