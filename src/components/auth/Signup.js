@@ -19,14 +19,6 @@ const Signup = ({ setAlert, signup, isAuthenticated}) => {
         
     const {firstName, lastName, email, username, password, confirmPassword } = formData;
 
-    // const body = {
-    //     firstName:formData.firstName,
-    //     lastName:formData.lastName,
-    //     username:formData.username,
-    //     email:formData.email,
-    //     password:formData.password    
-    // }
-    console.log(firstName);
     const onChange = e => 
         setFormData({...formData, [e.target.name]: e.target.value});
 
