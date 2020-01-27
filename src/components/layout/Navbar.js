@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react'
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import profile from '../img/profile.png';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout} from '../../actions/auth';
 import menu from '../img/menu.png';
+
 
 
 const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
@@ -21,7 +22,6 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                             <div className="dropdown-content" >
                                 <Link to = "/create-post">Create Post</Link>
                                 <a onClick={logout} href='!#'>Logout</a> 
-                                {/* <Link to = "/logout">Logout</Link> */}
                             </div>
                         
                         </div>
