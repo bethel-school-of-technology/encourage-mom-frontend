@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import profile from '../img/profile.png';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -21,7 +21,12 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                             </Link>
                             <div className="dropdown-content" >
                                 <Link to = "/create-post">Create Post</Link>
-                                <a onClick={logout} href='!#'>Logout</a> 
+                                <a onClick={logout} href="/#">
+                                    {/* <i>
+                                        <Redirect to='/login'></Redirect>
+                                    </i> */}
+                                    Logout
+                                    </a> 
                             </div>
                         
                         </div>
@@ -42,9 +47,9 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                     <li><h1>Crowned Jewels</h1></li>
                     <li className="dropdown">
                                 <div className="dropbtn">
-                                    <Link to = "/profile">
+                                    {/* <Link to = "/profile"> */}
                                         <img alt='menu' src={menu}  width="45px" />
-                                    </Link>
+                                    {/* </Link> */}
                                     <div className="dropdown-content" >
                                         <Link to = "/signup">Sign Up</Link>
                                         <Link to = "/login">Login</Link> 

@@ -1,54 +1,89 @@
-import React, {Component} from "react";
+import React, {Fragment, useEffect} from "react";
 import {Link} from 'react-router-dom';
+import { getProfileById } from '../../actions/profile';
+import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 
-class Profile extends Component {
-    render() {
+const Profile = ({
+    getProfileById,
+    // profile: { profile},
+    auth,
+    match,
+}) => {
+    useEffect(() => {
+        getProfileById(match.params.id);
+    }, [getProfileById, match.params.id]);
+
         return(
+            <Fragment>
             <div>
-                <h1>
-                Welcome (username)
-                </h1>
+                {/* {auth.isAuthenticated &&
+                auth.loading === false &&
+                auth.user._id === profile.user._id && (
+                    <h1> Welcome {profile.username} </h1>
+                )} */}
+                <h1> Welcome...
+                    {/* {profile.username}  */}
+                    </h1>
                 <br/>
                 <div>
                 <p>(If don't have a profile...)</p>
+                 <Link to ="/create-profile">Create profile</Link>
                 </div>
                 <br/>
-                {/* <Link to ="/create-profile">Create profile</Link> */}
+               
                 <br/>
                 <div>
                     <h3>
-                    Profile (FirstName and LastName)
+                    {/* {profile.user.firstName && profile.user.lastName}   */}
+                    (FirstName and LastName)
                     </h3>
                 </div>
                 <br/>
                 <div>
                     <h3>
+                    {/* {profile.user.username} */}
                     Profile (Username)
                     </h3>
                 </div>
                 <br/>
                 <div>
                     <h4>
+                        {/* {profile.location} */}
                         Profile (Location)
                     </h4>
                 </div>
                 <br/>
                 <div>
                     <h5>
+                        {/* {profile.bio} */}
                         Profile Bio
                     </h5>
                 </div>
                 <br/>
                 <div>
                     <p>Want to Edit Profile</p>
+                    <Link to="/edit-profile">Edit Profile</Link>
 
                 </div>
             </div>
+            </Fragment>
         )
     }
+
+Profile.propTypes = {
+    getProfileById: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired,
+    auth: PropTypes.object.isRequired
 }
 
-export default Profile
+const mapStateToProps = state => ({
+    profile: state.profile,
+    auth: state.auth
+});
+
+export default connect(mapStateToProps,
+    {getProfileById})(Profile)
 
 // import React, {Fragment, useEffect } from 'react';
 // import PropTypes from 'prop-types';

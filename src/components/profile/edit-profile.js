@@ -1,71 +1,72 @@
-// import React from 'react';
-// import { editProfile } from '../../actions/profile';
-// // import {}
+import React, {Fragment, useState} from 'react';
+import { editProfile } from '../../actions/profile';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+// import {}
 
 
-// const EditProfile = ({
-//     createProfile,
-//     getCurrentProfile
-// }) => {
-//     const [profileData, setProfileData] = useState({
-//         name: '',
-//         username: '',
-//         location: '',
-//         bio:''
-//     });
+const EditProfile = ({
+    createProfile,
+    setprofileInfo
+}) => {
+    const [profileData] = useState({
+        location: '',
+        bio:''
+    });
 
-
-
-//     const {name, username, location, bio } = profileData
+    const { location, bio } = profileData
     
-//     const onChange = e =>
-//         setprofileInfo({ ...profileData, [e.target.name]: e.target.value});
+    const onChange = e =>
+        setprofileInfo({ ...profileData, [e.target.name]: e.target.value});
 
-//     const onSubmit = e => {
-//         e.preventDefault();
-//         createProfile(profileData, history)
-//     };
+    const onSubmit = e => {
+        e.preventDefault();
+        createProfile(profileData
+            )
+    };
 
-//     return (
-//         <Fragment>
-//             <h1>Edid Your Profile</h1>
-//             <form className="form" onSubmit={e => onSubmit(e)}>
-//                 <div className="create-profile-form">
-//                 <input
-//                     type="text"
-//                     name="name"
-//                     value={name}
-//                     onChange={e => onChange(e)}
-//                     required
-//                     />
-//                 <input 
-//                     type="text"
-//                     name="username"
-//                     value={username}
-//                     onChange={e => onChange(e)}
-//                     required
-//                     />
-//                 <input 
-//                     type="text"
-//                     name="location"
-//                     value={location}
-//                     onChange={e => onChange(e)}
-//                     required 
-//                     />
-//                 <textarea
-//                     type="text"
-//                     name="bio"
-//                     value={bio}
-//                     onChange={e => onChange(e)}
-//                     required
-//                     />
-//                 </div>
-//             </form>
-//         </Fragment>
-//     )
-// }
+    return (
+        <Fragment>
+            <h1>Edit Profile Info</h1>
+            <form className="form" onSubmit={e => onSubmit(e)}>
+                <div className="create-profile-form">
 
-// export default EditProfile
+            <div> Location:
+                <input 
+                    type="text"
+                    name="location"
+                    value={location}
+                    onChange={e => onChange(e)}
+                    required 
+                    />
+            </div>
+            < br/>
+            <div> Short Bio:
+                <textarea
+                    type="text"
+                    name="bio"
+                    value={bio}
+                    onChange={e => onChange(e)}
+                    required
+                    />
+                </div>
+            </div>
+            < br />
+            <a href='/profile'>Back to profile</a>
+            </form>
+        </Fragment>
+    )
+}
+
+EditProfile.propTypes = {
+    editProfile: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, {editProfile})(EditProfile)
 
 // import React, {Component} from 'react';
 //     import {connect} from 'react-redux'
