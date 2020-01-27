@@ -13,7 +13,7 @@ class Profile extends Component {
                 <p>(If don't have a profile...)</p>
                 </div>
                 <br/>
-                <Link to ="/create-profile">Create profile</Link>
+                {/* <Link to ="/create-profile">Create profile</Link> */}
                 <br/>
                 <div>
                     <h3>

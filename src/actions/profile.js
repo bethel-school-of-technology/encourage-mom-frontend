@@ -15,17 +15,10 @@
 // const baseUrl = process.env.REACT_APP_BASE_URL;
 
 // // gets current profile
-// export const getCurrentProfile = ({firstName, lastName, username, location, bio}) => async dispatch => {
-//     const config = {
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     };
-
-//     const body = JSON.stringify({firstName, lastName, username, location, bio });
+// export const getCurrentProfile = () => async dispatch => {
 
 //     try{
-//         const res = await axios.get(`https://localhost:5000/profile/me`, body, config);
+//         const res = await axios.get(`http://localhost:5000/profile/me`);
         
 //         dispatch({
 //             type: GET_PROFILE,
@@ -34,7 +27,7 @@
 //      } catch(err) {
 //         dispatch({
 //             type: PROFILE_ERROR,
-//             payload:{}
+//             payload:{msg: err.response.statusText, status: err.response.status}
 //       });
 //     }
 // }
@@ -44,7 +37,7 @@
 //     dispatch({ type: CLEAR_CURRENT_PROFILE})
 
 //     try {
-//         const res = await axios.get(`${baseUrl}/api/profile`);
+//         const res = await axios.get(`http://localhost:5000/api/profile`);
 
 //         dispatch({
 //             type: GET_PROFILES,
@@ -60,34 +53,87 @@
 
 // //gets profile by id
 
-// export const getProfileById = userData => async dispatch => {
-//     dispatch(setProfileLoading())
-//     axios.get('http://localhost:5000/api/users/me', userData)
-//     .then(res =>
+// export const getProfileById = userId => async dispatch => {
+//         try {
+//             const res = await axios.get(`http://localhost:5000/profile/user/${userId}`);
+
+//             dispatch({
+//                 type: GET_PROFILE,
+//                 payload: res.data
+//             });
+//         }   catch(err) {
+//             dispatch({
+//                 type: PROFILE_ERROR,
+//                 payload: {msg: err.response.statusText, status: err.response.status } 
+//             });
+//         }
+//     };
+
+//     // dispatch(setProfileLoading())
+//     // axios.get('http://localhost:5000/api/users/me', userData)
+//     // .then(res =>
+//     //     dispatch({
+//     //         type: GET_PROFILE,
+//     //         payload: res.data
+//     //     })
+//     //     )
+//     //     .catch(err => 
+//     //         dispatch({type:GET_PROFILE,
+//     //         payload: {}
+//     //     }))
+
+
+// // create or update profile
+
+// export const createProfile = (formData, history, edit = false) => async dispatch =>  {
+//     try {
+//         const config = {
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             }
+//         };
+
+//         const res = await axios.post('http://localhost:5000/api/profile', formData, config);
+
 //         dispatch({
 //             type: GET_PROFILE,
 //             payload: res.data
-//         })
-//         )
-//         .catch(err => 
-//             dispatch({type:GET_PROFILE,
-//             payload: {}
-//         }))
+//         });
 
-//     //     try {
-// //         const res = await axios.get(`${baseUrl}/profile/user/${userId}`);
+//         dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
 
-// //         dispatch({
-// //             type: GET_PROFILE,
-// //             payload: res.data
-// //         });
-// //     }   catch(err) {
-// //         dispatch({
-// //             type: PROFILE_ERROR,
-// //             payload: {msg: err.response.statusText, status: err.response.status } 
-// //         });
-// //     }
-// // };
+//         if (!edit) {
+//             history.push('/profile')
+//         }
+//     } catch (err) {
+//         err.forEach(err => dispatch(setAlert(err.msg, 'danger')))
+//     } 
+//     // dispatch({
+//     //     type: PROFILE_ERROR,
+//     //     payload: {msg: err.response.statusText, status: error.response.status}
+//     //     })
+//     // }
+
+
+//     // delete account/profile
+// export const deleteAccount = () => async dispatch => {
+//     if(alert("Warning! This can not be undone! Are you sure you want to delete your account")) {
+//         try {
+//             await axios.delete(`http://localhost:5000/api/profile`);
+
+//             dispatch({type: CLEAR_CURRENT_PROFILE})
+//             dispatch({dispatch: ACCOUNT_DELETED})
+            
+//             dispatch(setAlert('Your account has been permanantly deleted :('));
+//         } catch (err) {
+//             dispatch({
+//                 type: PROFILE_ERROR,
+//                 payload: {msg: err.response.statusText, status: err.resposne.status}
+//             })
+//         }
+//     }
+// };
+
 
 // //create profile
 
@@ -128,21 +174,3 @@
 // })
 // }
 
-// //delete account/profile
-// export const deleteAccount = () => async dispatch => {
-//     if(alert("Warning! This can not be undone! Are you sure you want to delete your account")) {
-//         try {
-//             await axios.delete(`${baseUrl}/api/profile`);
-
-//             dispatch({type: CLEAR_CURRENT_PROFILE})
-//             dispatch({dispatch: ACCOUNT_DELETED})
-            
-//             dispatch(setAlert('Your account has been permanantly deleted :('));
-//         } catch (err) {
-//             dispatch({
-//                 type: PROFILE_ERROR,
-//                 payload: {msg: err.response.statusText, status: err.resposne.status}
-//             })
-//         }
-//     }
-// };

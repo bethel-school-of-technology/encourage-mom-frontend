@@ -67,138 +67,138 @@
 
 // export default EditProfile
 
-import React, {Component} from 'react';
-    import {connect} from 'react-redux'
-import PropTypes from 'prop-types';
-import {editProfile, getCurrentProfile} from '../../actions/profile'
-import { withRouter } from 'react-router-dom';
+// import React, {Component} from 'react';
+//     import {connect} from 'react-redux'
+// import PropTypes from 'prop-types';
+// import {editProfile, getCurrentProfile} from '../../actions/profile'
+// import { withRouter } from 'react-router-dom';
 
-class EditProfile extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstName: '',
-            lastName: '',
-            username: '',
-            location: '',
-            bio: '',
-            errs:'',
-        }
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-    }
+// class EditProfile extends Component{
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             firstName: '',
+//             lastName: '',
+//             username: '',
+//             location: '',
+//             bio: '',
+//             errs:'',
+//         }
+//         this.onChange = this.onChange.bind(this);
+//         this.onSubmit = this.onSubmit.bind(this);
+//     }
 
-    // componentDidMount() {
-    //     this.props.getCurrentProfile(profileData, this.props.history)
-    // }
+//     // componentDidMount() {
+//     //     this.props.getCurrentProfile(profileData, this.props.history)
+//     // }
 
-    componentWillReceiveProps(nextProps){
-        if(nextProps.errors) {
-            this.setState({errs: nextProps.errs})
-        }
-    }
+//     componentWillReceiveProps(nextProps){
+//         if(nextProps.errors) {
+//             this.setState({errs: nextProps.errs})
+//         }
+//     }
 
-    onSubmit(e) {
-        e.preventDefault();
-        const profileData = {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            username: this.state.username,
-            location: this.state.location,
-            bio: this.state.bio,
-        };
+//     onSubmit(e) {
+//         e.preventDefault();
+//         const profileData = {
+//             firstName: this.state.firstName,
+//             lastName: this.state.lastName,
+//             username: this.state.username,
+//             location: this.state.location,
+//             bio: this.state.bio,
+//         };
 
-        this.props.createProfile(profileData, this.props.history);
-    }
+//         this.props.createProfile(profileData, this.props.history);
+//     }
 
-    onChange(e){
-        this.setState({[e.target.name]: e.target.value})
-    }
+//     onChange(e){
+//         this.setState({[e.target.name]: e.target.value})
+//     }
 
-    render() {
-        return(
-        <div>
-            <h1>Edit Your Profile</h1>
-            <br/>
-            <form className="form" onSubmit={this.onSubmit}>
-                <div className="edit-profile-form">
-            <div>
-                First Name:
-                <input
-                    type="text"
-                    name="firstName"
-                    value={this.state.firstName}
-                    onChange={this.onChange}
-                    required
-                    />
-            </div>
-            <br/>
-            <div>
-            Last Name:
-                <input
-                    type="text"
-                    name="lastName"
-                    value={this.state.lastName}
-                    onChange={this.onChange}
-                    required
-                    />
-            </div>
-            <br/>
-            <div>Username: 
-                <input 
-                    type="text"
-                    name="username"
-                    value={this.state.username}
-                    onChange={this.onChange}
-                    required
-                    />
-            </div>
-            <br/>
-            <div>Loaction (if you want): 
-                <input 
-                    type="text"
-                    name="location"
-                    value={this.state.location}
-                    onChange={this.onChange}
-                    required 
-                    />
-                </div>
-                <br/>
-            <div> Bio:
-                <textarea
-                    type="text"
-                    name="bio"
-                    value={this.state.bio}
-                    onChange={this.onChange}
-                    required
-                    />
-            </div>
-            <br/>
-                <input 
-                    type='submit'
-                    value="Submit"
-                    />
-                </div>
-            </form>
-            </div>
-        )
-    }
-}
+//     render() {
+//         return(
+//         <div>
+//             <h1>Edit Your Profile</h1>
+//             <br/>
+//             <form className="form" onSubmit={this.onSubmit}>
+//                 <div className="edit-profile-form">
+//             <div>
+//                 First Name:
+//                 <input
+//                     type="text"
+//                     name="firstName"
+//                     value={this.state.firstName}
+//                     onChange={this.onChange}
+//                     required
+//                     />
+//             </div>
+//             <br/>
+//             <div>
+//             Last Name:
+//                 <input
+//                     type="text"
+//                     name="lastName"
+//                     value={this.state.lastName}
+//                     onChange={this.onChange}
+//                     required
+//                     />
+//             </div>
+//             <br/>
+//             <div>Username: 
+//                 <input 
+//                     type="text"
+//                     name="username"
+//                     value={this.state.username}
+//                     onChange={this.onChange}
+//                     required
+//                     />
+//             </div>
+//             <br/>
+//             <div>Loaction (if you want): 
+//                 <input 
+//                     type="text"
+//                     name="location"
+//                     value={this.state.location}
+//                     onChange={this.onChange}
+//                     required 
+//                     />
+//                 </div>
+//                 <br/>
+//             <div> Bio:
+//                 <textarea
+//                     type="text"
+//                     name="bio"
+//                     value={this.state.bio}
+//                     onChange={this.onChange}
+//                     required
+//                     />
+//             </div>
+//             <br/>
+//                 <input 
+//                     type='submit'
+//                     value="Submit"
+//                     />
+//                 </div>
+//             </form>
+//             </div>
+//         )
+//     }
+// }
 
-EditProfile.propTypes = {
-    profile: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired,
-    createProfile: PropTypes.func.isRequired,
-    getCurrentProfile: PropTypes.func.isRequired
-};
+// EditProfile.propTypes = {
+//     profile: PropTypes.object.isRequired,
+//     errors: PropTypes.object.isRequired,
+//     createProfile: PropTypes.func.isRequired,
+//     getCurrentProfile: PropTypes.func.isRequired
+// };
 
-const mapStateToProps = state => ({
-    profile: state.profile,
-    errors: state.errors
-})
+// const mapStateToProps = state => ({
+//     profile: state.profile,
+//     errors: state.errors
+// })
 
-export default connect(
-    mapStateToProps,
-    {editProfile, getCurrentProfile})
-    (withRouter(EditProfile));
+// export default connect(
+//     mapStateToProps,
+//     {editProfile, getCurrentProfile})
+//     (withRouter(EditProfile));
 
