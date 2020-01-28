@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { createPost } from '../../actions/post'
 import PropTypes from 'prop-types'
 
+
 const CreatePost = ({ createPost }) => {
     const [ username, setUsername] = useState('')
     const [ text, setText ] = useState('');
