@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 
 // import axios from 'axios';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Alert from './components/layout/Alert';
@@ -10,8 +10,12 @@ import Login from './components/auth/Login';
 // import Logout from './components/auth/Logout'
 
 import home from './components/pages/home';
+// <<<<<<< vinces-branch
+// import encouragement from './components/pages/weekly-encouragement';
+// import posts from './components/pages/posts';
+// =======
 import encouragment from './components/pages/weekly-encouragement';
-import post from './components/pages/posts';
+import post from './components/pages/posts'
 import contact from './components/pages/contact';
 
 import CreateProfile from './components/profile/create-profile';
@@ -83,7 +87,5 @@ return(
 </Router>
 </Provider>
 )} ;
-
-
 
 export default App;

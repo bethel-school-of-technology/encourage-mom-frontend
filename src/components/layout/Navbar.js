@@ -1,3 +1,4 @@
+
 import React, { Fragment } from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import profile from '../img/profile.png';
@@ -184,4 +185,4 @@ export default connect(mapStateToProps,
 //   auth: state.auth
 // })
 
-// export default connect(mapStateToProps, { logout })(Navbar);
+
