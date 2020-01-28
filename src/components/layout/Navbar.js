@@ -11,9 +11,9 @@ const Navbar = () => {
             <h1>Crowned Jewels</h1>
           </li>
           <li className='dropdown'>
-            <div className='dropbtn'>
+            <div className='drop-btn'>
               <Link to='/profile'>
-                <img src={profile} width='45px' />
+                <img src={profile} alt='profile' width='45px' />
               </Link>
               <div className='dropdown-content'>
                 <Link to='/signup'>Sign-up</Link>
