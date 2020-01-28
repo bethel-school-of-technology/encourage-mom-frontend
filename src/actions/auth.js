@@ -1,49 +1,94 @@
-import axios from 'axios';
 import {setAlert} from './alert';
 import {
     SIGNUP_SUCCESS,
     SIGNUP_FAIL,
+    USER_LOADED,
+    AUTH_ERROR,
     LOGIN_SUCCESS,
-    LOGIN_FAIL
+    LOGIN_FAIL,
+    LOGOUT
 } from './types';
 
-//register user
+import axios from 'axios'
+import setAuthToken from '../utils/setAuthToken';
+import { Redirect } from 'react-router-dom';
 
-export const signup = ({firstName, lastName, email, username, password}) => async dispatch => {
-    const config ={
+
+//Load User 
+export const loadUser = () => async dispatch => {
+    if (localStorage.token) {
+        setAuthToken(localStorage.token)
+    } 
+    try {
+        const res = await axios.get('http://localhost:5000/api/users');
+        dispatch({
+            type: USER_LOADED,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: AUTH_ERROR
+        });
+    }
+}; 
+// register user
+export const signup = ({firstName, lastName, email, username, password }) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+};
+    const body = ({firstName, lastName, email, username, password });
+
+    console.log(body);
+
+    try{
+        const res = await axios.post(
+            'http://localhost:5000/api/users/signup'
+            , body, config);
+        dispatch({
+            type: SIGNUP_SUCCESS,
+            payload: res.data
+        });
+
+        dispatch(loadUser());
+    } catch (err){
+        console.log(err)
+    }
+};
+
+//login user
+export const login = (username, password) => async dispatch => {
+    const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     }
 
-    const body = JSON.stringify({firstName, lastName, email, username, password});
+    const body  = ({username, password});
 
-    try{
-        const res = await axios.post('/api/users', body, config);
-
+    console.log(body)
+    try {
+        console.log("test_1")
+        // erroring out with the post
+        const res = await axios.post(
+            'http://localhost:5000/api/auth'
+            , body, config);
+        console.log("test_2")
         dispatch({
-            type: SIGNUP_SUCCESS,
+            type: LOGIN_SUCCESS,
             payload: res.data
         });
-    } catch (err){
-        const errors = err.response.data.errors;
-
-        if(errors){
-            errors.forEach(error => dispatch(setAlert(error.msg, 'Wrong!')));
-        }
-
-
-        dispatch({
-            type: SIGNUP_FAIL
-        });
-
-    }
+        dispatch(loadUser());
+    } catch  (err){
+        console.log(err)
+    };
 }
+// Logout / Clear Profile
 
-// login user
+export const logout = () => dispatch => {
+    dispatch({ type: LOGOUT});
 
-export const login = ({username, password}) => async dispatch => {
-    const
 }
 
 
@@ -62,34 +107,3 @@ export const login = ({username, password}) => async dispatch => {
 
 
 
-
-
-// import axios from 'axios';
-// import { setAlert }
-
-// // const baseUrl = process.env.REACT_APP_BASE_URL;
-
-// import { useState, useEffect } from 'react';
-
-// export const useAuth = auth => {
-//   const [authenticated, setAuthenticated] = useState(null);
-//   const [user, setUser] = useState(null);
-
-//   useEffect(() => {
-//     auth.isAuthenticated().then(isAuthenticated => {
-//       if (isAuthenticated !== authenticated) {
-//         setAuthenticated(isAuthenticated);
-//       }
-//     });
-//   });
-
-//   useEffect(() => {
-//     if (authenticated) {
-//       auth.getUser().then(setUser);
-//     } else {
-//       setUser(null);
-//     }
-//   }, [authenticated]);
-
-//   return [authenticated, user];
-// };
