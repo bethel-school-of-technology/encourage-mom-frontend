@@ -1,6 +1,6 @@
 body {
   background-color: #b19cd9;
-} 
+}
 
 header {
   background-color: rgba(223, 233, 233, 0.226);
@@ -9,7 +9,7 @@ header {
   text-align: center;
 }
 
-li > h1 {
+li>h1 {
   float: left;
   margin: 1px;
   padding: 1px;
@@ -18,28 +18,28 @@ li > h1 {
   padding-left: 10px;
 }
 
-nav > li {
+nav>li {
   float: right;
 }
 
 a {
 
-/*   text-decoration: none;
+  /*   text-decoration: none;
   padding: 5px;
   margin: 5px;
   text-align: center;
   font-size: 35px;
   color: whit
     text-decoration: none; */
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-    /* font-size: 35px;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  /* font-size: 35px;
     color: white; */
 
 }
 
-nav > a:hover {
+nav>a:hover {
   background-color: lightgray;
 }
 
@@ -62,10 +62,11 @@ li a {
   font-weight: bold;
 }
 
-.dropdown-content > a {
+.dropdown-content>a {
   font-size: 15px;
   font-weight: bold;
 }
+
 li a,
 .dropbtn {
   display: inline-block;
@@ -74,7 +75,8 @@ li a,
   padding: 10px 15px;
   text-decoration: none;
 }
-li > a:hover {
+
+li>a:hover {
   /* background-color: rgba(211, 211, 211, 0.507); */
   color: palevioletred;
   padding: 20px;
@@ -85,11 +87,12 @@ li > a:hover {
   background-color: rgba(211, 211, 211, 0.507);
   color: palevioletred;
 }
+
 li.dropdown {
   display: inline-block;
 }
 
-li > .nav-right:hover {
+li>.nav-right:hover {
   background-color: rgba(211, 211, 211, 0.507);
   text-align: justify;
   color: palevioletred;
@@ -132,22 +135,21 @@ nav ul li:first-child {
 
 nav ul li {
   float: right;
-}
-    text-align: center;
-    background-color: rgba(223, 233, 233, 0.226);
-    padding: 5px;
+  text-align: center;
+  background-color: rgba(223, 233, 233, 0.226);
+  padding: 5px;
 
 }
 
 .contact-page {
-    text-align: center;
+  text-align: center;
 }
 
 .post-page {
-    text-align: center;
+  text-align: center;
 }
 
 Link {
-    color: black !important;
-    font-size: 10px !important;
+  color: black !important;
+  font-size: 10px !important;
 }
