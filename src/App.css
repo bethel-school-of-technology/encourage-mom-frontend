@@ -23,12 +23,20 @@ nav > li {
 }
 
 a {
-  text-decoration: none;
+
+/*   text-decoration: none;
   padding: 5px;
   margin: 5px;
   text-align: center;
   font-size: 35px;
-  color: white;
+  color: whit
+    text-decoration: none; */
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    /* font-size: 35px;
+    color: white; */
+
 }
 
 nav > a:hover {
@@ -125,9 +133,21 @@ nav ul li:first-child {
 nav ul li {
   float: right;
 }
+    text-align: center;
+    background-color: rgba(223, 233, 233, 0.226);
+    padding: 5px;
 
-.landing {
-  text-align: center;
-  background-color: rgba(223, 233, 233, 0.226);
-  padding: 5px;
+}
+
+.contact-page {
+    text-align: center;
+}
+
+.post-page {
+    text-align: center;
+}
+
+Link {
+    color: black !important;
+    font-size: 10px !important;
 }
