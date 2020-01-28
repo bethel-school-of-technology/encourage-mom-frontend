@@ -67,7 +67,7 @@ li a {
   font-weight: bold;
 }
 li a,
-.dropbtn {
+.drop-btn {
   display: inline-block;
   color: black;
   text-align: center;
@@ -81,7 +81,7 @@ li > a:hover {
   text-align: center;
 }
 
-.dropdown:hover .dropbtn {
+.dropdown:hover .drop-btn {
   background-color: rgba(211, 211, 211, 0.507);
   color: palevioletred;
 }
@@ -132,7 +132,6 @@ nav ul li:first-child {
 
 nav ul li {
   float: right;
-}
     text-align: center;
     background-color: rgba(223, 233, 233, 0.226);
     padding: 5px;
