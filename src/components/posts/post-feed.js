@@ -1,15 +1,19 @@
-import React from 'react';
-import { render } from '@testing-library/react';
+// s
+// import React from 'react';
+// import PropTypes from 'prop-types';
+// import PostItem from './postItem';
 
-const PostFeed = ({getPosts, post: {posts, loading}}) => {
-    useEffect(() => {
-        getPosts();
-    }, [getPosts]);
-    return(
-        <div>
-            
-        </div>
-    )
-}
+// const PostFeed = () =>
+//  {
+//      {
+//         const {posts} = this.props
 
-export default PostFeed;
+//         return posts.map(post => <PostItem key={post._id} post={post} />);
+//     }
+// }
+
+// PostFeed.propTypes = {
+//     posts: PropTypes.array.isRequired
+// }
+
+// export default PostFeed

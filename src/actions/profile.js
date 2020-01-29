@@ -15,10 +15,10 @@ import {
 
 
 // gets current profile
-export const getCurrentProfile = () => async dispatch => {
-
+export const getCurrentProfile = user => async dispatch => {
+console.log(user);
     try{
-        const res = await axios.get(`http://localhost:5000/profile/me`);
+        const res = await axios.get(`http://localhost:5000/api/profile/me`, user);
         
         dispatch({
             type: GET_PROFILE,
