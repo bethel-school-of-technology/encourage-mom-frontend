@@ -17,10 +17,17 @@ import {
 
 
 // gets current profile
+
 export const getCurrentProfile = () => async dispatch => {
 
     try {
         const res = await axios.get(`http://localhost:5000/profile/me`);
+
+export const getCurrentProfile = user => async dispatch => {
+console.log(user);
+    try{
+        const res = await axios.get(`http://localhost:5000/api/profile/me`, user);
+        
 
         dispatch({
             type: GET_PROFILE,
@@ -165,21 +172,22 @@ export const createProfile = (formData) => async dispatch => {
             }
         };
 
-        const res = await axios.post(`http://localhost:5000/profile`, formData, config)
+        const res = await axios.post(`http://localhost:5000/api/profile`, formData, config)
+
 
         dispatch({
             type: CREATE_PROFILE,
+=======
+        dispatch({ 
+
             payload: res.data
         });
-
-        dispatch(setAlert('Profile Create', 'success'));
+        alert("Profile Created Successfully")
+        dispatch(setAlert('Profile Created', 'success'));
     } catch (err) {
         dispatch({
             type: PROFILE_ERROR,
-            payload: {
-                msg: err.response.statusText,
-                status: err.response.status
-            }
+            payload: {msg: err.response.statusText, status: err.resposne.status}
         })
     }
 }

@@ -1,62 +1,55 @@
 import React, {Fragment, useEffect} from "react";
 import {Link} from 'react-router-dom';
-import { getProfileById } from '../../actions/profile';
+import { getCurrentProfile } from '../../actions/profile';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 
 const Profile = ({
-    getProfileById,
-    // profile: { profile},
-    auth,
-    match,
+    getCurrentProfile,
+    profile,
+    auth: {user},
 }) => {
     useEffect(() => {
-        getProfileById(match.params.id);
-    }, [getProfileById, match.params.id]);
-
+        getCurrentProfile();
+    }, [getCurrentProfile ]);
         return(
             <Fragment>
             <div>
-                {/* {auth.isAuthenticated &&
-                auth.loading === false &&
-                auth.user._id === profile.user._id && (
-                    <h1> Welcome {profile.username} </h1>
-                )} */}
-                <h1> Welcome...
-                    {/* {profile.username}  */}
+                <h1> Welcome 
+                     { user && user.username} 
                     </h1>
                 <br/>
                 <div>
-                <p>(If don't have a profile...)</p>
+                <p>No profile? Create One!</p>
                  <Link to ="/create-profile">Create profile</Link>
                 </div>
                 <br/>
-               
+        
                 <br/>
                 <div>
                     <h3>
-                    {/* {profile.user.firstName && profile.user.lastName}   */}
+                    {user && user.firstName && user && user.lastName}  
                     (FirstName and LastName)
                     </h3>
                 </div>
                 <br/>
                 <div>
                     <h3>
-                    {/* {profile.user.username} */}
+                    {user && user.username}
                     Profile (Username)
                     </h3>
                 </div>
                 <br/>
                 <div>
                     <h4>
-                        {/* {profile.location} */}
+                        { profile && profile.location}
                         Profile (Location)
                     </h4>
                 </div>
                 <br/>
                 <div>
                     <h5>
-                        {/* {profile.bio} */}
+                        { profile && profile.bio}
                         Profile Bio
                     </h5>
                 </div>
@@ -72,7 +65,7 @@ const Profile = ({
     }
 
 Profile.propTypes = {
-    getProfileById: PropTypes.func.isRequired,
+    getCurrentProfile: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired
 }
@@ -83,7 +76,7 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps,
-    {getProfileById})(Profile)
+    {getCurrentProfile})(Profile)
 
 // import React, {Fragment, useEffect } from 'react';
 // import PropTypes from 'prop-types';
