@@ -1,11 +1,14 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {logout} from '../../actions/auth';
+import {getPosts} from '../../actions/post'
 import PropTypes from 'prop-types';
 
 
 const post = ({ auth: {isAuthenticated, loading}, logout }) => {
+
+ 
     const authLinks = (
              <div className="post-page">
              <div className="post-intro">
@@ -70,10 +73,13 @@ const post = ({ auth: {isAuthenticated, loading}, logout }) => {
         </div>
     )
     return (
+        
         <div>
+        
         {!loading && (
-            <Fragment> {isAuthenticated ? authLinks : guestLinks}</Fragment>   
+            <Fragment> {isAuthenticated ? authLinks : guestLinks}</Fragment>
          )}
+         <h2></h2>
         </div>
     )
 }

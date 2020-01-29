@@ -16,7 +16,7 @@ const CreatePost = ({ createPost }) => {
                     setTitle('');
                     }}
                     >
-                <div>
+                <div> Username: 
                     <input 
                         type="text"
                         name="username"
@@ -49,6 +49,7 @@ const CreatePost = ({ createPost }) => {
                         className="btn btn-primary"
                         value="createPost"
                         />
+                        <a href='/post'>Back to Post Page!</a>
                 </form>
             </div>
     )
