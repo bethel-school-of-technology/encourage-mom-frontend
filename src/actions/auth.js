@@ -13,6 +13,7 @@ import axios from 'axios'
 import setAuthToken from '../utils/setAuthToken';
 import { Redirect } from 'react-router-dom';
 
+const baseUrl = process.env.REACT_APP_BASE;
 
 //Load User 
 export const loadUser = () => async dispatch => {
@@ -72,7 +73,8 @@ export const login = (username, password) => async dispatch => {
         console.log("test_1")
         // erroring out with the post
         const res = await axios.post(
-            'http://localhost:5000/api/auth'
+            // `${baseUrl}/auth`
+            `http://localhost:5000/api/auth`
             , body, config);
         console.log("test_2")
         dispatch({

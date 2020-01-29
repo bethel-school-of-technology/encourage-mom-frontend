@@ -30,8 +30,6 @@ import EditPost from './components/posts/edit.post';
 
 import { loadUser } from './actions/auth';
 
-import dashboard from './components/dashboard/dashboard';
-
 import setAuthToken from './utils/setAuthToken';
 
 //redux
@@ -56,7 +54,7 @@ return(
       <Navbar/>
       <Landing />
       <section className="container1">
-      <Route exact path="/home" component={home} />
+      <Route exact path="/" component={home} />
       <Route exact path="/encouragement" component={encouragment} />
       <Route exact path="/posts" component={post} />
       <Route exact path="/contact" component={contact} />
@@ -80,7 +78,6 @@ return(
           <Route exact path='/create-profile' component={CreateProfile} /> 
            <Route exact path='/edit-profile' component={EditProfile} />
           <Route exact path='/profile' component={profile} />
-          {/* <Route exact path ="/dashboard" component={dashboard}/> */}
         </Switch>
       </section>
   </Fragment>
