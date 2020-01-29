@@ -1,42 +1,39 @@
-import React, {Fragment, useState} from 'react';
+import React, { useState} from 'react';
 import { createProfile } from '../../actions/profile';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 // import {}
 
 
-const CreateProfile = ({
-    createProfile,
-    setprofileInfo
-}) => {
-    const [profileData] = useState({
-        location: '',
-        bio:''
-    });
-
-    const { location, bio } = profileData
-    
-    const onChange = e =>
-        setprofileInfo({ ...profileData, [e.target.name]: e.target.value});
-
-    const onSubmit = e => {
-        e.preventDefault();
-        createProfile(profileData
-            )
-    };
+const CreateProfile = ({ createProfile}) => {
+    const [ username, setUsername] = useState('')
+    const [ location, setLocation ] = useState('');
+    const [ bio, setBio ] = useState('');
 
     return (
-        <Fragment>
+        <div>
             <h1>Add Profile Info</h1>
-            <form className="form" onSubmit={e => onSubmit(e)}>
-                <div className="create-profile-form">
-
+            <form className="form" 
+                onSubmit={e => {{e.preventDefault()}
+                createProfile({username, location, bio});
+                setLocation('');
+                setBio('');
+                }} >
+            <div> Username: 
+                    <input 
+                        type="text"
+                        name="username"
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
+                        required />
+            </div>
+            < br/>
             <div> Location:
                 <input 
                     type="text"
                     name="location"
                     value={location}
-                    onChange={e => onChange(e)}
+                    onChange={e => setLocation(e.target.value)}
                     required 
                     />
             </div>
@@ -46,15 +43,20 @@ const CreateProfile = ({
                     type="text"
                     name="bio"
                     value={bio}
-                    onChange={e => onChange(e)}
+                    onChange={e => setBio(e.target.value)}
                     required
                     />
-                </div>
-                < br />
-                <a href='/profile'>Back to profile</a>
             </div>
+            < br />
+            <input 
+                    type="submit"
+                    className="btn btn-primary"
+                    value="Create Profile"
+            />
+            <br />
+            <a href='/profile'>Back to profile</a>
             </form>
-        </Fragment>
+        </div>
     )
 }
 

@@ -7,6 +7,8 @@ const CreatePost = ({ createPost }) => {
     const [ username, setUsername] = useState('')
     const [ text, setText ] = useState('');
     const [ title, setTitle ] = useState('');
+
+
     return(
         <div className="form">
             <form className="posts-form"
@@ -49,7 +51,7 @@ const CreatePost = ({ createPost }) => {
                         className="btn btn-primary"
                         value="createPost"
                         />
-                        <a href='/post'>Back to Post Page!</a>
+                        <a href='/posts'>Back to Post Page!</a>
                 </form>
             </div>
     )

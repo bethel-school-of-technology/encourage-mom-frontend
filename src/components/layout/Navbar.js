@@ -23,7 +23,7 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
                             <div className="dropdown-content" >
                                 <Link to = "/create-post">Create Post</Link>
                                 {/* <a onClick={logout} href="/#">Logout</a>  */}
-                                <Link to ="/signup" onClick={logout}>Logout</Link>
+                                <Link to ="/login" onClick={logout}>Logout</Link>
                             </div>
                         
                         </div>
