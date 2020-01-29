@@ -15,7 +15,7 @@ import home from './components/pages/home';
 // import posts from './components/pages/posts';
 // =======
 import encouragment from './components/pages/weekly-encouragement';
-import post from './components/pages/posts'
+import posts from './components/pages/posts'
 import contact from './components/pages/contact';
 
 import CreateProfile from './components/profile/create-profile';
@@ -25,7 +25,7 @@ import profile from './components/profile/profile';
 
 import postForm from './components/posts/postForm';
 import EditPost from './components/posts/edit.post';
-// import postFeed from './components/posts/post-feed'
+import PostFeed from './components/posts/post-feed';
 
 
 import { loadUser } from './actions/auth';
@@ -56,7 +56,7 @@ return(
       <section className="container1">
       <Route exact path="/" component={home} />
       <Route exact path="/encouragement" component={encouragment} />
-      <Route exact path="/posts" component={post} />
+      <Route exact path="/posts" component={posts} />
       <Route exact path="/contact" component={contact} />
       </section>
       <section className="container2">
@@ -70,7 +70,10 @@ return(
       <section className="container3">
         <Switch>
         <Route exact path="/create-post" component={postForm}></Route>
-        <Route exact patch='/edit-post' componet={EditPost}/>
+        {/* <Route exact patch='/edit-post' component={EditPost}/> */}
+        {/* <Route exact patch='/post-feed' component={PostFeed}/> */}
+        {/* <Route exact patch='/edit-post' componet={EditPost}/>
+         */}
         </Switch>
       </section>
       <section className="container4">

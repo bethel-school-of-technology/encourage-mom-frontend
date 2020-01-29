@@ -4,9 +4,10 @@ import { connect } from "react-redux";
 import {logout} from '../../actions/auth';
 import {getPosts} from '../../actions/post'
 import PropTypes from 'prop-types';
+import postFeed from "../posts/post-feed";
 
 
-const post = ({ auth: {isAuthenticated, loading}, logout }) => {
+const posts = ({ auth: {isAuthenticated, loading}, logout }) => {
 
  
     const authLinks = (
@@ -37,6 +38,7 @@ const post = ({ auth: {isAuthenticated, loading}, logout }) => {
             </div>
             <div className="post-recent">
                 <h2>Most Recent Posts:</h2>
+                {/* <postFeed></postFeed> */}
             </div>
         </div>
     );
@@ -84,7 +86,7 @@ const post = ({ auth: {isAuthenticated, loading}, logout }) => {
     )
 }
 
-post.propTypes = {
+posts.propTypes = {
     logout: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 };
@@ -92,7 +94,7 @@ post.propTypes = {
 const mapStateToProps = state => ({ 
     auth: state.auth
 })
-export default connect( mapStateToProps, {logout})(post);
+export default connect( mapStateToProps, {logout})(posts);
 
 
 {/* //     {
