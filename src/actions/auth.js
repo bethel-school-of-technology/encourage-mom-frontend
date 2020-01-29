@@ -13,7 +13,7 @@ import axios from 'axios'
 import setAuthToken from '../utils/setAuthToken';
 import { Redirect } from 'react-router-dom';
 
-const baseUrl = process.env.REACT_APP_BASE;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 //Load User 
 export const loadUser = () => async dispatch => {
@@ -21,7 +21,7 @@ export const loadUser = () => async dispatch => {
         setAuthToken(localStorage.token)
     } 
     try {
-        const res = await axios.get('http://localhost:5000/api/users');
+        const res = await axios.get(`${baseUrl}/users`);
         dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -45,7 +45,7 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
 
     try{
         const res = await axios.post(
-            'http://localhost:5000/api/users/signup'
+            `${baseUrl}/users/signup`
             , body, config);
         dispatch({
             type: SIGNUP_SUCCESS,
@@ -73,9 +73,7 @@ export const login = (username, password) => async dispatch => {
         console.log("test_1")
         // erroring out with the post
         const res = await axios.post(
-            // `${baseUrl}/auth`
-            `http://localhost:5000/api/auth`
-            , body, config);
+            `${baseUrl}/auth`, body, config);
         console.log("test_2")
         dispatch({
             type: LOGIN_SUCCESS,
