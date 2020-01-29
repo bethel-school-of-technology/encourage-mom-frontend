@@ -133,6 +133,8 @@ nav ul li:first-child {
 nav ul li {
   float: right;
 }
+
+.landing {
     text-align: center;
     background-color: rgba(223, 233, 233, 0.226);
     padding: 5px;

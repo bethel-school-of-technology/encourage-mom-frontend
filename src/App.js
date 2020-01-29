@@ -30,8 +30,6 @@ import EditPost from './components/posts/edit.post';
 
 import { loadUser } from './actions/auth';
 
-import dashboard from './components/dashboard/dashboard';
-
 import setAuthToken from './utils/setAuthToken';
 
 //redux
@@ -80,7 +78,6 @@ return(
           <Route exact path='/create-profile' component={CreateProfile} /> 
            <Route exact path='/edit-profile' component={EditProfile} />
           <Route exact path='/profile' component={profile} />
-          {/* <Route exact path ="/dashboard" component={dashboard}/> */}
         </Switch>
       </section>
   </Fragment>
