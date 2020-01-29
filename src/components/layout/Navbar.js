@@ -22,7 +22,8 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
                             </Link>
                             <div className="dropdown-content" >
                                 <Link to = "/create-post">Create Post</Link>
-                                <a onClick={logout} href="/#">Logout</a> 
+                                {/* <a onClick={logout} href="/#">Logout</a>  */}
+                                <Link to ="/signup" onClick={logout}>Logout</Link>
                             </div>
                         
                         </div>
@@ -43,7 +44,7 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
                     <li><h1>Crowned Jewels</h1></li>
                     <li className="dropdown">
                                 <div className="dropbtn">
-                                    <Link to="!#">
+                                    <Link to="#">
                                         <img alt='menu' src={menu}  width="35px" padding='50px'/>
                                     </Link>
                                     <div className="dropdown-content" >
@@ -79,6 +80,7 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
         <header>
         {/* <h1>Crowned Jewels</h1> */}
         {!loading && (
+            //  <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
             <Fragment>{!isAuthenticated ? guestLinks : isAuthenticated ? authLinks : isAdmin && isAuthenticated ? adminLinks : guestLinks} </Fragment>
             // <Fragment>{isAdmin && isAuthenticated ? adminLinks : {isAuthenticated} ? authLinks : guestLinks}</Fragment>
         )}

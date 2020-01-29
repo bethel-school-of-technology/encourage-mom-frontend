@@ -54,7 +54,7 @@ return(
       <Navbar/>
       <Landing />
       <section className="container1">
-      <Route exact path="/home" component={home} />
+      <Route exact path="/" component={home} />
       <Route exact path="/encouragement" component={encouragment} />
       <Route exact path="/posts" component={post} />
       <Route exact path="/contact" component={contact} />

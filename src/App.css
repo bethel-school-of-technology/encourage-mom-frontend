@@ -57,9 +57,13 @@ li {
   padding-top: 20px;
 }
 
-li a {
+ li > a {
   font-size: 30px;
   font-weight: bold;
+}
+
+.navbar-logout > Link {
+  font-size: 20px;
 }
 
 .dropdown-content > a {
