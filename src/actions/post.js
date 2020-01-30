@@ -12,7 +12,7 @@ import {
 
 
 
-// const baseUrl = process.env.REACT_APP_BASE;
+const baseUrl = process.env.REACT_APP_BASE;
 
 export const getPosts = () => async dispatch => {
     try {
@@ -31,7 +31,7 @@ export const getPosts = () => async dispatch => {
 }
 
 export const getPost = id => async dispatch => {
-    const res = await axios.get(`http://localhost:5000/api/posts/${id}`)
+    const res = await axios.get(`${baseUrl}posts/${id}`)
     dispatch({
         type: GET_POST,
         payload: res.data
@@ -50,7 +50,7 @@ export const createPost = ({username, title, text}) => dispatch => {
     console.log("test2");
     console.log(body)
     try {
-        const res = axios.post(`http://localhost:5000/api/posts`, body, config);
+        const res = axios.post(`${baseUrl}posts`, body, config);
     console.log('test3')
         dispatch({
             type: CREATE_POST,
@@ -64,7 +64,7 @@ export const createPost = ({username, title, text}) => dispatch => {
     }
 };
 export const updatePost =  (post, _id) => async dispatch => {
-    const res = await axios.put(`http://localhost:5000/api/posts/${_id}`, post);
+    const res = await axios.put(`${baseUrl}/posts/${_id}`, post);
     dispatch({
         type: UPDATE_POST,
         payload: res.data
@@ -74,7 +74,7 @@ export const updatePost =  (post, _id) => async dispatch => {
 export const deletePost = id => async dispatch => {
     if(alert("Warning! This can not be undone! Are you sure you want to delete this post")) {
         try {
-            const res = await axios.delete(`http://localhost:5000/api/${id}`);
+            const res = await axios.delete(`${baseUrl}/posts/${id}`);
             dispatch({type: DELETE_POST,
             payload: id
             //payload: id

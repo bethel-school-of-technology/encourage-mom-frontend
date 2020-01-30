@@ -7,16 +7,16 @@ import PropTypes from 'prop-types';
 const Profile = ({
     getCurrentProfile,
     profile,
-    auth: {user},
+    auth: {user },
 }) => {
     useEffect(() => {
-        getCurrentProfile();
+        getCurrentProfile(user);
     }, [getCurrentProfile ]);
         return(
             <Fragment>
             <div>
                 <h1> Welcome 
-                     { user && user.username} 
+                     {user && user.username} 
                     </h1>
                 <br/>
                 <div>

@@ -13,12 +13,17 @@ import {
 } from "./types"
 
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
+
 
 // gets current profile
-export const getCurrentProfile = user => async dispatch => {
-console.log(user);
+export const getCurrentProfile = (username) => async dispatch => {
+// console.log(user);
     try{
-        const res = await axios.get(`http://localhost:5000/api/profile/me`, user);
+        const res = await axios.post(`${baseUrl}/profile/me`, {user: username});
+
+        console.log(res);
         
         dispatch({
             type: GET_PROFILE,
@@ -62,7 +67,7 @@ console.log(user);
 //gets profile by id
 export const getProfileById = userId => async dispatch => {
         try {
-            const res = await axios.get(`http://localhost:5000/profile/user/${userId}`);
+            const res = await axios.get(`${baseUrl}/profile/user/${userId}`);
 
             dispatch({
                 type: GET_PROFILE,
@@ -126,7 +131,7 @@ export const getProfileById = userId => async dispatch => {
 export const deleteAccount = () => async dispatch => {
     if(alert("Warning! This can not be undone! Are you sure you want to delete your account")) {
         try {
-            await axios.delete(`http://localhost:5000/api/profile`);
+            await axios.delete(`${baseUrl}/api/profile`);
 
             dispatch({type: CLEAR_CURRENT_PROFILE})
             dispatch({dispatch: ACCOUNT_DELETED})
@@ -152,7 +157,7 @@ export const createProfile = (formData) => async dispatch => {
             }
         };
 
-        const res = await axios.post(`http://localhost:5000/api/profile`, formData, config)
+        const res = await axios.post(`${baseUrl}/profile`, formData, config)
 
         dispatch({ 
             payload: res.data
@@ -170,7 +175,7 @@ export const createProfile = (formData) => async dispatch => {
 
 // edit profile
 export const editProfile = (profile, id) => async dispatch => {
-    const res = await axios.put(`http://localhost:5000/profile/${id}`, profile);
+    const res = await axios.put(`${baseUrl}profile/${id}`, profile);
     dispatch({
         type: UPDATE_PROFILE,
         payload: res.data
