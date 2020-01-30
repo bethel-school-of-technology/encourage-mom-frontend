@@ -2,15 +2,13 @@ import React, { Fragment, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {logout} from '../../actions/auth';
-import {getPosts} from '../../actions/post'
+// import {getPosts} from '../../actions/post'
 import PropTypes from 'prop-types';
 import PostList from "../posts/post-feed";
 // import postFeed from "../posts/post-feed";
 
 
 const posts = ({ auth: {isAuthenticated, loading}, logout }) => {
-
-    const postFeed = {getPosts}
 
     const authLinks = (
              <div className="post-page">

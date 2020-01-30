@@ -34,23 +34,23 @@ const baseUrl = process.env.REACT_APP_BASE_URL;
             
             
 
-export const getPosts = () => async dispatch => {
-    try {
-        const res = await axios.get(`${baseUrl}/posts`)
-        dispatch({
-            type: GET_POSTS,
-            payload: res.data
-        });
-    } catch(err) {
-        dispatch({
-            type: POST_ERROR,
-            payload: {msg: err.response.statusText, status: err.response.status }
-        })
-    }
-}
+// export const getPosts = () => async dispatch => {
+//     try {
+//         const res = await axios.get(`${baseUrl}/posts`)
+//         dispatch({
+//             type: GET_POSTS,
+//             payload: res.data
+//         });
+//     } catch(err) {
+//         dispatch({
+//             type: POST_ERROR,
+//             payload: {msg: err.response.statusText, status: err.response.status }
+//         })
+//     }
+// }
 
 export const getPost = id => async dispatch => {
-    const res = await axios.get(`${baseUrl}posts/${id}`)
+    const res = await axios.get(`${baseUrl}/posts/${id}`)
     dispatch({
         type: GET_POST,
         payload: res.data
