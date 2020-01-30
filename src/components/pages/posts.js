@@ -1,11 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {logout} from '../../actions/auth';
+import {getPosts} from '../../actions/post'
 import PropTypes from 'prop-types';
+import postFeed from "../posts/post-feed";
 
 
-const post = ({ auth: {isAuthenticated, loading}, logout }) => {
+const posts = ({ auth: {isAuthenticated, loading}, logout }) => {
+
+ 
     const authLinks = (
              <div className="post-page">
              <div className="post-intro">
@@ -34,6 +38,7 @@ const post = ({ auth: {isAuthenticated, loading}, logout }) => {
             </div>
             <div className="post-recent">
                 <h2>Most Recent Posts:</h2>
+                {/* <postFeed></postFeed> */}
             </div>
         </div>
     );
@@ -70,15 +75,18 @@ const post = ({ auth: {isAuthenticated, loading}, logout }) => {
         </div>
     )
     return (
+        
         <div>
+        
         {!loading && (
-            <Fragment> {isAuthenticated ? authLinks : guestLinks}</Fragment>   
+            <Fragment> {isAuthenticated ? authLinks : guestLinks}</Fragment>
          )}
+         <h2></h2>
         </div>
     )
 }
 
-post.propTypes = {
+posts.propTypes = {
     logout: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 };
@@ -86,7 +94,7 @@ post.propTypes = {
 const mapStateToProps = state => ({ 
     auth: state.auth
 })
-export default connect( mapStateToProps, {logout})(post);
+export default connect( mapStateToProps, {logout})(posts);
 
 
 {/* //     {
