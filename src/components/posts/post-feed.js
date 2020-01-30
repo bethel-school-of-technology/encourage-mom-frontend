@@ -1,14 +1,17 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import {Link} from 'react-router-dom';
+import {getPost} from '../../actions/post'
+import {getProfileById} from '../../actions/profile'
 const baseUrl = process.env.REACT_APP_BASE;
 
 export class PostList extends Component {
     constructor(props) {
       super(props);
        this.state = {
-           posts: []
+           posts: [],
+           users: []
     };
    }
 
@@ -23,15 +26,18 @@ export class PostList extends Component {
     
 render() {
     return (
-        <div className="Posts">
+        <div className="posts">
           {this.state.posts.map(post => (
-            <div key={post.id}>
-                <h3>{post.title}</h3>
-                <h5>{post.username}</h5>
+            <div className="Posts-Card" key={post._id}>
+                <Link to={`/posts/${post._id}`}><h3>{post.title}</h3></Link>
+                <Link to={`/profile/${post.username}`}>
+                  <h5>{post.username}</h5></Link>
                 <p>{post.text}</p>
+                < br/>
             </div>
         ))
     }
+        < br/>
         </div>
       );
   }

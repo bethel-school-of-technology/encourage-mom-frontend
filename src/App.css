@@ -157,3 +157,9 @@ Link {
     color: black !important;
     font-size: 10px !important;
 }
+
+.Posts-Card{
+  /* text-align: center; */
+  background-color: rgba(223, 233, 233, 0.226);
+  /* padding: 50px; */
+}
