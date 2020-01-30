@@ -12,12 +12,31 @@ import {
 
 
 
-const baseUrl = process.env.REACT_APP_BASE;
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
+// export const getPosts = () => async dispatch => {
+//         await axios.get(`${baseUrl}/posts`)
+//         .then((response) => 
+//         response.data.results.map(posts => ({
+//             username: `${posts.username}`,
+//             title: `${posts.email}`,
+//             text: `${posts.text}`
+//         }))
+//         )
+//         .then(users => {
+//             this.setState({
+//                 users,
+//                 isLoading: false
+//             })
+//         })
+//         .catch(error => this.setState({error, isLoading: false}) )           
+//     }
+            
+            
 
 export const getPosts = () => async dispatch => {
     try {
-        const res = await axios.get('http://localhost:5000/api/posts')
-        // (`${baseUrl}/posts`);
+        const res = await axios.get(`${baseUrl}/posts`)
         dispatch({
             type: GET_POSTS,
             payload: res.data
@@ -50,7 +69,7 @@ export const createPost = ({username, title, text}) => dispatch => {
     console.log("test2");
     console.log(body)
     try {
-        const res = axios.post(`${baseUrl}posts`, body, config);
+        const res = axios.post(`${baseUrl}/posts`, body, config);
     console.log('test3')
         dispatch({
             type: CREATE_POST,

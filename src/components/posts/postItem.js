@@ -4,7 +4,7 @@
 // import {connect} from 'react-redux';
 // import Moment from 'react-moment'
 
-// const PostItem  = ({
+// const PostItem = () => ({
 //     auth,
 //     post: {_id, title, text, username, date},
 //     showActions

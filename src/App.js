@@ -25,8 +25,8 @@ import Profile from './components/profile/profile';
 
 import postForm from './components/posts/postForm';
 import EditPost from './components/posts/edit.post';
-import PostFeed from './components/posts/post-feed';
-
+// import PostFeed from './components/posts/post-feed';
+import PostList from './components/posts/post-feed'
 
 import { loadUser } from './actions/auth';
 
@@ -64,16 +64,12 @@ return(
       <Switch>
           <Route exact path="/signup" component={Signup}></Route>
           <Route exact path="/login" component={Login}></Route>
-          {/* <Route exact path="/logout" component={Logout} /> */}
         </Switch>
       </section>
       <section className="container3">
         <Switch>
         <Route exact path="/create-post" component={postForm}></Route>
-        {/* <Route exact patch='/edit-post' component={EditPost}/> */}
-        {/* <Route exact patch='/post-feed' component={PostFeed}/> */}
-        {/* <Route exact patch='/edit-post' componet={EditPost}/>
-         */}
+        {/* <Route exact patch='/posts' component={PostList}/> */}
         </Switch>
       </section>
       <section className="container4">
