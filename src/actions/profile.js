@@ -14,20 +14,11 @@ import {
     ACCOUNT_DELETED
 } from "./types"
 
-
-
-// gets current profile
-
-export const getCurrentProfile = () => async dispatch => {
-
-    try {
-        const res = await axios.get(`http://localhost:5000/profile/me`);
-
 export const getCurrentProfile = user => async dispatch => {
-console.log(user);
-    try{
+    console.log(user);
+    try {
         const res = await axios.get(`http://localhost:5000/api/profile/me`, user);
-        
+
 
         dispatch({
             type: GET_PROFILE,
@@ -165,39 +156,43 @@ export const deleteAccount = () => async dispatch => {
 //create profile
 
 export const createProfile = (formData) => async dispatch => {
-    try {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
+            try {
+                const config = {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                };
 
-        const res = await axios.post(`http://localhost:5000/api/profile`, formData, config)
-
-
-        dispatch({
-            type: CREATE_PROFILE,
-=======
-        dispatch({ 
-
-            payload: res.data
-        });
-        alert("Profile Created Successfully")
-        dispatch(setAlert('Profile Created', 'success'));
-    } catch (err) {
-        dispatch({
-            type: PROFILE_ERROR,
-            payload: {msg: err.response.statusText, status: err.resposne.status}
-        })
-    }
-}
+                const res = await axios.post(`http://localhost:5000/api/profile`, formData, config)
 
 
-// edit profile
-export const editProfile = (profile, id) => async dispatch => {
-    const res = await axios.put(`http://localhost:5000/profile/${id}`, profile);
-    dispatch({
-        type: UPDATE_PROFILE,
-        payload: res.data
-    })
-}
+                dispatch({
+                        type: CREATE_PROFILE,
+
+                        dispatch({
+
+                            payload: res.data
+                        });
+                        alert("Profile Created Successfully")
+                        dispatch(setAlert('Profile Created', 'success'));
+                    }
+                    catch (err) {
+                        dispatch({
+                            type: PROFILE_ERROR,
+                            payload: {
+                                msg: err.response.statusText,
+                                status: err.resposne.status
+                            }
+                        })
+                    }
+                }
+
+
+                // edit profile
+                export const editProfile = (profile, id) => async dispatch => {
+                    const res = await axios.put(`http://localhost:5000/profile/${id}`, profile);
+                    dispatch({
+                        type: UPDATE_PROFILE,
+                        payload: res.data
+                    })
+                }

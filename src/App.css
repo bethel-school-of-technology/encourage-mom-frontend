@@ -57,20 +57,17 @@ li {
   padding-top: 20px;
 }
 
- li > a {
+li>a {
   font-size: 30px;
   font-weight: bold;
 }
 
-
-.dropdown-content>a {
-  
-.navbar-logout > Link {
+.navbar-logout>Link {
   font-size: 20px;
 }
 
-.dropdown-content > a {
-  
+.dropdown-content>a {
+
   font-size: 15px;
   font-weight: bold;
 }
@@ -151,9 +148,9 @@ nav ul li {
 }
 
 .landing {
-    text-align: center;
-    background-color: rgba(223, 233, 233, 0.226);
-    padding: 5px;
+  text-align: center;
+  background-color: rgba(223, 233, 233, 0.226);
+  padding: 5px;
 
 
 }
