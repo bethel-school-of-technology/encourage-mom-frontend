@@ -18,10 +18,12 @@ const baseUrl = process.env.REACT_APP_BASE_URL;
 
 
 // gets current profile
-export const getCurrentProfile = () => async dispatch => {
+export const getCurrentProfile = (username) => async dispatch => {
 // console.log(user);
     try{
-        const res = await axios.get(`${baseUrl}profile/me`);
+        const res = await axios.post(`${baseUrl}/profile/me`, {user: username});
+
+        console.log(res);
         
         dispatch({
             type: GET_PROFILE,
