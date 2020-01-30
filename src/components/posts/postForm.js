@@ -2,9 +2,12 @@ import React , { useState } from 'react';
 import { connect } from 'react-redux'
 import { createPost } from '../../actions/post'
 import PropTypes from 'prop-types'
+import {addLike, removeLike} from '../..actions/post';
 
 
 const CreatePost = ({ createPost }) => {
+    addLike,
+    removeLike
     const [ username, setUsername] = useState('')
     const [ text, setText ] = useState('');
     const [ title, setTitle ] = useState('');
@@ -52,6 +55,19 @@ const CreatePost = ({ createPost }) => {
                         />
                 </form>
             </div>
+            <p>
+            <button onClick = {e => addLike(_id)} type ='button' class = 'btn btn-light'>
+                    <i class = 'fas fa-thumbs-up'/> {''}
+                <span>{likes.length > 0 && <span>{likes.lenghth}</span>}</span>
+            </button>
+            </p> 
+            <p>
+            <button onClick = {e => removeLike(_id)} type ='button' class = 'btn btn-light'>
+                    <i class = 'fas fa-thumbs-down'/> {''}
+                <span>{likes.length > 0 && <span>{likes.lenghth}</span>}</span>
+            </button>
+            </p>
+
     )
 }
 
@@ -59,5 +75,5 @@ CreatePost.propTypes = {
     createPost: PropTypes.func.isRequired,
 }
 
-export default connect(null, {createPost})(CreatePost)
+export default connect(null, {createPost}, {addLike, removeLike})(CreatePost)
 
