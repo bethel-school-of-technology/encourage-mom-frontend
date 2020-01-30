@@ -4,12 +4,14 @@ import { connect } from "react-redux";
 import {logout} from '../../actions/auth';
 import {getPosts} from '../../actions/post'
 import PropTypes from 'prop-types';
-import postFeed from "../posts/post-feed";
+import PostList from "../posts/post-feed";
+// import postFeed from "../posts/post-feed";
 
 
 const posts = ({ auth: {isAuthenticated, loading}, logout }) => {
 
- 
+    const postFeed = {getPosts}
+
     const authLinks = (
              <div className="post-page">
              <div className="post-intro">
@@ -38,7 +40,10 @@ const posts = ({ auth: {isAuthenticated, loading}, logout }) => {
             </div>
             <div className="post-recent">
                 <h2>Most Recent Posts:</h2>
-                {/* <postFeed></postFeed> */}
+                {/* <ul>
+                    {postFeed.posts.map(title => (<li>{title}</li>))};
+                </ul> */}
+                <PostList/>
             </div>
         </div>
     );
@@ -70,6 +75,8 @@ const posts = ({ auth: {isAuthenticated, loading}, logout }) => {
             </div>
             <div className="post-recent">
                 <h2>Most Recent:</h2>
+
+                <PostList/>
             </div>
         </div>
         </div>
@@ -81,6 +88,7 @@ const posts = ({ auth: {isAuthenticated, loading}, logout }) => {
         {!loading && (
             <Fragment> {isAuthenticated ? authLinks : guestLinks}</Fragment>
          )}
+         
          <h2></h2>
         </div>
     )
