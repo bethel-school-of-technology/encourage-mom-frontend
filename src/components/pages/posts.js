@@ -37,7 +37,7 @@ const posts = ({ auth: {isAuthenticated, loading}, logout }) => {
             </div>
             </div>
             <div className="post-recent">
-                <h2>Most Recent Posts:</h2>
+                <h2> Posts:</h2>
                 {/* <ul>
                     {postFeed.posts.map(title => (<li>{title}</li>))};
                 </ul> */}
@@ -72,7 +72,7 @@ const posts = ({ auth: {isAuthenticated, loading}, logout }) => {
             </div>
             </div>
             <div className="post-recent">
-                <h2>Most Recent:</h2>
+                <h2>Posts:</h2>
 
                 <PostList/>
             </div>

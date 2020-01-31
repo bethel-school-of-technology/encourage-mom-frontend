@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout} from '../../actions/auth';
 import menu from '../img/menu.png';
-
+import ProfileList from "../../components/profile/profiles";
+import PostList from '../posts/post-feed';
 
 
 const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
@@ -22,6 +23,7 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
                             </Link>
                             <div className="dropdown-content" >
                                 <Link to = "/create-post">Create Post</Link>
+                                <Link to = "/profiles">User Bios</Link>                               
                                 {/* <a onClick={logout} href="/#">Logout</a>  */}
                                 <Link to ="/login" onClick={logout}>Logout</Link>
                             </div>
