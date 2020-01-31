@@ -20,7 +20,7 @@ import contact from './components/pages/contact';
 
 import CreateProfile from './components/profile/create-profile';
 import EditProfile from './components/profile/edit-profile';
-import profiles from './components/profile/profiles';
+import {ProfileList} from './components/profile/profiles';
 import Profile from './components/profile/profile';
 
 import postForm from './components/posts/postForm';
@@ -76,7 +76,7 @@ return(
         <Switch>
           <Route exact path='/create-profile' component={CreateProfile} /> 
            <Route exact path='/edit-profile' component={EditProfile} />
-          <Route exact path='/profile' component={Profile} />
+          <Route exact path='/profiles' component={ProfileList} />
         </Switch>
       </section>
   </Fragment>
