@@ -175,7 +175,7 @@ Link {
   margin-right: 500px
 }
 
-.Profile-Card {
+.Profile-Card, .myProfile-Card {
   text-align: center;
   background-color: rgba(223, 233, 233, 0.226);
   /* margin: 100px; */
@@ -183,6 +183,53 @@ Link {
   margin-right: 500px
 }
 
-.myProfile-Card {
-  text-align: center
-}
+.Encouragement-Card {
+    text-align: center;
+    background-color: rgba(223, 233, 233, 0.226);
+    /* margin: 100px; */
+    margin-left: 400px;
+    margin-right: 400px
+  }
+
+  .posts {
+    text-align: center;
+  }
+
+  .admin-links {
+    font-size: 20px;
+    text-align: center;
+
+  }
+
+  h1 {
+    text-align: center;
+  }
+  .admin > a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+
+  }
+
+  .admin > a:hover {
+    color: white
+  }
+
+  h3 {
+    text-align: center;
+  }
+  .admin-a:hover {
+    color: white
+  }
+
+  .admin-a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+
+  }
+
+  div {
+    text-decoration: none;
+    text-align: center;
+  }

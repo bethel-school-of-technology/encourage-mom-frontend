@@ -1,9 +1,7 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
-// import {getPost} from '../../actions/post'
-// import {getProfileById} from '../../actions/profile'
+
 const baseUrl = process.env.REACT_APP_BASE;
 
 export class PostList extends Component {

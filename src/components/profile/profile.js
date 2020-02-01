@@ -15,7 +15,7 @@ export class Profile extends Component {
 
   componentDidMount() {
     console.log("Test1")
-    console.log(baseUrl)
+    // console.log(baseUrl)
     axios.get(`http://localhost:5000/api/profile/me`)
     .then(res => this.setState({profile: res.data})
     )
@@ -25,14 +25,19 @@ export class Profile extends Component {
 render() {
     return (
         <div className="posts">
-            <div className="myProfile-Card" key={this.state.profile._id}>
+
+          
+            <div className="myProfile-Card" 
+            key={this.state.profile._id}
+            >
                 <h1>Welcome! {this.state.profile.username}!!!!!</h1>
                 <h3>{this.state.profile.location}</h3>
                 <p>{this.state.profile.bio}</p>
                 < br/>
-                <p>Want to Edit Profile?</p>
-                <Link to="/edit-profile">Edit Profile</Link>
             </div>
+            <p>Want to Edit Profile?</p>
+            <Link to="/edit-profile">Edit Profile</Link>
+            <br/>
             <p>No profile? Create One!</p>
             <Link to ="/create-profile">Create profile</Link>
         < br/>
