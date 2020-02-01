@@ -32,7 +32,7 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
                     </li>
                 <li className="nav-right"><Link to ="/contact">Contact</Link></li>
                 <li className="nav-right"><Link to = "/posts">Posts</Link></li>
-                <li className="nav-right"><Link to = "/encouragement">Encouragment</Link> </li>
+                <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
                 <li className="nav-right"><Link to ="/home">Home</Link></li>
             </ul>
         </nav>
@@ -58,7 +58,7 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
                         <li> </li>
                         <li className="nav-right"><Link to ="/contact">Contact</Link></li>
                         <li className="nav-right"><Link to = "/posts">Posts</Link></li>
-                        <li className="nav-right"><Link to = "/encouragement">Encouragment</Link> </li>
+                        <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
                         <li className="nav-right"><Link to ="/home">Home</Link></li>
                     </ul>
                 </nav>
@@ -72,7 +72,7 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
                 <li><h2>Welcome, Admin!</h2></li>
                 <li className="nav-right"><Link to ="/contact">Users</Link></li>
                 <li className="nav-right"><Link to = "/posts">Posts</Link></li>
-                <li className="nav-right"><Link to = "/encouragement">Encouragment</Link> </li>
+                <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
                 <li className="nav-right"><Link to ="/home">Logout</Link></li>
             </ul>
         </nav>
