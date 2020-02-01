@@ -190,3 +190,46 @@ Link {
     margin-left: 400px;
     margin-right: 400px
   }
+
+  .posts {
+    text-align: center;
+  }
+
+  .admin-links {
+    font-size: 20px;
+    text-align: center;
+
+  }
+
+  h1 {
+    text-align: center;
+  }
+  .admin > a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+
+  }
+
+  .admin > a:hover {
+    color: white
+  }
+
+  h3 {
+    text-align: center;
+  }
+  .admin-a:hover {
+    color: white
+  }
+
+  .admin-a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+
+  }
+
+  div {
+    text-decoration: none;
+    text-align: center;
+  }

@@ -6,11 +6,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout} from '../../actions/auth';
 import menu from '../img/menu.png';
-import ProfileList from "../../components/profile/profiles";
-import PostList from '../posts/post-feed';
 
 
-const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
+
+const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
     const authLinks = (
         <header>
         <nav>
@@ -47,53 +46,36 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
                     <ul>
                     <li><h1>Crowned Jewels</h1></li>
                     <li className="dropdown">
-
                                 <div className="dropbtn">
-                                    <Link to="#">
+                                    {/* <Link to="#">
                                         <img alt='menu' src={menu}  width="35px" padding='50px'/>
+                                    </Link> */}
+                                <div className="drop-btn">
+                                   <Link to = "/profile">
+                                         <img alt='menu' src={menu}  width="45px" />
                                     </Link>
-
-//                                 <div className="drop-btn">
-//                                     {/* <Link to = "/profile"> */}
-//                                         <img alt='menu' src={menu}  width="45px" />
-//                                     {/* </Link> */}
-
                                     <div className="dropdown-content" >
                                         <Link to = "/signup">Sign Up</Link>
                                         <Link to = "/login">Login</Link> 
                                     </div>
                                 </div>
-                            </li>
-                        <li> </li>
+                            </div>
+                        </li>
                         <li className="nav-right"><Link to ="/contact">Contact</Link></li>
                         <li className="nav-right"><Link to = "/posts">Posts</Link></li>
                         <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
-
                         <li className="nav-right"><Link to ="/home">Home</Link></li>
                     </ul>
                 </nav>
         </header>
     );
-    const adminLinks = (
-        <header>
-        <nav>
-            <ul>
-                <li><h1>Crowned Jewels</h1></li>
-                <li><h2>Welcome, Admin!</h2></li>
-                <li className="nav-right"><Link to ="/contact">Users</Link></li>
-                <li className="nav-right"><Link to = "/posts">Posts</Link></li>
-                <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
-                <li className="nav-right"><Link to ="/home">Logout</Link></li>
-            </ul>
-        </nav>
-        </header>
-    );
+
     return (
         <header>
         {/* <h1>Crowned Jewels</h1> */}
         {!loading && (
-            //  <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-            <Fragment>{!isAuthenticated ? guestLinks : isAuthenticated ? authLinks : isAdmin && isAuthenticated ? adminLinks : guestLinks} </Fragment>
+             <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+            // <Fragment>{!isAuthenticated ? guestLinks : isAuthenticated ? authLinks : isAdmin && isAuthenticated ? adminLinks : guestLinks} </Fragment>
             // <Fragment>{isAdmin && isAuthenticated ? adminLinks : {isAuthenticated} ? authLinks : guestLinks}</Fragment>
         )}
         </header>
@@ -103,12 +85,12 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
 Navbar.propTypes = {
     logout: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-    isAdmin: PropTypes.object.isRequired
+    // isAdmin: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({ 
     auth: state.auth,
-    isAdmin: state.isAdmin
+    // isAdmin: state.isAdmin
 })
 
 export default connect(mapStateToProps,
