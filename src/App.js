@@ -10,11 +10,8 @@ import Login from './components/auth/Login';
 // import Logout from './components/auth/Logout'
 
 import home from './components/pages/home';
-// <<<<<<< vinces-branch
-// import encouragement from './components/pages/weekly-encouragement';
-// import posts from './components/pages/posts';
-// =======
-import encouragment from './components/pages/weekly-encouragement';
+
+import Encouragement from './components/pages/encouragement';
 import posts from './components/pages/posts'
 import contact from './components/pages/contact';
 
@@ -27,6 +24,7 @@ import postForm from './components/posts/postForm';
 import EditPost from './components/posts/edit.post';
 // import PostFeed from './components/posts/post-feed';
 import PostList from './components/posts/post-feed'
+
 
 import { loadUser } from './actions/auth';
 
@@ -55,7 +53,7 @@ return(
       <Landing />
       <section className="container1">
       <Route exact path="/" component={home} />
-      <Route exact path="/encouragement" component={encouragment} />
+      <Route exact path="/encouragement" component={Encouragement} />
       <Route exact path="/posts" component={posts} />
       <Route exact path="/contact" component={contact} />
       </section>
