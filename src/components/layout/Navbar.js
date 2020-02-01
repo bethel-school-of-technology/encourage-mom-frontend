@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import profile from '../img/profile.png';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { logout} from '../../actions/auth';
+import { logout } from '../../actions/auth';
 import menu from '../img/menu.png';
 
 

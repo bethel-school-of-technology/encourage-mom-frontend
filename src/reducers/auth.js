@@ -9,14 +9,14 @@ import {
     ACCOUNT_DELETED
 } from '../actions/types'
 
-const intitalState = {
+const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     loading: true,
     user: null
 }
 
-export default function (state = intitalState, action) {
+export default function (state = initialState, action) {
     const { type, payload } = action;
 
     switch(type) {

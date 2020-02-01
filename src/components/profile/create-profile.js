@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 const CreateProfile = ({
     createProfile,
-    setprofileInfo
+    setProfileInfo
 }) => {
     const [profileData] = useState({
         location: '',
@@ -17,7 +17,7 @@ const CreateProfile = ({
     const { location, bio } = profileData
     
     const onChange = e =>
-        setprofileInfo({ ...profileData, [e.target.name]: e.target.value});
+        setProfileInfo({ ...profileData, [e.target.name]: e.target.value});
 
     const onSubmit = e => {
         e.preventDefault();

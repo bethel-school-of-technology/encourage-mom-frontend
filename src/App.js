@@ -14,7 +14,7 @@ import home from './components/pages/home';
 // import encouragement from './components/pages/weekly-encouragement';
 // import posts from './components/pages/posts';
 // =======
-import encouragment from './components/pages/weekly-encouragement';
+import encouragement from './components/pages/weekly-encouragement';
 import post from './components/pages/posts'
 import contact from './components/pages/contact';
 
@@ -57,7 +57,7 @@ return(
       <Landing />
       <section className="container1">
       <Route exact path="/home" component={home} />
-      <Route exact path="/encouragement" component={encouragment} />
+      <Route exact path="/encouragement" component={encouragement} />
       <Route exact path="/posts" component={post} />
       <Route exact path="/contact" component={contact} />
       </section>
@@ -72,7 +72,7 @@ return(
       <section className="container3">
         <Switch>
         <Route exact path="/create-post" component={postForm}></Route>
-        <Route exact patch='/edit-post' componet={EditPost}/>
+        <Route exact patch='/edit-post' component={EditPost}/>
         </Switch>
       </section>
       <section className="container4">
