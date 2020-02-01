@@ -18,6 +18,9 @@ class authLanding extends Component {
                                 <a href="/admin-users"> View and Manage Users</a>
                                 <br/>
                                 <br/>
+                                <a href="/admin-profiles"> View and Manage Profiles</a>
+                                <br/>
+                                <br/>
                                 <a href="/admin-posts">View and Manage Posts</a>
                                 <br/>
                                 <br/>

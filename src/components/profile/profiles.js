@@ -43,8 +43,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-// import {getPost} from '../../actions/post'
-// import {getProfileById} from '../../actions/profile'
+
 const baseUrl = process.env.REACT_APP_BASE;
 
 export class ProfileList extends Component {
@@ -62,8 +61,6 @@ export class ProfileList extends Component {
     axios.get(`http://localhost:5000/api/profile`)
     .then(res => this.setState({profile: res.data})
     )
-    // .catch(error => console.log(error))
-    // axios.get(`https://localhost:5000/api/profile/${username}`)
   }
     
 render() {

@@ -25,10 +25,11 @@ import postForm from './components/posts/postForm';
 // import PostFeed from './components/posts/post-feed';
 // import PostList from './components/posts/post-feed';
 
-import authLanding from './components/pages/authLanding';
+import authLanding from './components/pages/auth-landing';
 import encouragementAdmin from './components/admin/encouragement';
 import postAdmin from './components/admin/posts';
 import profileAdmin from './components/admin/profiles';
+import userAdmin from './components/admin/users'
 
 
 import { loadUser } from './actions/auth';
@@ -84,9 +85,10 @@ return(
           <Route exact path='/profiles' component={ProfileList} />
         </Switch>
       </section>
-          <Route exact path='/admin-users' component={profileAdmin} /> 
-           <Route exact path='/admin-posts' component={postAdmin} />
-           <Route exact path='/admin-encouragement' component={encouragementAdmin} />
+          <Route exact path='/admin-users' component={userAdmin}/>
+          <Route exact path='/admin-profiles' component={profileAdmin} /> 
+          <Route exact path='/admin-posts' component={postAdmin} />
+          <Route exact path='/admin-encouragement' component={encouragementAdmin} />
       <section>
         <Switch>
 
