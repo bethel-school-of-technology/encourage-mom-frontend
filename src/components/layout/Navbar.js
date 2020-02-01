@@ -1,3 +1,4 @@
+
 import React, { Fragment } from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import profile from '../img/profile.png';
@@ -5,9 +6,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout} from '../../actions/auth';
 import menu from '../img/menu.png';
+import ProfileList from "../../components/profile/profiles";
+import PostList from '../posts/post-feed';
 
 
-const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
+const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
     const authLinks = (
         <header>
         <nav>
@@ -20,15 +23,16 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                             </Link>
                             <div className="dropdown-content" >
                                 <Link to = "/create-post">Create Post</Link>
-                                <a onClick={logout} href='!#'>Logout</a> 
-                                {/* <Link to = "/logout">Logout</Link> */}
+                                <Link to = "/profiles">User Bios</Link>                               
+                                {/* <a onClick={logout} href="/#">Logout</a>  */}
+                                <Link to ="/login" onClick={logout}>Logout</Link>
                             </div>
                         
                         </div>
                     </li>
                 <li className="nav-right"><Link to ="/contact">Contact</Link></li>
                 <li className="nav-right"><Link to = "/posts">Posts</Link></li>
-                <li className="nav-right"><Link to = "/encouragement">Weekly Encouragment</Link> </li>
+                <li className="nav-right"><Link to = "/encouragement">Encouragment</Link> </li>
                 <li className="nav-right"><Link to ="/home">Home</Link></li>
             </ul>
         </nav>
@@ -42,8 +46,8 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                     <li><h1>Crowned Jewels</h1></li>
                     <li className="dropdown">
                                 <div className="dropbtn">
-                                    <Link to = "/profile">
-                                        <img alt='menu' src={menu}  width="45px" />
+                                    <Link to="#">
+                                        <img alt='menu' src={menu}  width="35px" padding='50px'/>
                                     </Link>
                                     <div className="dropdown-content" >
                                         <Link to = "/signup">Sign Up</Link>
@@ -51,20 +55,36 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                                     </div>
                                 </div>
                             </li>
-                        
+                        <li> </li>
                         <li className="nav-right"><Link to ="/contact">Contact</Link></li>
                         <li className="nav-right"><Link to = "/posts">Posts</Link></li>
-                        <li className="nav-right"><Link to = "/encouragement">Weekly Encouragment</Link> </li>
+                        <li className="nav-right"><Link to = "/encouragement">Encouragment</Link> </li>
                         <li className="nav-right"><Link to ="/home">Home</Link></li>
                     </ul>
                 </nav>
         </header>
-    )
+    );
+    const adminLinks = (
+        <header>
+        <nav>
+            <ul>
+                <li><h1>Crowned Jewels</h1></li>
+                <li><h2>Welcome, Admin!</h2></li>
+                <li className="nav-right"><Link to ="/contact">Users</Link></li>
+                <li className="nav-right"><Link to = "/posts">Posts</Link></li>
+                <li className="nav-right"><Link to = "/encouragement">Encouragment</Link> </li>
+                <li className="nav-right"><Link to ="/home">Logout</Link></li>
+            </ul>
+        </nav>
+        </header>
+    );
     return (
         <header>
         {/* <h1>Crowned Jewels</h1> */}
         {!loading && (
-            <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+            //  <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+            <Fragment>{!isAuthenticated ? guestLinks : isAuthenticated ? authLinks : isAdmin && isAuthenticated ? adminLinks : guestLinks} </Fragment>
+            // <Fragment>{isAdmin && isAuthenticated ? adminLinks : {isAuthenticated} ? authLinks : guestLinks}</Fragment>
         )}
         </header>
     )
@@ -72,11 +92,13 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
 
 Navbar.propTypes = {
     logout: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+    isAdmin: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({ 
-    auth: state.auth
+    auth: state.auth,
+    isAdmin: state.isAdmin
 })
 
 export default connect(mapStateToProps,

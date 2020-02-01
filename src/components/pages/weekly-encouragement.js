@@ -1,5 +1,6 @@
 // import React, { Component } from 'react';
 
+<<<<<<< HEAD
 // class Encouragement extends Component {
 //     render() {
 //         return (
@@ -81,3 +82,12 @@
 // }
 // export default Encouragement;
 // React.render(<EmailSignup />, document.getElementById("email"));
+=======
+class Encouragement extends Component {
+  render() {
+    return <div>Weekly Encouragement</div>;
+  }
+}
+
+export default Encouragement;
+>>>>>>> c3384f01116d6715668b3098459ac135b05893f8

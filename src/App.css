@@ -1,14 +1,15 @@
 body {
-    background-color: #b19cd9
-}
+  background-color: #b19cd9;
+} 
 
 header {
-    background-color: rgba(223, 233, 233, 0.226);
-    padding: -15px;
-    margin: -10px;
-    text-align: center;
+  background-color: rgba(223, 233, 233, 0.226);
+  padding: -15px;
+  margin: -10px;
+  text-align: center;
 }
 
+<<<<<<< HEAD
 li>h1 {
     float: left;
     margin: 1px;
@@ -20,20 +21,45 @@ li>h1 {
 
 nav>li {
     float: right;
+=======
+li > h1 {
+  float: left;
+  margin: 1px;
+  padding: 1px;
+  font-size: 60px;
+  font-weight: bolder;
+  padding-left: 10px;
+}
+
+nav > li {
+  float: right;
+>>>>>>> c3384f01116d6715668b3098459ac135b05893f8
 }
 
 a {
-    text-decoration: none;
+
+/*   text-decoration: none;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  font-size: 35px;
+  color: whit
+    text-decoration: none; */
     padding: 5px;
     margin: 5px;
     text-align: center;
     /* font-size: 35px;
     color: white; */
+
 }
 
-
+<<<<<<< HEAD
 nav>a:hover {
     background-color: lightgray;
+=======
+nav > a:hover {
+  background-color: lightgray;
+>>>>>>> c3384f01116d6715668b3098459ac135b05893f8
 }
 
 /* a > .active {
@@ -41,6 +67,7 @@ nav>a:hover {
 } */
 
 ul {
+<<<<<<< HEAD
     list-style-type: none;
     overflow: hidden;
 
@@ -77,19 +104,67 @@ li>a:hover {
     color: palevioletred;
     padding: 20px;
     text-align: center;
-
+=======
+  list-style-type: none;
+  overflow: hidden;
 }
 
+li {
+  float: left;
+  padding-top: 20px;
+}
+
+ li > a {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+>>>>>>> c3384f01116d6715668b3098459ac135b05893f8
+
+.navbar-logout > Link {
+  font-size: 20px;
+}
+
+<<<<<<< HEAD
 .dropdown:hover .dropbtn {
     background-color: rgba(211, 211, 211, 0.507);
     color: palevioletred;
 
+=======
+.dropdown-content > a {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+li a,
+.dropbtn {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+}
+li > a:hover {
+  /* background-color: rgba(211, 211, 211, 0.507); */
+  color: palevioletred;
+  padding: 20px;
+  text-align: center;
+}
+
+.dropdown:hover .dropbtn {
+  text-align: center;
+  background-color: rgba(211, 211, 211, 0.507);
+  color: palevioletred;
+>>>>>>> c3384f01116d6715668b3098459ac135b05893f8
 }
 
 li.dropdown {
-    display: inline-block;
+  display: inline-block;
+  text-align: center;
 }
 
+<<<<<<< HEAD
 li>.nav-right:hover {
     background-color: rgba(211, 211, 211, 0.507);
     text-align: justify;
@@ -104,17 +179,33 @@ li>.nav-right:hover {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     /* min-width: 160px; */
+=======
+li > .nav-right:hover {
+  background-color: rgba(211, 211, 211, 0.507);
+  text-align: justify;
+  color: palevioletred;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  /* min-width: 160px; */
+>>>>>>> c3384f01116d6715668b3098459ac135b05893f8
 }
 
 .dropdown-content a {
-    color: black;
-    padding: 4px, 6px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
+  color: black;
+  padding: 4px, 6px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
 }
 
 .dropdown-content a:hover {
+<<<<<<< HEAD
     background-color: lightgray
 }
 
@@ -122,12 +213,22 @@ li>.nav-right:hover {
     display: block;
     display: center;
     width: 99px
+=======
+  background-color: lightgray;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  display: center;
+  width: 99px;
+>>>>>>> c3384f01116d6715668b3098459ac135b05893f8
 }
 
 li {
-    text-decoration: none;
+  text-decoration: none;
 }
 
+<<<<<<< HEAD
 
 nav ul li:first-child {
     float: left
@@ -135,6 +236,14 @@ nav ul li:first-child {
 
 nav ul li {
     float: right;
+=======
+nav ul li:first-child {
+  float: left;
+}
+
+nav ul li {
+  float: right;
+>>>>>>> c3384f01116d6715668b3098459ac135b05893f8
 }
 
 .landing {
@@ -157,6 +266,7 @@ Link {
     font-size: 10px !important;
 }
 
+<<<<<<< HEAD
 html,
 body {
     font-family: sans-serif;
@@ -187,4 +297,25 @@ body {
 .for-realz {
     font-size: 12px;
     font-style: italic;
+=======
+.Posts-Card{
+  /* text-align: center; */
+  text-align: center;
+  background-color: rgba(223, 233, 233, 0.226);
+  /* padding: 10px; */
+  margin-left: 500px;
+  margin-right: 500px
+}
+
+.Profile-Card {
+  text-align: center;
+  background-color: rgba(223, 233, 233, 0.226);
+  /* margin: 100px; */
+  margin-left: 500px;
+  margin-right: 500px
+}
+
+.myProfile-Card {
+  text-align: center
+>>>>>>> c3384f01116d6715668b3098459ac135b05893f8
 }

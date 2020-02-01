@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, isAuthenticated, isAdmin }) => {
     const [formData, setFormData ] = useState({
         username: '',
         password: ''
@@ -17,14 +17,20 @@ const onChange = e =>
 
 const onSubmit = async e => {
     e.preventDefault();
-    // alert("Login Successful")
+    console.log(formData);
     login(username, password);
 };
 
 if (isAuthenticated) {
     console.log(formData)
+    console.log("Authenticated")
     return <Redirect to='/profile' />
 
+}
+
+if(isAdmin) {
+    console.log('admin')
+    return <Redirect to ='/admin'/>
 }
 
 return (
@@ -52,7 +58,7 @@ return (
                         name="password"
                         value={password}
                         onChange={e => onChange(e)}
-                        minLength="6" />
+                        />
                 </div>
             <br/>
             <input
@@ -63,7 +69,7 @@ return (
             </form>
             <p>
                 Don't have an account?
-                <Link to= "/Signup">Log In</Link>
+                <Link to= "/Signup">Sign Ups</Link>
             </p>
     </div>
     </Fragment>
@@ -73,10 +79,12 @@ return (
 Login.propTypes = {
     login: PropTypes.func.isRequired,
     isAuthenticated:PropTypes.bool,
+    isAdmin: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
+    isAdmin: state.auth.isAdmin
 });
 
 

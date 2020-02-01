@@ -14,9 +14,9 @@ const Signup = ({ setAlert, signup, isAuthenticated}) => {
             email:'',
             username: '',
             password:'',
-            confirmPassword:'',
+            confirmPassword:''
         });
-
+        
     const {firstName, lastName, email, username, password, confirmPassword } = formData;
 
     const onChange = e => 
@@ -30,7 +30,7 @@ const Signup = ({ setAlert, signup, isAuthenticated}) => {
             console.log('Passwords do not match')
         } else {
             console.log(formData)
-            signup(firstName, lastName, email, username, password)
+            signup({firstName, lastName, email, username, password})
         }
       };
         if (isAuthenticated) {
