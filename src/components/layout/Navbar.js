@@ -1,6 +1,6 @@
 
 import React, { Fragment } from 'react'
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import profile from '../img/profile.png';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -17,7 +17,7 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
             <ul>
                 <li><h1>Crowned Jewels</h1></li>
                 <li className="dropdown">
-                        <div className="dropbtn">
+                        <div className="drop-btn">
                             <Link to = "/profile">
                                 <img alt='profile' src={profile}  width="45px" />
                             </Link>
@@ -32,7 +32,9 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
                     </li>
                 <li className="nav-right"><Link to ="/contact">Contact</Link></li>
                 <li className="nav-right"><Link to = "/posts">Posts</Link></li>
+
                 <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
+
                 <li className="nav-right"><Link to ="/home">Home</Link></li>
             </ul>
         </nav>
@@ -45,10 +47,17 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
                     <ul>
                     <li><h1>Crowned Jewels</h1></li>
                     <li className="dropdown">
+
                                 <div className="dropbtn">
                                     <Link to="#">
                                         <img alt='menu' src={menu}  width="35px" padding='50px'/>
                                     </Link>
+
+//                                 <div className="drop-btn">
+//                                     {/* <Link to = "/profile"> */}
+//                                         <img alt='menu' src={menu}  width="45px" />
+//                                     {/* </Link> */}
+
                                     <div className="dropdown-content" >
                                         <Link to = "/signup">Sign Up</Link>
                                         <Link to = "/login">Login</Link> 
@@ -59,6 +68,7 @@ const Navbar = ({ auth: {isAuthenticated, isAdmin, loading }, logout }) => {
                         <li className="nav-right"><Link to ="/contact">Contact</Link></li>
                         <li className="nav-right"><Link to = "/posts">Posts</Link></li>
                         <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
+
                         <li className="nav-right"><Link to ="/home">Home</Link></li>
                     </ul>
                 </nav>
