@@ -63,7 +63,7 @@ export class ProfileList extends Component {
     .then(res => this.setState({profile: res.data})
     )
     // .catch(error => console.log(error))
-    // axios.get(`https://localhost:5000/api/post/${username}`)
+    // axios.get(`https://localhost:5000/api/profile/${username}`)
   }
     
 render() {
