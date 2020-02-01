@@ -12,7 +12,6 @@ import Login from './components/auth/Login';
 import home from './components/pages/home';
 
 import Encouragement from './components/pages/encouragement';
-import posts from './components/pages/posts'
 import contact from './components/pages/contact';
 
 import CreateProfile from './components/profile/create-profile';
@@ -20,16 +19,19 @@ import EditProfile from './components/profile/edit-profile';
 import {ProfileList} from './components/profile/profiles';
 import Profile from './components/profile/profile';
 
+import posts from './components/pages/posts'
 import postForm from './components/posts/postForm';
-import EditPost from './components/posts/edit.post';
+// import EditPost from './components/posts/editpost';
 // import PostFeed from './components/posts/post-feed';
-import PostList from './components/posts/post-feed';
+// import PostList from './components/posts/post-feed';
 
-import authLanding from './components/pages/authLanding'
+import authLanding from './components/pages/authLanding';
+import encouragementAdmin from './components/admin/encouragement';
+import postAdmin from './components/admin/posts';
+import profileAdmin from './components/admin/profiles';
 
 
 import { loadUser } from './actions/auth';
-
 import setAuthToken from './utils/setAuthToken';
 
 //redux
@@ -53,12 +55,13 @@ return(
   <Fragment>
       <Navbar/>
       <Landing />
+      <authLanding/>
       <section className="container1">
       <Route exact path="/" component={home} />
       <Route exact path="/encouragement" component={Encouragement} />
       <Route exact path="/posts" component={posts} />
       <Route exact path="/contact" component={contact} />
-      <Router exact path="/authLanding" component={authLanding}/>
+      <Route exact path="/auth-landing" component={authLanding}/>
       </section>
       <section className="container2">
       <Alert />
@@ -77,9 +80,16 @@ return(
         <Switch>
           <Route exact path='/create-profile' component={CreateProfile} /> 
            <Route exact path='/edit-profile' component={EditProfile} />
-           
            <Route exact path='/profile' component={Profile} />
           <Route exact path='/profiles' component={ProfileList} />
+        </Switch>
+      </section>
+          <Route exact path='/admin-users' component={profileAdmin} /> 
+           <Route exact path='/admin-posts' component={postAdmin} />
+           <Route exact path='/admin-encouragement' component={encouragementAdmin} />
+      <section>
+        <Switch>
+
         </Switch>
       </section>
   </Fragment>

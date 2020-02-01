@@ -76,9 +76,13 @@ export const login = (username, password) => async dispatch => {
         const res = await axios.post(
             `${baseUrl}/auth`, body, config);
         console.log("test_2")
-        // if {isAdmin === true} {
 
-        // }
+        if (res.isAdmin === "true") {
+            console.log("You are an admin!")
+              // return res.status(200).json()
+          } else {
+            console.log("You are not an admin")
+          }
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
