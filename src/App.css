@@ -57,13 +57,19 @@ li {
   padding-top: 20px;
 }
 
-li a {
+ li > a {
   font-size: 30px;
+  text-align: center;
   font-weight: bold;
 }
 
+.navbar-logout > Link {
+  font-size: 20px;
+}
+
 .dropdown-content > a {
-  font-size: 15px;
+  text-align: center;
+  font-size: 14px;
   font-weight: bold;
 }
 li a,
@@ -72,6 +78,7 @@ li a,
   color: black;
   text-align: center;
   padding: 10px 15px;
+  text-align: center;
   text-decoration: none;
 }
 li > a:hover {
@@ -81,12 +88,14 @@ li > a:hover {
   text-align: center;
 }
 
-.dropdown:hover .drop-btn {
+.dropdown:hover .dropbtn {
+  text-align: center;
   background-color: rgba(211, 211, 211, 0.507);
   color: palevioletred;
 }
 li.dropdown {
   display: inline-block;
+  text-align: center;
 }
 
 li > .nav-right:hover {
@@ -132,6 +141,12 @@ nav ul li:first-child {
 
 nav ul li {
   float: right;
+
+}
+
+.landing {
+
+
     text-align: center;
     background-color: rgba(223, 233, 233, 0.226);
     padding: 5px;
@@ -149,4 +164,25 @@ nav ul li {
 Link {
     color: black !important;
     font-size: 10px !important;
+}
+
+.Posts-Card{
+  /* text-align: center; */
+  text-align: center;
+  background-color: rgba(223, 233, 233, 0.226);
+  /* padding: 10px; */
+  margin-left: 500px;
+  margin-right: 500px
+}
+
+.Profile-Card {
+  text-align: center;
+  background-color: rgba(223, 233, 233, 0.226);
+  /* margin: 100px; */
+  margin-left: 500px;
+  margin-right: 500px
+}
+
+.myProfile-Card {
+  text-align: center
 }

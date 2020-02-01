@@ -1,0 +1,1 @@
+// lists all posts with delete functions
