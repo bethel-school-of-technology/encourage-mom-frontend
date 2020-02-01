@@ -72,6 +72,7 @@ export const login = (username, password) => async dispatch => {
     try {
         console.log("test_1")
         // erroring out with the post
+        
         const res = await axios.post(
             `${baseUrl}/auth`, body, config);
         console.log("test_2")
@@ -82,6 +83,8 @@ export const login = (username, password) => async dispatch => {
         dispatch(loadUser());
     } catch  (err){
         console.log(err)
+        console.log("Invalid Credentials");
+        alert("Invalid Credentials");
     };
 }
 // Logout / Clear Profile
