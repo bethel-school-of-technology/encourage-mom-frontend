@@ -76,10 +76,15 @@ export const login = (username, password) => async dispatch => {
         const res = await axios.post(
             `${baseUrl}/auth`, body, config);
         console.log("test_2")
+        // if {isAdmin === true} {
+
+        // }
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
         });
+
+    
         dispatch(loadUser());
     } catch  (err){
         console.log(err)

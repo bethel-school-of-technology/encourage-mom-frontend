@@ -23,7 +23,9 @@ import Profile from './components/profile/profile';
 import postForm from './components/posts/postForm';
 import EditPost from './components/posts/edit.post';
 // import PostFeed from './components/posts/post-feed';
-import PostList from './components/posts/post-feed'
+import PostList from './components/posts/post-feed';
+
+import authLanding from './components/pages/authLanding'
 
 
 import { loadUser } from './actions/auth';
@@ -56,6 +58,7 @@ return(
       <Route exact path="/encouragement" component={Encouragement} />
       <Route exact path="/posts" component={posts} />
       <Route exact path="/contact" component={contact} />
+      <Router exact path="/authLanding" component={authLanding}/>
       </section>
       <section className="container2">
       <Alert />
