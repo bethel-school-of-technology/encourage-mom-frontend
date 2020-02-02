@@ -72,7 +72,7 @@ export const login = (username, password) => async dispatch => {
     try {
         console.log("test_1")
         // erroring out with the post
-        
+    
         const res = await axios.post(`${baseUrl}/auth`, body, config);
         console.log("test_2")
 

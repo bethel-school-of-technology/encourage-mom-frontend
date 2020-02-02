@@ -90,19 +90,22 @@ export const updatePost =  (post, _id) => async dispatch => {
     });
 };
 
-export const deletePost = id => async dispatch => {
+export const deletePost = id => dispatch => {
     if(alert("Warning! This can not be undone! Are you sure you want to delete this post")) {
         try {
-            const res = await axios.delete(`${baseUrl}/posts/${id}`);
+            axios.delete(`${baseUrl}/posts/${id}`)
+            .then(res => 
             dispatch({type: DELETE_POST,
             payload: id
-            //payload: id
         })
-            dispatch(setAlert('Post Deleted', 'success'));
+      )
+        console.log("test1")
+      dispatch(setAlert('Post Deleted', 'success'));
+        console.log("Test3")
         } catch (err) {
             dispatch({
                 type: POST_ERROR,
-                payload: {msg: err.response.statusText, status: err.resposne.status}
+                payload: err.resposne.data
             })
         }
     }

@@ -57,21 +57,21 @@ alert("Profile Updated Succesfully!")
 
 
 // delete account/profile
-export const deleteAccount = () => async dispatch => {
+export const deleteProfile = () => async dispatch => {
     if(alert("Warning! This can not be undone! Are you sure you want to delete your account")) {
-        try {
-            await axios.delete(`${baseUrl}/api/profile`);
-
+        console.log("test1")
+            await axios.delete(`${baseUrl}/profile/`)
+            .then(res =>
             dispatch({type: CLEAR_CURRENT_PROFILE})
-            dispatch({dispatch: ACCOUNT_DELETED})
-            
-            dispatch(setAlert('Your account has been permanantly deleted :('));
-        } catch (err) {
+            // dispatch({dispatch: ACCOUNT_DELETED})
+            )
+            // dispatch(setAlert('Your account has been permanantly deleted :('
+            .catch(err => 
             dispatch({
                 type: PROFILE_ERROR,
                 payload: {msg: err.response.statusText, status: err.resposne.status}
             })
+            )
         }
-    }
 };
 

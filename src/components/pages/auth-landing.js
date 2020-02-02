@@ -31,7 +31,6 @@ class AuthLanding extends Component {
                                 <br/>
                         </ul>
                     </nav>
-
             </div> 
         )
     }
