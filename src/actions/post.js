@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setAlert } from './alert' 
+import { setAlert } from './alert';
 import {
     GET_POST,
     CREATE_POST,
@@ -9,8 +9,6 @@ import {
 
 } from "./types"
 
-
-
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const getPost = id => async dispatch => {
@@ -19,7 +17,7 @@ export const getPost = id => async dispatch => {
         type: GET_POST,
         payload: res.data
     });
-};
+
 
 export const createPost = ({username, title, text}) => dispatch => {
     const config = {
@@ -46,12 +44,14 @@ export const createPost = ({username, title, text}) => dispatch => {
         });
     }
 };
-export const updatePost =  (post, _id) => async dispatch => {
-    const res = await axios.put(`${baseUrl}/posts/${_id}`, post);
-    dispatch({
-        type: UPDATE_POST,
-        payload: res.data
-    });
+
+
+export const updatePost = (post, _id) => async dispatch => {
+  const res = await axios.put(`${baseUrl}/post/${_id}`, post);
+  dispatch({
+    type: UPDATE_POST,
+    payload: res.data
+  });
 };
 
 export const deletePost = id => dispatch => {
@@ -72,5 +72,5 @@ export const deletePost = id => dispatch => {
                 payload: err.resposne.data
             })
         }
-    }
+  }
 };
