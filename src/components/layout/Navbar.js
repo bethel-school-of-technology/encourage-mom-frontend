@@ -12,11 +12,7 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                 <nav>
                     <ul>
                     <li ><h1 id="title">Crowned Jewels</h1></li>
-                        <li className="nav-right"><Link to ="/contact">Contact</Link></li>
-                        <li className="nav-right"><Link to = "/posts">Posts</Link></li>
-                        <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
-                        <li className="nav-right"><Link to ="/">Home</Link></li>
-                        <li className="dropdown">
+                    <li className="dropdown">
                                 <div className="dropbtn">
                                     <Link to="#">
                                         <img alt='menu' src={menu}  width="45px" padding='50px'/>
@@ -27,6 +23,11 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                                     </div>
                                 </div>
                         </li>
+                        <li className="nav-right"><Link to ="/contact">Contact</Link></li>
+                        <li className="nav-right"><Link to = "/posts">Posts</Link></li>
+                        <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
+                        <li className="nav-right"><Link to ="/">Home</Link></li>
+
                     </ul>
                 </nav>
         </header>
