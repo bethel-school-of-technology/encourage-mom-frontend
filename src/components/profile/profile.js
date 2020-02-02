@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
-const baseUrl = process.env.REACT_APP_BASE;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export class Profile extends Component {
     constructor(props) {
@@ -15,7 +15,6 @@ export class Profile extends Component {
 
   componentDidMount() {
     console.log("Test1")
-    // console.log(baseUrl)
     axios.get(`${baseUrl}/profile/me`)
     .then(res => this.setState({profile: res.data})
     )

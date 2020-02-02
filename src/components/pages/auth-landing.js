@@ -15,6 +15,9 @@ class AuthLanding extends Component {
                                 <a>Admin Links:</a>
                                 <br/>
                                 <br/>
+                                <a href="/admin-messages"> View and Manage Messages</a>
+                                <br/>
+                                <br/>
                                 <a href="/admin-users"> View and Manage Users</a>
                                 <br/>
                                 <br/>
