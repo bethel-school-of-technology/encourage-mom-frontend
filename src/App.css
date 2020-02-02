@@ -208,6 +208,8 @@ Link {
     text-decoration: none;
     color: black;
     text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
 
   }
 
@@ -232,4 +234,12 @@ Link {
   div {
     text-decoration: none;
     text-align: center;
+  }
+
+  .admin-profile-card {
+    text-align: center;
+    background-color: rgba(223, 233, 233, 0.226);
+    /* margin: 100px; */
+    margin-left: 500px;
+    margin-right: 500px
   }

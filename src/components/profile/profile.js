@@ -16,7 +16,7 @@ export class Profile extends Component {
   componentDidMount() {
     console.log("Test1")
     // console.log(baseUrl)
-    axios.get(`http://localhost:5000/api/profile/me`)
+    axios.get(`${baseUrl}/profile/me`)
     .then(res => this.setState({profile: res.data})
     )
     .catch(error => console.log(error))
