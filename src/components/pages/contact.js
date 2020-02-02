@@ -15,12 +15,12 @@ const Contact = ({createMessage}) => {
             <h1>Please send us a message! We love hearing feedback!</h1>
             <h2>And if you have any questions, concerns, or problems, we will respond to your message as soon as we are able!</h2>
             <form className="form"
-                onSubmit={e => {{e.preventDefault()}
-                createMessage({firstName, lastName, email,  comments});
-                setFirstName('');
-                setLastName('');
-                setEmail('');
-                setComments('');
+                    onSubmit={e => {{e.preventDefault()}
+                    createMessage({firstName, lastName, email,  comments});
+                    setFirstName('');
+                    setLastName('');
+                    setEmail('');
+                    setComments('');
                 }}
             >
                 <div className="contact-form">

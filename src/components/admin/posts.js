@@ -9,8 +9,6 @@ import { connect } from "react-redux";
 const baseUrl = process.env.REACT_APP_BASE;
 
 class postAdmin extends Component {
-
-
     constructor(props) {
       super(props);
        this.state = {
@@ -21,7 +19,7 @@ class postAdmin extends Component {
 
   componentDidMount() {
     // console.log("Test1")
-    axios.get(`http://localhost:5000/api/posts`)
+    axios.get(`${baseUrl}/posts`)
     .then(res => this.setState({posts: res.data})
     )
     .catch(error => console.log(error))

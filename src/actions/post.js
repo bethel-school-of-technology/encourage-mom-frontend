@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert' 
 import {
-    GET_POSTS,
     GET_POST,
     CREATE_POST,
     UPDATE_POST,
@@ -13,41 +12,6 @@ import {
 
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
-
-// export const getPosts = () => async dispatch => {
-//         await axios.get(`${baseUrl}/posts`)
-//         .then((response) => 
-//         response.data.results.map(posts => ({
-//             username: `${posts.username}`,
-//             title: `${posts.email}`,
-//             text: `${posts.text}`
-//         }))
-//         )
-//         .then(users => {
-//             this.setState({
-//                 users,
-//                 isLoading: false
-//             })
-//         })
-//         .catch(error => this.setState({error, isLoading: false}) )           
-//     }
-            
-            
-
-// export const getPosts = () => async dispatch => {
-//     try {
-//         const res = await axios.get(`${baseUrl}/posts`)
-//         dispatch({
-//             type: GET_POSTS,
-//             payload: res.data
-//         });
-//     } catch(err) {
-//         dispatch({
-//             type: POST_ERROR,
-//             payload: {msg: err.response.statusText, status: err.response.status }
-//         })
-//     }
-// }
 
 export const getPost = id => async dispatch => {
     const res = await axios.get(`${baseUrl}/posts/${id}`)

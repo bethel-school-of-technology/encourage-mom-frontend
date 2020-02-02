@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom'
-import { logout} from '../../actions/auth';
 
 class AuthLanding extends Component {
     render() {

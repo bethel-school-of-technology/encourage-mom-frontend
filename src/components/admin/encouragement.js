@@ -22,8 +22,8 @@ const CreateEncouragement = ({ createEncouragement}) => {
                     <a className="admin-a" href='/auth-landing'>Back to Admin Home Page</a>
                 </div>
             <h2>Add An Encouragement</h2>
-            <form className="form" 
-                onSubmit={e => {{e.preventDefault()}
+            <form className="form" onSubmit=
+                {e => {{e.preventDefault()}
                 createEncouragement({title, text, reference, date});
                 setTitle('');
                 setText('');

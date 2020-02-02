@@ -1,5 +1,4 @@
 import axios from "axios";
-import {setAlert} from '../actions/alert';
 
 import { 
     CONTACT_ERROR,
