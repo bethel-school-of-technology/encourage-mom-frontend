@@ -13,8 +13,8 @@ const CreateProfile = ({ createProfile}) => {
     return (
         <div>
             <h1>Add Profile Info</h1>
-            <form className="form" 
-                onSubmit={e => {{e.preventDefault()}
+            <form className="form"  onSubmit=
+                {e => {{e.preventDefault()}
                 createProfile({username, location, bio});
                 setLocation('');
                 setBio('');

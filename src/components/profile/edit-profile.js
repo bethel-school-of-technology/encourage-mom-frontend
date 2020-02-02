@@ -14,8 +14,8 @@ const EditProfile = ({
     return (
         <Fragment>
             <h1>Edit Profile Info</h1>
-            <form className="form" 
-                onSubmit={e => {{e.preventDefault()}
+            <form className="form" onSubmit=
+                {e => {{e.preventDefault()}
                 editProfile({ username, location, bio});
                 setLocation('');
                 setBio('');
