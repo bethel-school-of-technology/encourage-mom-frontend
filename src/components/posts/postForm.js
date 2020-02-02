@@ -53,22 +53,26 @@ const CreatePost = ({ createPost }) => {
                         className="btn btn-primary"
                         value="createPost"
                         />
-                </form>
-            </div>
-            <p>
-            <button onClick = {e => addLike(_id)} type ='button' class = 'btn btn-light'>
-                    <i class = 'fas fa-thumbs-up'/> {''}
-                <span>{likes.length > 0 && <span>{likes.lenghth}</span>}</span>
-            </button>
-            </p> 
-            <p>
-            <button onClick = {e => removeLike(_id)} type ='button' class = 'btn btn-light'>
-                    <i class = 'fas fa-thumbs-down'/> {''}
-                <span>{likes.length > 0 && <span>{likes.lenghth}</span>}</span>
-            </button>
-            </p>
 
-    )
+                <button onClick ={e => addLike(_id)} type = 'button' class= 'btn btn-light'>
+                    <i class = 'fas fa-thumps-up'/> {''}
+                <span>{likes.length > 0 && <span>{likes.length}</span>}</span>
+                </button>
+
+                <button onClick ={e => removeLike(_id)} type = 'button' class= 'btn btn-light'>
+                    <i class = 'fas fa-thumps-down'/> {''}
+                <span>{likes.length > 0 && <span>{likes.length}</span>}</span>
+                </button>
+                </form>
+            </div> 
+            
+            
+
+                
+        
+                    
+        )
+    
 }
 
 CreatePost.propTypes = {
