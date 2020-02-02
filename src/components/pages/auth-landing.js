@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {Link} from 'react-router-dom'
 import { logout} from '../../actions/auth';
 
-class authLanding extends Component {
+class AuthLanding extends Component {
     render() {
         return (
             <div>
@@ -34,4 +34,4 @@ class authLanding extends Component {
     }
 }
 
-export default authLanding;
+export default AuthLanding;

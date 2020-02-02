@@ -25,8 +25,8 @@ import postForm from './components/posts/postForm';
 // import PostFeed from './components/posts/post-feed';
 // import PostList from './components/posts/post-feed';
 
-import authLanding from './components/pages/auth-landing';
-import encouragementAdmin from './components/admin/encouragement';
+import AuthLanding from './components/pages/auth-landing';
+import CreateEncouragement from './components/admin/encouragement';
 import postAdmin from './components/admin/posts';
 import profileAdmin from './components/admin/profiles';
 import userAdmin from './components/admin/users'
@@ -56,13 +56,13 @@ return(
   <Fragment>
       <Navbar/>
       <Landing />
-      <authLanding/>
+      {/* <AuthLanding/> */}
       <section className="container1">
       <Route exact path="/" component={home} />
       <Route exact path="/encouragement" component={Encouragement} />
       <Route exact path="/posts" component={posts} />
       <Route exact path="/contact" component={contact} />
-      <Route exact path="/auth-landing" component={authLanding}/>
+      <Route exact path="/auth-landing" component={AuthLanding}/>
       </section>
       <section className="container2">
       <Alert />
@@ -88,7 +88,7 @@ return(
           <Route exact path='/admin-users' component={userAdmin}/>
           <Route exact path='/admin-profiles' component={profileAdmin} /> 
           <Route exact path='/admin-posts' component={postAdmin} />
-          <Route exact path='/admin-encouragement' component={encouragementAdmin} />
+          <Route exact path='/admin-encouragement' component={CreateEncouragement} />
       <section>
         <Switch>
 
