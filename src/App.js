@@ -29,7 +29,8 @@ import AuthLanding from './components/pages/auth-landing';
 import CreateEncouragement from './components/admin/encouragement';
 import postAdmin from './components/admin/posts';
 import profileAdmin from './components/admin/profiles';
-import userAdmin from './components/admin/users'
+import userAdmin from './components/admin/users';
+import contactAdmin from './components/admin/contact';
 
 
 import { loadUser } from './actions/auth';
@@ -89,6 +90,7 @@ return(
           <Route exact path='/admin-profiles' component={profileAdmin} /> 
           <Route exact path='/admin-posts' component={postAdmin} />
           <Route exact path='/admin-encouragement' component={CreateEncouragement} />
+          <Route exact path='/admin-messages' component={contactAdmin} />
       <section>
         <Switch>
 
