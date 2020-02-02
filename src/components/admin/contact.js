@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import contact from '../pages/contact';
 
-const baseUrl = process.env.REACT_APP_BASE;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export class contactAdmin extends Component {
     constructor(props) {
@@ -15,12 +14,12 @@ export class contactAdmin extends Component {
   componentDidMount() {
     console.log("Test1")
     console.log(baseUrl)
-    axios.get(`http://localhost:5000/api/contact`)
+    axios.get(`${baseUrl}/contact`)
     .then(res => this.setState({contact: res.data})
     )
   }
 
-    
+
 render() {
     return (
         <div>

@@ -10,36 +10,6 @@ import menu from '../img/menu.png';
 
 
 const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
-    const authLinks = (
-        <header>
-        <nav>
-            <ul>
-                <li><h1>Crowned Jewels</h1></li>
-                <li className="dropdown">
-                        <div className="drop-btn">
-                            <Link to = "/profile">
-                                <img alt='profile' src={profile}  width="45px" />
-                            </Link>
-                            <div className="dropdown-content" >
-                                <Link to = "/create-post">Create Post</Link>
-                                <Link to = "/profiles">User Bios</Link>                               
-                                {/* <a onClick={logout} href="/#">Logout</a>  */}
-                                <Link to ="/login" onClick={logout}>Logout</Link>
-                            </div>
-                        
-                        </div>
-                    </li>
-                <li className="nav-right"><Link to ="/contact">Contact</Link></li>
-                <li className="nav-right"><Link to = "/posts">Posts</Link></li>
-
-                <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
-
-                <li className="nav-right"><Link to ="/home">Home</Link></li>
-            </ul>
-        </nav>
-</header>
-    );
-
     const guestLinks = (
         <header>
                 <nav>
@@ -64,11 +34,38 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                         <li className="nav-right"><Link to ="/contact">Contact</Link></li>
                         <li className="nav-right"><Link to = "/posts">Posts</Link></li>
                         <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
-                        <li className="nav-right"><Link to ="/home">Home</Link></li>
+                        <li className="nav-right"><Link to ="/">Home</Link></li>
                     </ul>
                 </nav>
         </header>
     );
+    const authLinks = (
+        <header>
+        <nav>
+            <ul>
+                <li><h1>Crowned Jewels</h1></li>
+                <li className="dropdown">
+                        <div className="drop-btn">
+                            <Link to = "/profile">
+                                <img alt='profile' src={profile}  width="45px" />
+                            </Link>
+                            <div className="dropdown-content" >
+                                <Link to = "/create-post">Create Post</Link>
+                                <Link to = "/profiles">User Bios</Link>                               
+                                {/* <a onClick={logout} href="/#">Logout</a>  */}
+                                <Link to ="/login" onClick={logout}>Logout</Link>
+                            </div>
+                        
+                        </div>
+                    </li>
+                <li className="nav-right"><Link to ="/contact">Contact</Link></li>
+                <li className="nav-right"><Link to = "/posts">Posts</Link></li>
+                <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
+                <li className="nav-right"><Link to ="/">Home</Link></li>
+            </ul>
+        </nav>
+</header>
+    )
 
     return (
         <header>

@@ -2,6 +2,9 @@
 
 import React, { Component } from "react";
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import {deletePost} from '../../actions/post'
+import { connect } from "react-redux";
 
 const baseUrl = process.env.REACT_APP_BASE;
 
@@ -15,14 +18,17 @@ class postAdmin extends Component {
    }
 
   componentDidMount() {
-    console.log("Test1")
-    console.log(baseUrl)
-    axios.get(`http://localhost:5000/api/posts`)
+    // console.log("Test1")
+    axios.get(`${baseUrl}/posts`)
     .then(res => this.setState({posts: res.data})
     )
     .catch(error => console.log(error))
   }
     
+  onDeleteClick(id) {
+    this.props.deletePost(id);
+    console.log("test3")
+}
 render() {
     return (
 
@@ -35,8 +41,7 @@ render() {
                         <h1>{post.title}</h1>
                         <h3>{post.username}</h3>
                         <p>{post.text}</p>
-                        <button>Delete Post</button>
-                        {/* <a>Delete Post</a> */}
+                        <button type="button" onClick={this.onDeleteClick.bind(this, post._id)}>Delete Post</button>
                         < br/>
                         < br/>
                     </div>
@@ -50,4 +55,9 @@ render() {
     }
 }
 
-export default postAdmin;
+postAdmin.propType = {
+    deletePost: PropTypes.func.isRequired
+}
+
+
+export default connect(null,{deletePost})(postAdmin);

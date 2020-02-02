@@ -1,17 +1,13 @@
-import {setAlert} from './alert';
 import {
     SIGNUP_SUCCESS,
-    SIGNUP_FAIL,
     USER_LOADED,
     AUTH_ERROR,
     LOGIN_SUCCESS,
-    LOGIN_FAIL,
     LOGOUT
 } from './types';
 
 import axios from 'axios'
 import setAuthToken from '../utils/setAuthToken';
-import { Redirect } from 'react-router-dom';
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
@@ -72,7 +68,7 @@ export const login = (username, password) => async dispatch => {
     try {
         console.log("test_1")
         // erroring out with the post
-        
+    
         const res = await axios.post(`${baseUrl}/auth`, body, config);
         console.log("test_2")
 
