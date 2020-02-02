@@ -5,11 +5,11 @@ class Home extends Component {
     return (
       <div className='home-page'>
         <div className='container'>
-          <div className='row'>
-            <div className='col-md-12 text-center'>
+          <div className='grid'>
+            <div className='col-md-12'>
               <div className='home-header'>
                 <h1>Welcome to Crowned Jewels!</h1>
-                <div className='col-md-*'>
+                <div className='col-md-12'>
                   <h3>Connect</h3>
                   <p>
                     Being a mother is hard work! Crowned Jewels is a place for
@@ -24,7 +24,7 @@ class Home extends Component {
                     id est laborum."
                   </p>
                 </div>
-                <div className='col-md-*'>
+                <div className='col-md-12'>
                   <h3>Encourage</h3>
                   <p>
                     Connect with other women who are at different stages of the
