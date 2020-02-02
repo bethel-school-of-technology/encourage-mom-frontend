@@ -5,7 +5,7 @@ class Home extends Component {
     return (
       <div className='home-page'>
         <div className='container'>
-          <div className='grid'>
+          <div className='row'>
             <div className='col-md-12'>
               <div className='home-header'>
                 <h1>Welcome to Crowned Jewels!</h1>
