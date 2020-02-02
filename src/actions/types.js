@@ -35,3 +35,6 @@ export const ADD_LIKE = "ADD_LIKE"
 export const ADD_COMMENT = "ADD_COMMENT"
 export const REMOVE_COMMENT = "REMOVE COMMENT"
 export const COMMENT_ERROR = "COMMENT_ERRORS"
+
+export const CONTACT_ERROR = "CONTACT_ERROR"
+export const CONTACT_SUCCESS = "CONTACT_SUCCESS"
