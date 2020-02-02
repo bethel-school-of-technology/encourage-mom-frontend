@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout} from '../../actions/auth';
 import menu from '../img/menu.png';
+
 const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
     const guestLinks = (
         <header>
@@ -95,14 +96,15 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
         </header>
     )
 }
+
 Navbar.propTypes = {
     logout: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     // isAdmin: PropTypes.object.isRequired
 };
-const mapStateToProps = state => ({ 
-    auth: state.auth,
-    // isAdmin: state.isAdmin
-})
-export default connect(mapStateToProps,
-     { logout })(Navbar);
+
+const mapStateToProps = state => ({
+  auth: state.auth
+  // isAdmin: state.isAdmin
+});
+export default connect(mapStateToProps, { logout })(Navbar);

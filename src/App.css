@@ -135,7 +135,28 @@ Link {
     color: black !important;
     font-size: 10px !important;
 }
-
+.Posts-Card{
+  /* text-align: center; */
+  text-align: center;
+  background-color: rgba(223, 233, 233, 0.226);
+  /* padding: 10px; */
+  margin-left: 500px;
+  margin-right: 500px
+}
+.Profile-Card, .myProfile-Card, .Contact-Card {
+  text-align: center;
+  background-color: rgba(223, 233, 233, 0.226);
+  /* margin: 100px; */
+  margin-left: 500px;
+  margin-right: 500px
+}
+.Encouragement-Card {
+    text-align: center;
+    background-color: rgba(223, 233, 233, 0.226);
+    /* margin: 100px; */
+    margin-left: 400px;
+    margin-right: 400px
+  }
   .posts {
     text-align: center;
   }
@@ -171,38 +192,12 @@ Link {
     text-decoration: none;
     text-align: center;
   }
-
-  .Posts-Card{
-    /* text-align: center; */
-    text-align: center;
-    background-color: rgba(223, 233, 233, 0.226);
-    /* padding: 10px; */
-    margin-left: 500px;
-    margin-right: 500px
-  }
-  .Profile-Card, .myProfile-Card, .Contact-Card {
-    text-align: center;
-    background-color: rgba(223, 233, 233, 0.226);
-    /* margin: 100px; */
-    margin-left: 500px;
-    margin-right: 500px
-  }
-  .Encouragement-Card {
-      text-align: center;
-      background-color: rgba(223, 233, 233, 0.226);
-      /* margin: 100px; */
-      margin-left: 400px;
-      margin-right: 400px
-  }
   .admin-profile-card {
     text-align: center;
     background-color: rgba(223, 233, 233, 0.226);
     /* margin: 100px; */
     margin-left: 500px;
     margin-right: 500px
-  }
-
-
 
   @media (max-width: 768px){
     body {
@@ -249,11 +244,8 @@ Link {
       margin: auto;
       width: 1.5in;
     }
-
-
 }
      
-
 @media (max-width: 1024px) {
   .Posts-Card{
     text-align: center;
