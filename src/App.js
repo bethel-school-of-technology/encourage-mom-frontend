@@ -7,6 +7,7 @@ import Landing from './components/layout/Landing';
 import Alert from './components/layout/Alert';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
+
 // import Logout from './components/auth/Logout'
 
 import home from './components/pages/home';
@@ -16,10 +17,10 @@ import contact from './components/pages/contact';
 
 import CreateProfile from './components/profile/create-profile';
 import EditProfile from './components/profile/edit-profile';
-import {ProfileList} from './components/profile/profiles';
+import { ProfileList } from './components/profile/profiles';
 import Profile from './components/profile/profile';
 
-import posts from './components/pages/posts'
+import posts from './components/pages/posts';
 import postForm from './components/posts/postForm';
 // import EditPost from './components/posts/editpost';
 // import PostFeed from './components/posts/post-feed';
@@ -32,7 +33,6 @@ import profileAdmin from './components/admin/profiles';
 import userAdmin from './components/admin/users';
 import contactAdmin from './components/admin/contact';
 
-
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
@@ -41,14 +41,13 @@ import { Provider } from 'react-redux';
 import store from './store';
 import './App.css';
 
-
-  if(localStorage.token){
-    setAuthToken(localStorage.token);
-  }
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   useEffect(() => {
-    store.dispatch(loadUser())
+    store.dispatch(loadUser());
   }, []);
 return(
 <Provider store={store}>
@@ -100,5 +99,6 @@ return(
 </Router>
 </Provider>
 )} ;
+
 
 export default App;

@@ -1,52 +1,48 @@
-body {
-  background-color: #b19cd9;
-} 
-
-header {
-  background-color: rgba(223, 233, 233, 0.226);
-  padding: -15px;
-  margin: -10px;
-  text-align: center;
-}
-
-li > h1 {
-  float: left;
-  margin: 1px;
-  padding: 1px;
-  font-size: 60px;
-  font-weight: bolder;
-  padding-left: 10px;
-}
-
-nav > li {
-  float: right;
-}
-
-a {
-
-/*   text-decoration: none;
+                  body {
+                      background-color: #b19cd9;
+                  }
+                  
+                  header {
+                      background-color: rgba(223, 233, 233, 0.226);
+                      padding: -15px;
+                      margin: -10px;
+                      text-align: center;
+                  }
+                  
+                  li>h1 {
+                      float: left;
+                      margin: 1px;
+                      padding: 1px;
+                      font-size: 60px;
+                      font-weight: bolder;
+                      padding-left: 10px;
+                  }
+                  
+                  nav>li {
+                      float: right;
+                  }
+                  
+                  a {
+                      /*   text-decoration: none;
   padding: 5px;
   margin: 5px;
   text-align: center;
   font-size: 35px;
   color: whit
     text-decoration: none; */
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-    /* font-size: 35px;
+                      padding: 5px;
+                      margin: 5px;
+                      text-align: center;
+                      /* font-size: 35px;
     color: white; */
-
-}
-
-nav > a:hover {
-  background-color: lightgray;
-}
-
-/* a > .active {
+                  }
+                  
+                  nav>a:hover {
+                      background-color: lightgray;
+                  }
+                  /* a > .active {
     background-color: lightpink;
-} */
-
+} 
 ul {
   list-style-type: none;
   overflow: hidden;
@@ -243,3 +239,4 @@ Link {
     margin-left: 500px;
     margin-right: 500px
   }
+

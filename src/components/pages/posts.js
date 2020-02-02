@@ -12,7 +12,7 @@ const posts = ({ auth: {isAuthenticated, loading} }) => {
              <div className="post-intro">
                  <h1>Posts</h1>
                  <h3>This is a place to connect, learn tips and advice from each other about being a great wife and mother, and to encourage each other </h3>
-                 <h5>DISCLAIMER: Any posts or comments that are offensive and inappropiate will be deleted</h5>
+                 <h5>DISCLAIMER: Any posts or comments that are offensive and inappropriate will be deleted</h5>
              </div>
              <div>
                 <h1>
@@ -45,7 +45,7 @@ const posts = ({ auth: {isAuthenticated, loading} }) => {
              <div className="post-intro">
                  <h1>Posts</h1>
                  <h3>This is a place to connect, learn tips and advice from each other about being a great wife and mother, and to encourage each other </h3>
-                 <h5>DISCLAIMER: Any posts or comments that are offensive and inappropiate will be deleted</h5>
+                 <h5>DISCLAIMER: Any posts or comments that are offensive and inappropriate will be deleted</h5>
              </div>
              <div className="post-auth">
                  <h3>Please sign-up or login to write posts or comment on posts.</h3>

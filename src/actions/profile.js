@@ -13,7 +13,6 @@ import {
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-
 //create profile
 
 export const createProfile = (formData) => async dispatch => {
@@ -42,6 +41,7 @@ export const createProfile = (formData) => async dispatch => {
 }
 
 
+
 // edit profile
 export const editProfile = (profile, username) => async dispatch => {
     const res = await axios.put(`${baseUrl}/profile/${username}`, profile);
@@ -49,7 +49,7 @@ export const editProfile = (profile, username) => async dispatch => {
         type: UPDATE_PROFILE,
         payload: res.data
 })
-alert("Profile Updated Succesfully!")
+alert("Profile Updated Successfully!")
 
 }
 
@@ -68,7 +68,7 @@ export const deleteProfile = () => async dispatch => {
             .catch(err => 
             dispatch({
                 type: PROFILE_ERROR,
-                payload: {msg: err.response.statusText, status: err.resposne.status}
+                payload: {msg: err.response.statusText, status: err.response.status}
             })
             )
         }
