@@ -17,7 +17,7 @@ export const getPost = id => async dispatch => {
         type: GET_POST,
         payload: res.data
     });
-
+}
 
 export const createPost = ({username, title, text}) => dispatch => {
     const config = {
