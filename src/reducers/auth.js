@@ -24,6 +24,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 isAuthenticated: true,
+                isAdmin: true,
                 loading: false,
                 user: payload
             };
@@ -34,6 +35,7 @@ export default function (state = initialState, action) {
                 ...state,
                 ...payload,
                 isAuthenticated: true,
+                isAdmin: true,
                 loading: false
             }
         case SIGNUP_FAIL:

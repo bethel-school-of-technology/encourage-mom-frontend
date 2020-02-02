@@ -7,6 +7,8 @@ const CreatePost = ({ createPost }) => {
     const [ username, setUsername] = useState('')
     const [ text, setText ] = useState('');
     const [ title, setTitle ] = useState('');
+
+
     return(
         <div className="form">
             <form className="posts-form"
@@ -16,7 +18,7 @@ const CreatePost = ({ createPost }) => {
                     setTitle('');
                     }}
                     >
-                <div>
+                <div> Username: 
                     <input 
                         type="text"
                         name="username"
@@ -49,6 +51,7 @@ const CreatePost = ({ createPost }) => {
                         className="btn btn-primary"
                         value="createPost"
                         />
+                        <a href='/posts'>Back to Post Page!</a>
                 </form>
             </div>
     )

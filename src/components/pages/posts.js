@@ -1,11 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {logout} from '../../actions/auth';
+// import {getPosts} from '../../actions/post'
 import PropTypes from 'prop-types';
+import PostList from "../posts/post-feed";
+// import postFeed from "../posts/post-feed";
 
 
-const post = ({ auth: {isAuthenticated, loading}, logout }) => {
+const posts = ({ auth: {isAuthenticated, loading}, logout }) => {
+
     const authLinks = (
              <div className="post-page">
              <div className="post-intro">
@@ -33,7 +37,11 @@ const post = ({ auth: {isAuthenticated, loading}, logout }) => {
             </div>
             </div>
             <div className="post-recent">
-                <h2>Most Recent Posts:</h2>
+                <h2> Posts:</h2>
+                {/* <ul>
+                    {postFeed.posts.map(title => (<li>{title}</li>))};
+                </ul> */}
+                <PostList/>
             </div>
         </div>
     );
@@ -64,21 +72,27 @@ const post = ({ auth: {isAuthenticated, loading}, logout }) => {
             </div>
             </div>
             <div className="post-recent">
-                <h2>Most Recent:</h2>
+                <h2>Posts:</h2>
+
+                <PostList/>
             </div>
         </div>
         </div>
     )
     return (
+        
         <div>
+        
         {!loading && (
-            <Fragment> {isAuthenticated ? authLinks : guestLinks}</Fragment>   
+            <Fragment> {isAuthenticated ? authLinks : guestLinks}</Fragment>
          )}
+         
+         <h2></h2>
         </div>
     )
 }
 
-post.propTypes = {
+posts.propTypes = {
     logout: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 };
@@ -86,7 +100,7 @@ post.propTypes = {
 const mapStateToProps = state => ({ 
     auth: state.auth
 })
-export default connect( mapStateToProps, {logout})(post);
+export default connect( mapStateToProps, {logout})(posts);
 
 
 {/* //     {
