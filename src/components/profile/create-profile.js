@@ -54,7 +54,9 @@ const CreateProfile = ({ createProfile}) => {
                     value="Create Profile"
             />
             <br />
-            <a href='/profile'>Back to profile</a>
+            <br />
+            <br />
+            <a href='/profile'>Back</a>
             </form>
         </div>
     )
