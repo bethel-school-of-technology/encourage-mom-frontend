@@ -12,7 +12,7 @@ import Login from './components/auth/Login';
 
 import home from './components/pages/home';
 
-import Encouragement from './components/pages/encouragement';
+import Encouragement from './components/pages/Encouragement';
 import contact from './components/pages/contact';
 
 import CreateProfile from './components/profile/create-profile';
@@ -26,7 +26,7 @@ import postForm from './components/posts/postForm';
 // import PostFeed from './components/posts/post-feed';
 // import PostList from './components/posts/post-feed';
 
-import AuthLanding from './components/pages/auth-landing';
+import AuthLanding from './components/pages/authLanding';
 import CreateEncouragement from './components/admin/encouragement';
 import postAdmin from './components/admin/posts';
 import profileAdmin from './components/admin/profiles';
