@@ -9,6 +9,9 @@ import { connect } from "react-redux";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 class postAdmin extends Component {
+    onDeleteClick(id) {
+        this.props.deletePost(id);
+      }
     constructor(props) {
       super(props);
        this.state = {
@@ -25,10 +28,10 @@ class postAdmin extends Component {
     .catch(error => console.log(error))
   }
     
-  onDeleteClick(id) {
-    this.props.deletePost(id);
-    console.log("test3")
-}
+//   onDeleteClick(id) {
+//     this.props.deletePost(id);
+//     console.log("test3")
+// }
 render() {
     return (
 

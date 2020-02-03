@@ -99,8 +99,8 @@ export const login = (username, password) => async dispatch => {
     } catch  (err){
         alert.window('Username or Password is wrong')
         console.log(err)
-        console.log("Invalid Credentials");
-        alert("Invalid Credentials");
+        // console.log("Invalid Credentials");
+        // alert("Invalid Credentials");
     };
 }
 // Logout / Clear Profile
