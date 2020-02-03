@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
-const Login = ({ login, isAuthenticated, isAdmin }) => {
+const Login = ({ login, isAuthenticated, isAdmin}) => {
     const [formData, setFormData ] = useState({
         username: '',
-        password: ''
+        password: '',
     });
 
 const { username, password } = formData;
@@ -18,19 +18,35 @@ const onChange = e =>
 const onSubmit = async e => {
     e.preventDefault();
     console.log(formData);
+
+    // console.log
+
+    // if(isAdmin === true) {
+    //     console.log("Welcome, Admin")
+    //     return isAdmin
+
+    // }
     login(username, password);
+    // console.log(isAdmin);
 };
 
 if (isAuthenticated) {
     console.log(formData)
     console.log("Authenticated")
-    return <Redirect to='/profile' />
+    
+    if(isAdmin === 'true') {
+        console("Admin Access")
+        return <Redirect to='/authLanding'></Redirect>
+    } else {
+        console.log("Not Admin :(")
+        return <Redirect to='/profile' />
+} 
 
 }
 
-if(isAdmin) {
-    console.log('admin')
-    return <Redirect to ='/admin'/>
+    if (isAuthenticated && isAdmin === "true") {
+    console.log('Admin Access')
+    return <Redirect to ='/authLanding'/>
 }
 
 return (
@@ -69,7 +85,7 @@ return (
             </form>
             <p>
                 Don't have an account?
-                <Link to= "/Signup">Sign Ups</Link>
+                <Link to= "/Signup">Sign Up</Link>
             </p>
     </div>
     </Fragment>

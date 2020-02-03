@@ -9,14 +9,14 @@ import {
     ACCOUNT_DELETED
 } from '../actions/types'
 
-const intitalState = {
+const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     loading: true,
     user: null
 }
 
-export default function (state = intitalState, action) {
+export default function (state = initialState, action) {
     const { type, payload } = action;
 
     switch(type) {
@@ -24,6 +24,7 @@ export default function (state = intitalState, action) {
             return {
                 ...state,
                 isAuthenticated: true,
+                isAdmin: true,
                 loading: false,
                 user: payload
             };
@@ -34,6 +35,7 @@ export default function (state = intitalState, action) {
                 ...state,
                 ...payload,
                 isAuthenticated: true,
+                isAdmin: true,
                 loading: false
             }
         case SIGNUP_FAIL:
