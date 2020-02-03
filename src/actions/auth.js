@@ -81,11 +81,7 @@ export const login = (username, password) => async dispatch => {
                     type: USER_LOADED,
                     payload: res.data.user
                 });
-            });
-
-        // const res = await axios.post(`${baseUrl}/auth`, body, config);
-        // console.log(res);
-        // console.log("test_2");
+            })
 
         // if (res.isAdmin === "true") {
         //     console.log("You are an admin!")
@@ -101,6 +97,7 @@ export const login = (username, password) => async dispatch => {
     
         // dispatch(loadUser());
     } catch  (err){
+        alert.window('Username or Password is wrong')
         console.log(err)
         console.log("Invalid Credentials");
         alert("Invalid Credentials");

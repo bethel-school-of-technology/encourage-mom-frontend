@@ -30,9 +30,10 @@ class userAdmin extends Component {
           {/* <div className="profile"> */}
             {this.state.users.map(user => (
               <div className="admin-profile-card" key={user._id}>
-                       <h3>{user.firstName} {user.lastName}</h3><button>Delete User</button>
-                       < br/>
-                       <br/>
+                       <h3>{user.firstName} {user.lastName}</h3>
+                       <h5>{user.date}</h5>
+                       {/* <button>Delete User</button> */}
+
               </div>
           ))
         }
