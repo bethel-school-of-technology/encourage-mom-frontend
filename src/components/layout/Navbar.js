@@ -60,10 +60,10 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
 // </header>
         <header>
         <nav>
-            <ul>
+            <ul className="NavBar">
                 
                 {/* <li><h1>Crowned Jewels</h1></li> */}
-                <li className="nav-right"><Link to ="/" id="title">Crowned Jewels</Link></li>
+                <li className="nav-left"><Link to ="/" id="title">Crowned Jewels</Link></li>
                 <li className="dropdown">
                         <div className="drop-btn">
                             <Link to = "/profile">

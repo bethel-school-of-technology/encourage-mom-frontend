@@ -15,6 +15,12 @@ const posts = ({ auth: { isAuthenticated, loading } }) => {
           This is a place to connect, learn tips and advice from each other
           about being a great wife and mother, and to encourage each other{' '}
         </h3>
+        <div className="Expections">
+          <h3>Expectations:</h3>
+           <p className="Expections">~ Be Kind and Courteous to One Another</p>
+           <p className="Expections">~ No Swear Words in Posts or Comments</p>
+           <p className="Expections">~ Keep the Atmosphere for Posts and Comments Peaceful and Uplifting</p> 
+        </div>
         <h5>
           DISCLAIMER: Any posts or comments that are offensive and inappropriate
           will be deleted
@@ -29,13 +35,13 @@ const posts = ({ auth: { isAuthenticated, loading } }) => {
       <div>
         <Link to='/create-post'>Write a Post!</Link>
       </div>
-      <div className='post-search'>
+      {/* <div className='post-search'>
         Search through posts archive for a specific post:
         <div className='post-search-bar'>
           <br />
           <input type='text' className='input' placeholder='Search...' />
         </div>
-      </div>
+      </div> */}
       <div className='post-recent'>
         <h2> Posts:</h2>
         <PostList />
