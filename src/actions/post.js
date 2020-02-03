@@ -20,7 +20,7 @@ export const getPost = id => async dispatch => {
     });
 }
 
-export const createPost = ({formData}) => async dispatch => {
+export const createPost = ({username, title, text}) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -28,11 +28,11 @@ export const createPost = ({formData}) => async dispatch => {
     };
     console.log("test1")
 
-    // const body = ({username, title, text});
-    // console.log("test2");
-    // console.log(body)
+    const body = ({username, title, text});
+    console.log("test2");
+    console.log(body)
     try {
-    const res = axios.post(`${baseUrl}/posts`, formData, config);
+    const res = axios.post(`${baseUrl}/posts`, body, config);
     console.log('test3')
         dispatch({
             type: CREATE_POST,
