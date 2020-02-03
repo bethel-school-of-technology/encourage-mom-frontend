@@ -22,6 +22,11 @@ export class Encouragement extends Component {
 
   render() {
     return (
+      <div>
+
+        <h1 id="encouragement">Encouragement Just For You, Mama!</h1>
+        <h4>A new encouragement will be added a least once a week</h4>
+
       <div className='encouragement'>
         {this.state.encouragements.map(encouragement => (
           <div
@@ -39,6 +44,7 @@ export class Encouragement extends Component {
           </div>
         ))}
         <br />
+      </div>
       </div>
     );
   }

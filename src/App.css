@@ -192,13 +192,25 @@ Link {
     text-decoration: none;
     text-align: center;
   }
+
   .admin-profile-card {
     text-align: center;
     background-color: rgba(223, 233, 233, 0.226);
     /* margin: 100px; */
     margin-left: 500px;
     margin-right: 500px
+  }
 
+  #title {
+    font-size: 65px;
+    margin: auto
+  }
+  
+  #encouragement {
+    font-size: 35px;
+    
+  }
+  
   @media (max-width: 768px){
     body {
       margin: 0px

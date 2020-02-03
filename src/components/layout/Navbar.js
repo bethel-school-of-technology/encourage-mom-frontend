@@ -12,7 +12,7 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
         <header>
                 <nav>
                     <ul>
-                    <li ><h1 id="title">Crowned Jewels</h1></li>
+                    <li className="nav-right"><Link to ="/" id="title">Crowned Jewels</Link></li>
                     <li className="dropdown">
                                 <div className="dropbtn">
                                     <Link to="#">
@@ -27,7 +27,7 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                         <li className="nav-right"><Link to ="/contact">Contact</Link></li>
                         <li className="nav-right"><Link to = "/posts">Posts</Link></li>
                         <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
-                        <li className="nav-right"><Link to ="/">Home</Link></li>
+                       
 
                     </ul>
                 </nav>
@@ -60,9 +60,10 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
 // </header>
         <header>
         <nav>
-            <ul>
+            <ul className="NavBar">
                 
-                <li><h1>Crowned Jewels</h1></li>
+                {/* <li><h1>Crowned Jewels</h1></li> */}
+                <li className="nav-left"><Link to ="/" id="title">Crowned Jewels</Link></li>
                 <li className="dropdown">
                         <div className="drop-btn">
                             <Link to = "/profile">
@@ -73,13 +74,12 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                                 <Link to = "/profiles">User Bios</Link>                               
                                 <Link to ="/login" onClick={logout}>Logout</Link>
                             </div>
-                        
                         </div>
                     </li>
                 <li className="nav-right"><Link to ="/contact">Contact</Link></li>
                 <li className="nav-right"><Link to = "/posts">Posts</Link></li>
                 <li className="nav-right"><Link to = "/encouragement">Encouragement</Link> </li>
-                <li className="nav-right"><Link to ="/">Home</Link></li>
+               
 
             </ul>
         </nav>

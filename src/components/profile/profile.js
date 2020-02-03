@@ -9,14 +9,14 @@ export class Profile extends Component {
     constructor(props) {
       super(props);
        this.state = {
-           profile: [],
-           users: []
+           profile: []
     };
    }
 
   componentDidMount() {
-    console.log("Test1")
-    axios.get(`${baseUrl}/profile/me`)
+    console.log("Test1");
+    // console.log(this.state.users);
+    axios.post(`${baseUrl}/profile/me`, {"username": "wanda.baer" })
     .then(res => this.setState({profile: res.data})
     )
     .catch(error => console.log(error))
