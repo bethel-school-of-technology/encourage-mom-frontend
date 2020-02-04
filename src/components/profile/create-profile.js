@@ -63,7 +63,7 @@ const CreateProfile = ({ createProfile}) => {
 }
 
 CreateProfile.propTypes = {
-    editProfile: PropTypes.func.isRequired
+    createProfile: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({

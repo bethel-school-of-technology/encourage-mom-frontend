@@ -75,3 +75,88 @@ render() {
     
 
 export default Profile
+
+
+// const baseUrl = process.env.REACT_APP_BASE_URL;
+
+// export class Profile extends Component {
+
+//   componentDidMount() {
+//       this.props.getCurrentProfile()
+//     }
+    
+// render() {
+
+//   const {user} = this.props.auth;
+//   const {profile} = this.props.profile
+//     return (
+//       <div className="profile">
+  
+//     <div className="myProfile-Card" >
+//       <h1>Welcome! {user.firstName} {user.lastName}!!!!!</h1>
+//       < br/>
+//       </div>
+//       <br/>
+//       <br/>
+//       <p>Want to Create a Profile!</p>
+//       <Link to ="/create-profile">Create profile</Link>
+//       <p>Want to Edit Profile?</p>
+//       <Link to = "/edit-profile">Edit Profile</Link>
+//       <br/>
+
+//   < br/>
+//   </div>
+// )
+ 
+//   }
+// }
+
+// Profile.propTypes = {
+//   getCurrentProfile: PropTypes.func.isRequired,
+//   auth: PropTypes.object.isRequired,
+//   profile: PropTypes.object.isRequired
+// }
+
+// const mapStateToProps = state => ({
+//   profile: state.profile,
+//   auth: state.auth
+// })
+
+// export default connect(mapStateToProps, { getCurrentProfile})(Profile);
+
+
+// import React, { Component } from 'react';
+// import axios from 'axios';
+// // eslint-disable-next-line
+// import {Link} from 'react-router-dom';
+// import PropTypes from 'prop-types'
+// import { connect } from 'react-redux'
+// import { getCurrentProfile } from '../../actions/profile';
+// import Profile from './Profile'
+
+
+
+//       //   <div className="posts">
+//       //       <div className="myProfile-Card" 
+//       //       key={this.state.profile._id}>
+//       //           <h1>Welcome! {this.state.profile.username}!!!!!</h1>
+//       //           <h3>{this.state.profile.location}</h3>
+//       //           <p>{this.state.profile.bio}</p>
+//       //           < br/>
+//       //       </div>
+//       //       <p>Want to Edit Profile?</p>
+
+//       //       <Link to = "/edit-profile">Edit Profile</Link>
+//       //       <br/>
+//       //       <p>No profile? Create One!</p>
+
+//       //       <Link to ="/create-profile">Create profile</Link>
+//       //   < br/>
+//       //   </div>
+//       // );
+//        // eslint-disable-next-line 
+//   }
+// }
+    
+
+// export default Profile

@@ -70,7 +70,7 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                                 <img alt='profile' src={profile}  width="45px" />
                             </Link>
                             <div className="dropdown-content" >
-                                <Link to = "/create-post">Create Post</Link>
+                                {/* <Link to = "/create-post">Create Post</Link> */}
                                 <Link to = "/profiles">User Bios</Link>                               
                                 <Link to ="/login" onClick={logout}>Logout</Link>
                             </div>
