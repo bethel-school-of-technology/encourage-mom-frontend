@@ -6,6 +6,7 @@ import {
     UPDATE_POST,
     DELETE_POST,
     POST_ERROR,
+    GET_ERRORS
 
 } from "./types"
 
@@ -19,7 +20,7 @@ export const getPost = id => async dispatch => {
     });
 }
 
-export const createPost = ({username, title, text}) => dispatch => {
+export const createPost = ({username, title, text}) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -31,17 +32,21 @@ export const createPost = ({username, title, text}) => dispatch => {
     console.log("test2");
     console.log(body)
     try {
-        const res = axios.post(`${baseUrl}/posts`, body, config);
+    const res = axios.post(`${baseUrl}/posts`, body, config);
     console.log('test3')
         dispatch({
             type: CREATE_POST,
             payload: res.data
         });
+        console.log("Post submit authorized")
+        // alert("Post Created Successfully! Refer to Posts to see all posts. ")
+        // dispatch(setAlert('Post Created', 'success'));
     } catch(err) {
         dispatch({
             type: POST_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status}
+            // payload: { msg: err.response.statusText, status: err.response.status}
         });
+
     }
 };
 
@@ -55,22 +60,24 @@ export const updatePost = (post, _id) => async dispatch => {
 };
 
 export const deletePost = id => dispatch => {
-    if(alert("Warning! This can not be undone! Are you sure you want to delete this post")) {
-        try {
+    // if(alert("Warning! This can not be undone! Are you sure you want to delete this post")) {
+        // try {
             axios.delete(`${baseUrl}/posts/${id}`)
             .then(res => 
-            dispatch({type: DELETE_POST,
-            payload: id
-        })
-      )
-        console.log("test1")
-      dispatch(setAlert('Post Deleted', 'success'));
-        console.log("Test3")
-        } catch (err) {
-            dispatch({
-                type: POST_ERROR,
-                payload: err.resposne.data
+                dispatch({
+                    type: DELETE_POST,
+                payload: id
             })
-        }
-  }
-};
+        )
+        // console.log("test1")
+    //   dispatch(setAlert('Post Deleted', 'success'));
+    //    console.log("Test3")
+        // } 
+        .catch (err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        )
+        // }
+    };
