@@ -43,8 +43,8 @@ export const createProfile = (formData) => async dispatch => {
 
 
 // edit profile
-export const editProfile = (profile, username) => async dispatch => {
-    const res = await axios.put(`${baseUrl}/profile/${username}`, profile);
+export const editProfile = (profile, id) => async dispatch => {
+    const res = await axios.put(`${baseUrl}/profile/${id}`, profile);
     dispatch({
         type: UPDATE_PROFILE,
         payload: res.data
