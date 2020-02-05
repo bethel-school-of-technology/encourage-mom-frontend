@@ -37,10 +37,10 @@ const Signup = ({ setAlert, signup, isAuthenticated, isAdmin}) => {
                 console.log("Authenticated")
                 return <Redirect to='/profile'/>
     }
-        if (isAdmin) {
-        console.log('Admin Access')
-        return <Redirect to ='/authLanding'/>
-    }
+    //     if (isAdmin) {
+    //     console.log('Admin Access')
+    //     return <Redirect to ='/authLanding'/>
+    // }
 return (
     <Fragment>
         <div>

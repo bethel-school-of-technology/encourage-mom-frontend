@@ -8,6 +8,7 @@ import {
 
 import axios from 'axios'
 import setAuthToken from '../utils/setAuthToken';
+import { bindActionCreators } from 'redux';
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
@@ -17,6 +18,7 @@ export const loadUser = () => async dispatch => {
         setAuthToken(localStorage.token)
     } 
     try {
+        console.log("Testing More!")
         const res = await axios.get(`${baseUrl}/users`);
         dispatch({
             type: USER_LOADED,
@@ -66,29 +68,39 @@ export const login = (username, password) => async dispatch => {
 
     console.log(body)
     try {
-        console.log("test_1")
-        // erroring out with the post
-    
-        const res = await axios.post(`${baseUrl}/auth`, body, config);
-        console.log("test_2")
+        console.log("test_1");
+        
+        axios.post(`${baseUrl}/auth`, body, config)
+            .then(function(res){
+                console.log(res.data.user)
+                dispatch({
+                    type: LOGIN_SUCCESS,
+                    payload: res.data.token
+                })
+                dispatch({
+                    type: USER_LOADED,
+                    payload: res.data.user
+                });
+            })
 
-        if (res.isAdmin === "true") {
-            console.log("You are an admin!")
-              // return res.status(200).json()
-          } else {
-            console.log("You are not an admin")
-          }
-        dispatch({
-            type: LOGIN_SUCCESS,
-            payload: res.data
-        });
+        // if (res.isAdmin === "true") {
+        //     console.log("You are an admin!")
+        //       // return res.status(200).json()
+        //   } else {
+        //     console.log("You are not an admin")
+        //   }
+        // dispatch({
+        //     type: LOGIN_SUCCESS,
+        //     payload: res.data
+        // });
 
     
-        dispatch(loadUser());
+        // dispatch(loadUser());
     } catch  (err){
+        alert.window('Username or Password is wrong')
         console.log(err)
-        console.log("Invalid Credentials");
-        alert("Invalid Credentials");
+        // console.log("Invalid Credentials");
+        // alert("Invalid Credentials");
     };
 }
 // Logout / Clear Profile

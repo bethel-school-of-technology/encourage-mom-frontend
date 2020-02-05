@@ -6,9 +6,12 @@ import PropTypes from 'prop-types';
 import {deletePost} from '../../actions/post'
 import { connect } from "react-redux";
 
-const baseUrl = process.env.REACT_APP_BASE;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 class postAdmin extends Component {
+    onDeleteClick(id) {
+        this.props.deletePost(id);
+      }
     constructor(props) {
       super(props);
        this.state = {
@@ -25,10 +28,10 @@ class postAdmin extends Component {
     .catch(error => console.log(error))
   }
     
-  onDeleteClick(id) {
-    this.props.deletePost(id);
-    console.log("test3")
-}
+//   onDeleteClick(id) {
+//     this.props.deletePost(id);
+//     console.log("test3")
+// }
 render() {
     return (
 
@@ -38,8 +41,8 @@ render() {
             <div className="posts">
                 {this.state.posts.map(post => (
                     <div className="Posts-Card" key={post._id}>
-                        <h1>{post.title}</h1>
-                        <h3>{post.username}</h3>
+                        <h2>{post.title}</h2>
+                        <h4>{post.username}</h4>
                         <p>{post.text}</p>
                         <button type="button" onClick={this.onDeleteClick.bind(this, post._id)}>Delete Post</button>
                         < br/>
