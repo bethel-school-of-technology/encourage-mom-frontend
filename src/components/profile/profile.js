@@ -22,13 +22,12 @@ export class Profile extends Component {
   //   .catch(error => console.log(error))
   // }
   console.log("Test1");
-  axios.get(`${baseUrl}/users/me`)
+  axios.post(`${baseUrl}/users/me`, {username: this.state.users.username})
   .then(res => this.setState({users: res.data})
   )
   .catch(error => console.log(error))
   console.log("Success!")
   }
-    
 render() {
     return (
       <div className="profile">

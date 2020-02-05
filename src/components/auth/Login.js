@@ -8,7 +8,7 @@ const Login = ({ login, isAuthenticated, isAdmin}) => {
     const [formData, setFormData ] = useState({
         username: '',
         password: '',
-    });
+        });
 
 const { username, password } = formData;
 
@@ -19,35 +19,32 @@ const onSubmit = async e => {
     e.preventDefault();
     console.log(formData);
 
-    // console.log
-
-    // if(isAdmin === true) {
-    //     console.log("Welcome, Admin")
-    //     return isAdmin
-
-    // }
     login(username, password);
-    // console.log(isAdmin);
 };
 
 if (isAuthenticated) {
     console.log(formData)
     console.log("Authenticated")
-    
-    if(isAdmin === 'true') {
-        console("Admin Access")
-        return <Redirect to='/authLanding'></Redirect>
-    } else {
-        console.log("Not Admin :(")
-        return <Redirect to='/profile' />
+    return <Redirect to='/profile' />
 } 
 
+if(isAdmin === "true") {
+    console.log("Admin Access")
+    return <Redirect to='/authLanding'></Redirect>
 }
+// }
+// if (formData.isAdmin === "true") {
+//     console.log("You are an admin!")
+//     // console.log(user.isAdmin);
+//       return <Redirect to='/authLanding'></Redirect> 
+//   } else {
+//     console.log("You are not an admin")
+//   }
 
-    if (isAuthenticated && isAdmin === "true") {
-    console.log('Admin Access')
-    return <Redirect to ='/authLanding'/>
-}
+//     if (isAuthenticated && isAdmin === "true") {
+//     console.log('Admin Access')
+//     return <Redirect to ='/authLanding'/>
+// }
 
 return (
     <Fragment>
