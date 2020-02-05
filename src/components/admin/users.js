@@ -43,7 +43,6 @@ class userAdmin extends Component {
         );
     }
   }
-               
 
 
 export default userAdmin;
