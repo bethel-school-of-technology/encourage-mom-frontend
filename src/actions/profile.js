@@ -2,6 +2,7 @@ import axios from "axios";
 import {setAlert} from '../actions/alert';
 
 import { 
+    GET_PROFILE,
     UPDATE_PROFILE,
     CLEAR_CURRENT_PROFILE,
     PROFILE_ERROR,
@@ -12,6 +13,24 @@ import {
 
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
+
+export const getCurrentProfile = userData => dispatch => {
+    axios
+      .get(`${baseUrl}/users/me`, userData)
+      .then(res =>
+        dispatch({
+          type: GET_PROFILE,
+          payload: res.data
+        })
+      )
+      .catch(err =>
+        dispatch({
+          type: GET_PROFILE,
+          payload: {}
+        })
+      );
+  };
+
 
 //create profile
 

@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import {deleteMessage} from '../../actions/contact';
+import {connect} from 'react-redux';
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export class contactAdmin extends Component {
+    onDeleteClick(id) {
+      this.props.deleteMessage(id);
+    }
     constructor(props) {
       super(props);
        this.state = {
@@ -16,7 +22,7 @@ export class contactAdmin extends Component {
     console.log(baseUrl)
     axios.get(`${baseUrl}/contact`)
     .then(res => this.setState({contact: res.data})
-    )
+    )   .catch(error => console.log(error))
   }
 
 
@@ -34,7 +40,7 @@ render() {
                 <h3>{contact.email}</h3>
                 <p>{contact.comments}</p>
                 <p>{contact.date}</p>
-                <button>Delete Message</button>
+                <button type="button" onClick={this.onDeleteClick.bind(this, contact._id)}>Delete Message</button>
                 < br/>
                 < br/>
             </div>
@@ -47,5 +53,9 @@ render() {
     }
 }   
 
+contactAdmin.propType = {
+  deleteMessage: PropTypes.func.isRequired
+}
 
-export default contactAdmin
+
+export default connect(null, {deleteMessage})(contactAdmin);
