@@ -16,8 +16,8 @@ render() {
 
   const { user } = this.props.auth;
   // const {profile} = this.props.profile
-  
-  if(user.isAdmin == true) {
+
+  if(user.isAdmin === true) {
     console.log("Admin Access")
     return <Redirect to='/auth-landing'></Redirect>
 }
