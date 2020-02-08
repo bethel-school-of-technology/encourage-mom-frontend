@@ -15,20 +15,20 @@ import {
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const getCurrentProfile = userData => dispatch => {
-    axios
-      .get(`${baseUrl}/users/me`, userData)
-      .then(res =>
-        dispatch({
-          type: GET_PROFILE,
-          payload: res.data
-        })
-      )
-      .catch(err =>
-        dispatch({
-          type: GET_PROFILE,
-          payload: {}
-        })
-      );
+    // axios
+    //   .post(`${baseUrl}/users/me`, userData)
+    //   .then(res =>
+    //     dispatch({
+    //       type: GET_PROFILE,
+    //       payload: res.data
+    //     })
+    //   )
+    //   .catch(err =>
+    //     dispatch({
+    //       type: GET_PROFILE,
+    //       payload: {}
+    //     })
+    //   );
   };
 
 

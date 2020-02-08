@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
  class Profile extends Component {
 
   componentDidMount() {
-    this.props.getCurrentProfile()
+    // this.props.getCurrentProfile()
   }
     
 render() {
@@ -25,6 +25,7 @@ render() {
       < br/>
       </div>
       <br/>
+      <h3>{user.isAdmin}</h3>
       <br/>
       <p>Want to Create a Profile!</p>
       <Link to ="/create-profile">Create profile</Link>

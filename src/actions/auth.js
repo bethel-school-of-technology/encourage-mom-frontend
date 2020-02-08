@@ -6,9 +6,9 @@ import {
     LOGOUT
 } from './types';
 
-import axios from 'axios'
+import axios from 'axios';
+import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken';
-import { bindActionCreators } from 'redux';
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
@@ -57,7 +57,7 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
 };
 
 //login user
-export const login = (username, password) => async dispatch => {
+export const login = (username, password, isAdmin) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -100,7 +100,7 @@ export const login = (username, password) => async dispatch => {
         alert.window('Username or Password is wrong')
         console.log(err)
         // console.log("Invalid Credentials");
-        // alert("Invalid Credentials");
+        dispatch(setAlert("Invalid Credentials"));
     };
 }
 // Logout / Clear Profile
