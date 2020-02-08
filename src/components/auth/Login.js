@@ -28,10 +28,10 @@ if (isAuthenticated) {
     return <Redirect to='/profile' />
 } 
 
-if(isAdmin === "true") {
-    console.log("Admin Access")
-    return <Redirect to='/authLanding'></Redirect>
-}
+// if(isAdmin === "true") {
+//     console.log("Admin Access")
+//     return <Redirect to='/authLanding'></Redirect>
+// }
 // }
 // if (formData.isAdmin === "true") {
 //     console.log("You are an admin!")
