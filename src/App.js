@@ -38,8 +38,18 @@ import setAuthToken from './utils/setAuthToken';
 
 //redux
 import { Provider } from 'react-redux';
+import { Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
 import store from './store';
 import './App.css';
+
+const options = {
+  position: 'bottom center',
+  timeout: 5000,
+  offset: '30px',
+  transition: 'scale'
+}
+
 
 //check for token
 if (localStorage.token) {
@@ -54,6 +64,10 @@ const App = () => {
   
 return(
 <Provider store={store}>
+
+<AlertProvider template={AlertTemplate} {...options}>
+    
+
 
 <Router>
   <Fragment>
@@ -100,6 +114,7 @@ return(
       </section>
   </Fragment>
 </Router>
+</AlertProvider>
 </Provider>
 )} ;
 

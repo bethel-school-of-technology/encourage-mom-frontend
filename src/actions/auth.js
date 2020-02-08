@@ -3,11 +3,13 @@ import {
     USER_LOADED,
     AUTH_ERROR,
     LOGIN_SUCCESS,
+    LOGIN_FAIL,
     LOGOUT
 } from './types';
 
 import axios from 'axios';
 import { setAlert } from './alert';
+import {useAlert} from 'react-alert'
 import setAuthToken from '../utils/setAuthToken';
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -83,28 +85,18 @@ export const login = (username, password, isAdmin) => async dispatch => {
                 });
             })
 
-        // if (res.isAdmin === "true") {
-        //     console.log("You are an admin!")
-        //       // return res.status(200).json()
-        //   } else {
-        //     console.log("You are not an admin")
-        //   }
-        // dispatch({
-        //     type: LOGIN_SUCCESS,
-        //     payload: res.data
-        // });
-
-    
         // dispatch(loadUser());
     } catch  (err){
-        alert.window('Username or Password is wrong')
-        console.log(err)
-        // console.log("Invalid Credentials");
         dispatch(setAlert("Invalid Credentials"));
-    };
-}
-// Logout / Clear Profile
+        dispatch({
+            type: LOGIN_FAIL
+        })
+            alert('Username or Password is wrong')
+    }
+};
 
+
+// Logout / Clear Profile
 export const logout = () => dispatch => {
     dispatch({ type: LOGOUT});
 

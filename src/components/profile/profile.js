@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
-
+import {Redirect} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
  class Profile extends Component {
@@ -10,11 +10,17 @@ import {Link} from 'react-router-dom';
   componentDidMount() {
     // this.props.getCurrentProfile()
   }
-    
+  
+  
 render() {
 
   const { user } = this.props.auth;
   // const {profile} = this.props.profile
+  
+  if(user.isAdmin == true) {
+    console.log("Admin Access")
+    return <Redirect to='/auth-landing'></Redirect>
+}
 
   return (
       <div className="profile">
