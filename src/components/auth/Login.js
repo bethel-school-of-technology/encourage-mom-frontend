@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
-const Login = ({ login, isAuthenticated, isAdmin}) => {
+const Login = ({ login, isAuthenticated }) => {
     const [formData, setFormData ] = useState({
         username: '',
         password: '',
-    });
+        });
 
 const { username, password } = formData;
 
@@ -19,35 +19,14 @@ const onSubmit = async e => {
     e.preventDefault();
     console.log(formData);
 
-    // console.log
-
-    // if(isAdmin === true) {
-    //     console.log("Welcome, Admin")
-    //     return isAdmin
-
-    // }
     login(username, password);
-    // console.log(isAdmin);
 };
 
 if (isAuthenticated) {
     console.log(formData)
     console.log("Authenticated")
-    
-    if(isAdmin === 'true') {
-        console("Admin Access")
-        return <Redirect to='/authLanding'></Redirect>
-    } else {
-        console.log("Not Admin :(")
-        return <Redirect to='/profile' />
+    return <Redirect to='/profile' />
 } 
-
-}
-
-    if (isAuthenticated && isAdmin === "true") {
-    console.log('Admin Access')
-    return <Redirect to ='/authLanding'/>
-}
 
 return (
     <Fragment>
@@ -85,7 +64,7 @@ return (
             </form>
             <p>
                 Don't have an account?
-                <Link to= "/Signup">Sign Up</Link>
+                <Link to= "/signup">Sign Up</Link>
             </p>
     </div>
     </Fragment>
@@ -95,12 +74,10 @@ return (
 Login.propTypes = {
     login: PropTypes.func.isRequired,
     isAuthenticated:PropTypes.bool,
-    isAdmin: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
-    isAdmin: state.auth.isAdmin
 });
 
 

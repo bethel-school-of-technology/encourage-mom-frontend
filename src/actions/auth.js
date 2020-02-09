@@ -3,10 +3,14 @@ import {
     USER_LOADED,
     AUTH_ERROR,
     LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    DELETE_USER,
+    GET_ERRORS,
     LOGOUT
 } from './types';
 
-import axios from 'axios'
+import axios from 'axios';
+import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken';
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -37,8 +41,6 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
 };
     const body = ({firstName, lastName, email, username, password });
 
-    console.log(body);
-
     try{
         const res = await axios.post(
             `${baseUrl}/users/signup`
@@ -50,12 +52,11 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
 
         dispatch(loadUser());
     } catch (err){
-        console.log(err)
     }
 };
 
 //login user
-export const login = (username, password) => async dispatch => {
+export const login = (username, password, isAdmin) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -64,35 +65,46 @@ export const login = (username, password) => async dispatch => {
 
     const body  = ({username, password});
 
-    console.log(body)
     try {
-        console.log("test_1")
-        // erroring out with the post
-    
-        const res = await axios.post(`${baseUrl}/auth`, body, config);
-        console.log("test_2")
-
-        if (res.isAdmin === "true") {
-            console.log("You are an admin!")
-              // return res.status(200).json()
-          } else {
-            console.log("You are not an admin")
-          }
-        dispatch({
-            type: LOGIN_SUCCESS,
-            payload: res.data
-        });
-
-    
-        dispatch(loadUser());
+        axios.post(`${baseUrl}/auth`, body, config)
+            .then(function(res){
+                dispatch({
+                    type: LOGIN_SUCCESS,
+                    payload: res.data.token
+                })
+                dispatch({
+                    type: USER_LOADED,
+                    payload: res.data.user
+                });
+            })
     } catch  (err){
-        console.log(err)
-        console.log("Invalid Credentials");
-        alert("Invalid Credentials");
-    };
-}
-// Logout / Clear Profile
+        dispatch(setAlert("Invalid Credentials"));
+        dispatch({
+            type: LOGIN_FAIL
+        })
+            alert('Username or Password is wrong')
+    }
+};
 
+  export const deleteUser = id => dispatch => {
+              axios.delete(`${baseUrl}/users/${id}`)
+              .then(res => 
+                  dispatch({
+                      type: DELETE_USER,
+                  payload: id
+              })
+          )
+          .catch (err => 
+              dispatch({
+                  type: GET_ERRORS,
+                  payload: err.response.data
+              })
+          )
+      };
+  
+
+
+// Logout / Clear Profile
 export const logout = () => dispatch => {
     dispatch({ type: LOGOUT});
 

@@ -13,6 +13,24 @@ import {
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
+export const getCurrentProfile = userData => dispatch => {
+    // axios
+    //   .post(`${baseUrl}/users/me`, userData)
+    //   .then(res =>
+    //     dispatch({
+    //       type: GET_PROFILE,
+    //       payload: res.data
+    //     })
+    //   )
+    //   .catch(err =>
+    //     dispatch({
+    //       type: GET_PROFILE,
+    //       payload: {}
+    //     })
+    //   );
+  };
+
+
 //create profile
 
 export const createProfile = (formData) => async dispatch => {
@@ -29,13 +47,13 @@ export const createProfile = (formData) => async dispatch => {
             type:  CREATE_PROFILE,
             payload: res.data
         });
-        alert("Profile Created Successfully")
+        alert("Profile Created Successfully! Refer to User Bios to see profile. ")
         dispatch(setAlert('Profile Created', 'success'));
     } catch (err) {
         dispatch({
             type: PROFILE_ERROR,
         })
-            alert("User not authorized to create profile");
+            alert("Profile Already Created. Want to Edit Profle? Go to Edit Profile Link");
 
     }
 }
@@ -43,8 +61,8 @@ export const createProfile = (formData) => async dispatch => {
 
 
 // edit profile
-export const editProfile = (profile, username) => async dispatch => {
-    const res = await axios.put(`${baseUrl}/profile/${username}`, profile);
+export const editProfile = (profile, id) => async dispatch => {
+    const res = await axios.put(`${baseUrl}/profile/${id}`, profile);
     dispatch({
         type: UPDATE_PROFILE,
         payload: res.data

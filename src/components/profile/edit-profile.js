@@ -52,10 +52,12 @@ const EditProfile = ({
             <input 
                     type="submit"
                     className="btn btn-primary"
-                    value="Create Profile"
+                    value="Edit Profile"
             />
             <br />
-            <a href='/profile'>Back to profile</a>
+            <br />
+            <br />
+
             </form>
         </Fragment>
     )

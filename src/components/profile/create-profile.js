@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import { createProfile } from '../../actions/profile';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-// import {}
+
 
 
 const CreateProfile = ({ createProfile}) => {
@@ -54,14 +54,15 @@ const CreateProfile = ({ createProfile}) => {
                     value="Create Profile"
             />
             <br />
-            <a href='/profile'>Back to profile</a>
+            <br />
+            <br />
             </form>
         </div>
     )
 }
 
 CreateProfile.propTypes = {
-    editProfile: PropTypes.func.isRequired
+    createProfile: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({

@@ -6,6 +6,7 @@ import {
     UPDATE_POST,
     DELETE_POST,
     POST_ERROR,
+    GET_ERRORS
 
 } from "./types"
 
@@ -19,29 +20,30 @@ export const getPost = id => async dispatch => {
     });
 }
 
+<<<<<<< HEAD
 export const createPost = ({username, title, text}) => dispatch => {
+=======
+export const createPost = (formData) => async dispatch => {
+>>>>>>> 355179fbb5f05cec8e038e880578091b915d9300
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     };
-    console.log("test1")
 
-    const body = ({username, title, text});
-    console.log("test2");
-    console.log(body)
     try {
-        const res = axios.post(`${baseUrl}/posts`, body, config);
-    console.log('test3')
+    const res = axios.post(`${baseUrl}/posts`, formData, config);
         dispatch({
             type: CREATE_POST,
             payload: res.data
         });
+        alert("Post Created Successfully! Refer to Posts Page to see posts. ")
+        dispatch(setAlert('Posts Created', 'success'));
     } catch(err) {
         dispatch({
             type: POST_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status}
         });
+
     }
 };
 
@@ -55,22 +57,17 @@ export const updatePost = (post, _id) => async dispatch => {
 };
 
 export const deletePost = id => dispatch => {
-    if(alert("Warning! This can not be undone! Are you sure you want to delete this post")) {
-        try {
             axios.delete(`${baseUrl}/posts/${id}`)
             .then(res => 
-            dispatch({type: DELETE_POST,
-            payload: id
-        })
-      )
-        console.log("test1")
-      dispatch(setAlert('Post Deleted', 'success'));
-        console.log("Test3")
-        } catch (err) {
-            dispatch({
-                type: POST_ERROR,
-                payload: err.resposne.data
+                dispatch({
+                    type: DELETE_POST,
+                payload: id
             })
-        }
-  }
-};
+        )
+        .catch (err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        )
+    };

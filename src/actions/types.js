@@ -4,6 +4,7 @@ export const SET_CURRENT_USER = "SET_CURRENT_USER"
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAIL = 'SIGNUP_FAIL';
 export const USER_LOADED = 'USER_LOADED';
+export const DELETE_USER = 'DELETE_USER';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
@@ -38,3 +39,6 @@ export const COMMENT_ERROR = "COMMENT_ERRORS"
 
 export const CONTACT_ERROR = "CONTACT_ERROR"
 export const CONTACT_SUCCESS = "CONTACT_SUCCESS"
+export const DELETE_MESSAGE = "DELETE_MESSAGE"
+
+export const GET_ERRORS = "GET_ERRORS"

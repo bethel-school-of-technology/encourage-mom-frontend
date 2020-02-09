@@ -2,7 +2,9 @@ import axios from "axios";
 
 import { 
     CONTACT_ERROR,
-    CONTACT_SUCCESS
+    CONTACT_SUCCESS,
+    DELETE_MESSAGE,
+    GET_ERRORS
 } from "./types"
 
 
@@ -23,7 +25,7 @@ export const createMessage = (formData) => async dispatch => {
             payload: res.data
         });
         alert("Message Sent Successfully")
-        // dispatch(setAlert('Profile Created', 'success'));
+
     } catch (err) {
         dispatch({
             type: CONTACT_ERROR,
@@ -32,3 +34,21 @@ export const createMessage = (formData) => async dispatch => {
 
     }
 }
+
+export const deleteMessage = id => dispatch => {
+
+            axios.delete(`${baseUrl}/contact/${id}`)
+            .then(res => 
+                dispatch({
+                type: DELETE_MESSAGE,
+                payload: id
+            })
+        )
+ 
+        .catch (err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        )
+    };
