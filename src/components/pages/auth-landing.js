@@ -13,9 +13,7 @@ class AuthLanding extends Component {
         </div>
         <nav className='admin-links'>
           <ul className='admin'>
-            <a>Admin Links:</a>
-            <br />
-            <br />
+          <h1 className="Admin">Admin Links:</h1>
             <a href='/admin-messages'> View and Manage Messages</a>
             <br />
             <br />

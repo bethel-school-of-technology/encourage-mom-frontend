@@ -56,7 +56,7 @@ const CreateProfile = ({ createProfile}) => {
             <br />
             <br />
             <br />
-            <a href='/profile'>Back</a>
+            {/* <a href='/profile'>Back</a> */}
             </form>
         </div>
     )

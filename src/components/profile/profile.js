@@ -2,19 +2,25 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
-
+import {Redirect} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
  class Profile extends Component {
 
   componentDidMount() {
-    this.props.getCurrentProfile()
+    // this.props.getCurrentProfile()
   }
-    
+  
+  
 render() {
 
   const { user } = this.props.auth;
   // const {profile} = this.props.profile
+
+  if(user.isAdmin === true) {
+    console.log("Admin Access")
+    return <Redirect to='/auth-landing'></Redirect>
+}
 
   return (
       <div className="profile">
@@ -25,6 +31,7 @@ render() {
       < br/>
       </div>
       <br/>
+      <h3>{user.isAdmin}</h3>
       <br/>
       <p>Want to Create a Profile!</p>
       <Link to ="/create-profile">Create profile</Link>
