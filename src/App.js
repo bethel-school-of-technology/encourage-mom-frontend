@@ -12,7 +12,7 @@ import Login from './components/auth/Login';
 
 import home from './components/pages/home';
 
-import Encouragement from './components/pages/Encouragement';
+// import Encouragement from './components/pages/Encouragement';
 import contact from './components/pages/contact';
 
 import CreateProfile from './components/profile/create-profile';
@@ -58,7 +58,7 @@ const App = () => {
 					{/* <AuthLanding/> */}
 					<section className="container1">
 						<Route exact path="/" component={home} />
-						<Route exact path="/encouragement" component={Encouragement} />
+						{/* <Route exact path="/encouragement" component={Encouragement} /> */}
 						<Route exact path="/posts" component={posts} />
 						<Route exact path="/contact" component={contact} />
 						<Route exact path="/auth-landing" component={AuthLanding} />

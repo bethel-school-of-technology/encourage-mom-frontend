@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
-<<<<<<< HEAD
 const Login = ({ login, isAuthenticated, isAdmin }) => {
 	const [ formData, setFormData ] = useState({
 		username: '',
@@ -19,34 +18,32 @@ const Login = ({ login, isAuthenticated, isAdmin }) => {
 		e.preventDefault();
 		console.log(formData);
 
-		// console.log
-
-		// if(isAdmin === true) {
-		//     console.log("Welcome, Admin")
-		//     return isAdmin
-
-		// }
 		login(username, password);
-		// console.log(isAdmin);
 	};
 
 	if (isAuthenticated) {
 		console.log(formData);
 		console.log('Authenticated');
-
-		if (isAdmin === 'true') {
-			console('Admin Access');
-			return <Redirect to="/authLanding" />;
-		} else {
-			console.log('Not Admin :(');
-			return <Redirect to="/profile" />;
-		}
+		return <Redirect to="/profile" />;
 	}
 
-	if (isAuthenticated && isAdmin === 'true') {
+	if (isAdmin === 'true') {
 		console.log('Admin Access');
 		return <Redirect to="/authLanding" />;
 	}
+	// }
+	// if (formData.isAdmin === "true") {
+	//     console.log("You are an admin!")
+	//     // console.log(user.isAdmin);
+	//       return <Redirect to='/authLanding'></Redirect>
+	//   } else {
+	//     console.log("You are not an admin")
+	//   }
+
+	//     if (isAuthenticated && isAdmin === "true") {
+	//     console.log('Admin Access')
+	//     return <Redirect to ='/authLanding'/>
+	// }
 
 	return (
 		<Fragment>
@@ -74,91 +71,6 @@ const Login = ({ login, isAuthenticated, isAdmin }) => {
 			</div>
 		</Fragment>
 	);
-=======
-const Login = ({ login, isAuthenticated, isAdmin}) => {
-    const [formData, setFormData ] = useState({
-        username: '',
-        password: '',
-        });
-
-const { username, password } = formData;
-
-const onChange = e => 
-    setFormData({...formData, [e.target.name]: e.target.value});
-
-const onSubmit = async e => {
-    e.preventDefault();
-    console.log(formData);
-
-    login(username, password);
-};
-
-if (isAuthenticated) {
-    console.log(formData)
-    console.log("Authenticated")
-    return <Redirect to='/profile' />
-} 
-
-if(isAdmin === "true") {
-    console.log("Admin Access")
-    return <Redirect to='/authLanding'></Redirect>
-}
-// }
-// if (formData.isAdmin === "true") {
-//     console.log("You are an admin!")
-//     // console.log(user.isAdmin);
-//       return <Redirect to='/authLanding'></Redirect> 
-//   } else {
-//     console.log("You are not an admin")
-//   }
-
-//     if (isAuthenticated && isAdmin === "true") {
-//     console.log('Admin Access')
-//     return <Redirect to ='/authLanding'/>
-// }
-
-return (
-    <Fragment>
-        <div>
-            <h1>Log In!!</h1>
-            <p>Login to Your Account Here!!</p>
-            <form className="form" 
-                onSubmit={e => onSubmit(e)}
-                 >
-                <div className='form-group'>
-                    Username:
-                    <input
-                        type='text'
-                        name='username'
-                        value={username}
-                        onChange={e => onChange(e)}
-                        required />
-                </div>
-                <br/>
-                <div className='form-group'>
-                    Password:
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        onChange={e => onChange(e)}
-                        />
-                </div>
-            <br/>
-            <input
-                type="submit"
-                className="btn btn-primary"
-                value="Login" />
-            <br/>
-            </form>
-            <p>
-                Don't have an account?
-                <Link to= "/Signup">Sign Up</Link>
-            </p>
-    </div>
-    </Fragment>
-);
->>>>>>> dev
 };
 
 Login.propTypes = {
