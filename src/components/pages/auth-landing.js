@@ -14,13 +14,13 @@ class AuthLanding extends Component {
         <nav className='admin-links'>
           <ul className='admin'>
           <h1 className="Admin">Admin Links:</h1>
-            <a href='/admin-messages'> View and Manage Messages</a>
-            <br />
-            <br />
             <a href='/admin-users'> View Users</a>
             <br />
             <br />
             <a href='/admin-profiles'> View Profiles</a>
+            <br />
+            <br />
+            <a href='/admin-messages'> View and Manage Messages</a>
             <br />
             <br />
             <a href='/admin-posts'>View and Manage Posts</a>
