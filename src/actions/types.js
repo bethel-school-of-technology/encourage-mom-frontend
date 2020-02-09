@@ -37,4 +37,11 @@ export const REMOVE_COMMENT = "REMOVE COMMENT"
 export const COMMENT_ERROR = "COMMENT_ERRORS"
 
 export const CONTACT_ERROR = "CONTACT_ERROR"
+<<<<<<< HEAD
 export const CONTACT_SUCCESS = "CONTACT_SUCCESS"
+=======
+export const CONTACT_SUCCESS = "CONTACT_SUCCESS"
+export const DELETE_MESSAGE = "DELETE_MESSAGE"
+
+export const GET_ERRORS = "GET_ERRORS"
+>>>>>>> dev
