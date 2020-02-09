@@ -29,7 +29,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "mkdir dist && cp node_modules/vue/dist/vue.js dist/vue.js && cp node_modules/axios/dist/axios.js dist/axios.js && cp index.html dist/index.html",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -49,5 +49,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://crowned-jewels.netlify.com/"
+  "proxy": "http://localhost:5000"
 }
