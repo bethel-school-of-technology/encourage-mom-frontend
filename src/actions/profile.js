@@ -2,7 +2,6 @@ import axios from "axios";
 import {setAlert} from '../actions/alert';
 
 import { 
-    GET_PROFILE,
     UPDATE_PROFILE,
     CLEAR_CURRENT_PROFILE,
     PROFILE_ERROR,

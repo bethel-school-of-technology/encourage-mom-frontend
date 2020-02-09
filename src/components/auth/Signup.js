@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 
 
-const Signup = ({ setAlert, signup, isAuthenticated, isAdmin}) => {        
+const Signup = ({ setAlert, signup, isAuthenticated }) => {        
     const [ formData, setFormData ] =  useState ({
             firstName:'',
             lastName:'',
@@ -37,10 +37,7 @@ const Signup = ({ setAlert, signup, isAuthenticated, isAdmin}) => {
                 console.log("Authenticated")
                 return <Redirect to='/profile'/>
     }
-    //     if (isAdmin) {
-    //     console.log('Admin Access')
-    //     return <Redirect to ='/authLanding'/>
-    // }
+
 return (
     <Fragment>
         <div>
@@ -126,13 +123,11 @@ Signup.propTypes = {
     setAlert: PropTypes.func.isRequired,
     signup: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool,
-    isAdmin: PropTypes.bool
   }
   
 
   const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
-    isAdmin: state.auth.isAdmin
   });
 
 export default connect(

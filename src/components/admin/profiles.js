@@ -31,8 +31,7 @@ render() {
                 <h3>{profile.username}</h3>
                 <h3>{profile.location}</h3>
                 <p>{profile.bio}</p>
-                <button onClick={deleteProfile()} type="button">Delete Profile</button>
-                < br/>
+                <br/>
             </div>
         ))
     }

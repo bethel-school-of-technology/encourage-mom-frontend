@@ -57,7 +57,7 @@ const EditProfile = ({
             <br />
             <br />
             <br />
-            {/* <a href='/profile'>Back</a> */}
+
             </form>
         </Fragment>
     )
