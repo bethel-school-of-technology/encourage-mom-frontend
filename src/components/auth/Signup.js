@@ -35,7 +35,8 @@ const Signup = ({ setAlert, signup, isAuthenticated }) => {
       };
         if (isAuthenticated) {
                 console.log("Authenticated")
-                return <Redirect to='/profile'/>
+                alert("Signup successful!")
+                return <Redirect to='/'/>
     }
 
 return (
