@@ -20,7 +20,11 @@ export const getPost = id => async dispatch => {
     });
 }
 
+<<<<<<< HEAD
+export const createPost = ({username, title, text}) => dispatch => {
+=======
 export const createPost = (formData) => async dispatch => {
+>>>>>>> 355179fbb5f05cec8e038e880578091b915d9300
     const config = {
         headers: {
             'Content-Type': 'application/json'
