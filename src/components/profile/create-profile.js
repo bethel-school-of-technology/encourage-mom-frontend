@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import { createProfile } from '../../actions/profile';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-// import {}
+
 
 
 const CreateProfile = ({ createProfile}) => {
@@ -56,7 +56,6 @@ const CreateProfile = ({ createProfile}) => {
             <br />
             <br />
             <br />
-            {/* <a href='/profile'>Back</a> */}
             </form>
         </div>
     )

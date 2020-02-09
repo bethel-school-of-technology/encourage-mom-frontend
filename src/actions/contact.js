@@ -25,7 +25,7 @@ export const createMessage = (formData) => async dispatch => {
             payload: res.data
         });
         alert("Message Sent Successfully")
-        // dispatch(setAlert('Profile Created', 'success'));
+
     } catch (err) {
         dispatch({
             type: CONTACT_ERROR,
@@ -51,5 +51,4 @@ export const deleteMessage = id => dispatch => {
                 payload: err.response.data
             })
         )
-        // }
     };

@@ -35,13 +35,6 @@ const posts = ({ auth: { isAuthenticated, loading } }) => {
       <div>
         <Link to='/create-post'>Write a Post!</Link>
       </div>
-      {/* <div className='post-search'>
-        Search through posts archive for a specific post:
-        <div className='post-search-bar'>
-          <br />
-          <input type='text' className='input' placeholder='Search...' />
-        </div>
-      </div> */}
       <div className='post-recent'>
         <h2> Posts:</h2>
         <PostList />

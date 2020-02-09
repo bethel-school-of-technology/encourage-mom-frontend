@@ -34,35 +34,9 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
         </header>
     );
     const authLinks = (
-//         <header>
-//         <nav>
-//             <ul>
-                
-//                 <li><h1>Crowned Jewels</h1></li>
-//                 <li className="dropdown">
-//                         <div className="drop-btn">
-//                             <a href= "/profile">
-//                                 <img alt='profile' src={profile}  width="45px" />
-//                             </a>
-//                                 <div className="dropdown-content" >
-//                                     <a href= "/create-post">Create Post</a>
-//                                     <a href= "/profiles">User Bios</a>                               
-//                                     <a href= "/login" onClick={logout}>Logout</a>
-//                                 </div>
-//                         </div>
-//                 </li>
-//                 <li><a href="/contact">Contact</a></li>
-//                 <li><a href= "/posts">Posts</a></li>
-//                 <li><a href= "/encouragement">Encouragement</a> </li>
-//                 <li><a href="/">Home</a></li>
-//             </ul>
-//         </nav>
-// </header>
         <header>
         <nav>
             <ul className="NavBar">
-                
-                {/* <li><h1>Crowned Jewels</h1></li> */}
                 <li className="nav-left"><Link to ="/" id="title">Crowned Jewels</Link></li>
                 <li className="dropdown">
                         <div className="drop-btn">
@@ -70,7 +44,6 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                                 <img alt='profile' src={profile}  width="45px" />
                             </Link>
                             <div className="dropdown-content" >
-                                {/* <Link to = "/create-post">Create Post</Link> */}
                                 <Link to = "/profiles">User Bios</Link>                               
                                 <Link to ="/login" onClick={logout}>Logout</Link>
                             </div>
