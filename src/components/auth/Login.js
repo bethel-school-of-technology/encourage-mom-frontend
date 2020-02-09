@@ -64,7 +64,7 @@ return (
             </form>
             <p>
                 Don't have an account?
-                <Link to= "/Signup">Sign Up</Link>
+                <Link to= "/signup">Sign Up</Link>
             </p>
     </div>
     </Fragment>

@@ -4,6 +4,8 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
+    DELETE_USER,
+    GET_ERRORS,
     LOGOUT
 } from './types';
 
@@ -83,6 +85,23 @@ export const login = (username, password, isAdmin) => async dispatch => {
             alert('Username or Password is wrong')
     }
 };
+
+  export const deleteUser = id => dispatch => {
+              axios.delete(`${baseUrl}/users/${id}`)
+              .then(res => 
+                  dispatch({
+                      type: DELETE_USER,
+                  payload: id
+              })
+          )
+          .catch (err => 
+              dispatch({
+                  type: GET_ERRORS,
+                  payload: err.response.data
+              })
+          )
+      };
+  
 
 
 // Logout / Clear Profile
