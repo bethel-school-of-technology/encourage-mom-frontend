@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 
-const baseUrl = process.env.REACT_APP_BASE;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export class EncouragementListAdmin extends Component {
     constructor(props) {
@@ -15,7 +15,7 @@ export class EncouragementListAdmin extends Component {
   componentDidMount() {
     console.log("Test1")
     console.log(baseUrl)
-    axios.get(`http://localhost:5000/api/encouragements`)
+    axios.get(`${baseUrl}/encouragements`)
     .then(res => this.setState({encouragements: res.data})
     )
   }
@@ -25,7 +25,7 @@ render() {
         <div className="encouragement">
           {this.state.encouragements.map(encouragement => (
             <div className="Encouragement-Card" key={encouragement._id} width="10in" padding="50px">
-                  <h1>{encouragement.title}</h1>                   
+                  <h1>{encouragement.title}</h1>
                   <p> Written on: {encouragement.date}</p>
                   <h3>{encouragement.text}</h3>
                   <h4>{encouragement.reference} KJV</h4>

@@ -29,20 +29,15 @@ export const createPost = (formData) => async dispatch => {
 
     try {
     const res = axios.post(`${baseUrl}/posts`, formData, config);
-    console.log('test3')
         dispatch({
             type: CREATE_POST,
             payload: res.data
         });
-        console.log("Post submit authorized")
         alert("Post Created Successfully! Refer to Posts Page to see posts. ")
         dispatch(setAlert('Posts Created', 'success'));
-        // alert("Post Created Successfully! Refer to Posts to see all posts. ")
-        // dispatch(setAlert('Post Created', 'success'));
     } catch(err) {
         dispatch({
             type: POST_ERROR,
-            // payload: { msg: err.response.statusText, status: err.response.status}
         });
 
     }

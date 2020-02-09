@@ -4,12 +4,13 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
+    DELETE_USER,
+    GET_ERRORS,
     LOGOUT
 } from './types';
 
 import axios from 'axios';
 import { setAlert } from './alert';
-import {useAlert} from 'react-alert'
 import setAuthToken from '../utils/setAuthToken';
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -20,7 +21,6 @@ export const loadUser = () => async dispatch => {
         setAuthToken(localStorage.token)
     } 
     try {
-        console.log("Testing More!")
         const res = await axios.get(`${baseUrl}/users`);
         dispatch({
             type: USER_LOADED,
@@ -41,8 +41,6 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
 };
     const body = ({firstName, lastName, email, username, password });
 
-    console.log(body);
-
     try{
         const res = await axios.post(
             `${baseUrl}/users/signup`
@@ -54,7 +52,6 @@ export const signup = ({firstName, lastName, email, username, password }) => asy
 
         dispatch(loadUser());
     } catch (err){
-        console.log(err)
     }
 };
 
@@ -68,13 +65,9 @@ export const login = (username, password, isAdmin) => async dispatch => {
 
     const body  = ({username, password});
 
-    console.log(body)
     try {
-        console.log("test_1");
-        
         axios.post(`${baseUrl}/auth`, body, config)
             .then(function(res){
-                console.log(res.data.user)
                 dispatch({
                     type: LOGIN_SUCCESS,
                     payload: res.data.token
@@ -84,8 +77,6 @@ export const login = (username, password, isAdmin) => async dispatch => {
                     payload: res.data.user
                 });
             })
-
-        // dispatch(loadUser());
     } catch  (err){
         dispatch(setAlert("Invalid Credentials"));
         dispatch({
@@ -94,6 +85,23 @@ export const login = (username, password, isAdmin) => async dispatch => {
             alert('Username or Password is wrong')
     }
 };
+
+  export const deleteUser = id => dispatch => {
+              axios.delete(`${baseUrl}/users/${id}`)
+              .then(res => 
+                  dispatch({
+                      type: DELETE_USER,
+                  payload: id
+              })
+          )
+          .catch (err => 
+              dispatch({
+                  type: GET_ERRORS,
+                  payload: err.response.data
+              })
+          )
+      };
+  
 
 
 // Logout / Clear Profile

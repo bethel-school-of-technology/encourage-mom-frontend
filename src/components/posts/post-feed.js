@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const baseUrl = process.env.REACT_APP_BASE;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export class PostList extends Component {
     constructor(props) {
@@ -16,7 +16,7 @@ export class PostList extends Component {
   componentDidMount() {
     console.log("Test1")
     console.log(baseUrl)
-    axios.get(`http://localhost:5000/api/posts`)
+    axios.get(`${baseUrl}/posts`)
     .then(res => this.setState({posts: res.data})
     )
     .catch(error => console.log(error))

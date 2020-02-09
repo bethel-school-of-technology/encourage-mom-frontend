@@ -1,5 +1,3 @@
-// lists all posts with delete functions
-
 import React, { Component } from "react";
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -21,17 +19,13 @@ class postAdmin extends Component {
    }
 
   componentDidMount() {
-    // console.log("Test1")
+
     axios.get(`${baseUrl}/posts`)
     .then(res => this.setState({posts: res.data})
     )
     .catch(error => console.log(error))
   }
-    
-//   onDeleteClick(id) {
-//     this.props.deletePost(id);
-//     console.log("test3")
-// }
+
 render() {
     return (
 

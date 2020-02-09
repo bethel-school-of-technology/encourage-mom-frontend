@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
-const Login = ({ login, isAuthenticated, isAdmin}) => {
+const Login = ({ login, isAuthenticated }) => {
     const [formData, setFormData ] = useState({
         username: '',
         password: '',
@@ -27,24 +27,6 @@ if (isAuthenticated) {
     console.log("Authenticated")
     return <Redirect to='/profile' />
 } 
-
-// if(isAdmin === "true") {
-//     console.log("Admin Access")
-//     return <Redirect to='/authLanding'></Redirect>
-// }
-// }
-// if (formData.isAdmin === "true") {
-//     console.log("You are an admin!")
-//     // console.log(user.isAdmin);
-//       return <Redirect to='/authLanding'></Redirect> 
-//   } else {
-//     console.log("You are not an admin")
-//   }
-
-//     if (isAuthenticated && isAdmin === "true") {
-//     console.log('Admin Access')
-//     return <Redirect to ='/authLanding'/>
-// }
 
 return (
     <Fragment>
@@ -82,7 +64,7 @@ return (
             </form>
             <p>
                 Don't have an account?
-                <Link to= "/Signup">Sign Up</Link>
+                <Link to= "/signup">Sign Up</Link>
             </p>
     </div>
     </Fragment>
@@ -92,12 +74,10 @@ return (
 Login.propTypes = {
     login: PropTypes.func.isRequired,
     isAuthenticated:PropTypes.bool,
-    isAdmin: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
-    isAdmin: state.auth.isAdmin
 });
 
 

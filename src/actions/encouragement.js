@@ -14,14 +14,12 @@ export const createEncouragement = ({ title, text, reference, date}) => dispatch
             'Content-Type': 'application/json'
         }
     };
-    console.log("test1")
 
     const body = ({title, text, reference, date});
-    console.log("test2");
-    console.log(body)
+
     try {
         const res = axios.post(`${baseUrl}/encouragements`, body, config);
-    console.log('test3')
+        
         dispatch({
             type: CREATE_ENCOURAGEMENT,
             payload: res.data

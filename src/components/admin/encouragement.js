@@ -1,13 +1,8 @@
-// place to edit the encouragement and have it render to encouragement page for people to see
-
-
 import React, { useState} from 'react';
 import { createEncouragement } from '../../actions/encouragement';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import EncouragementList from "../../components/admin/encouragement-feed";
-// import {}
-
 
 const CreateEncouragement = ({ createEncouragement}) => {
     const [ title, setTitle] = useState('')
@@ -90,7 +85,3 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, {createEncouragement})(CreateEncouragement);
-
-
-//input value
-//submit value
