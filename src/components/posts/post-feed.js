@@ -1,19 +1,44 @@
-// s
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import PostItem from './postItem';
 
-// const PostFeed = () =>
-//  {
-//      {
-//         const {posts} = this.props
+import React, { Component } from 'react';
+import axios from 'axios';
 
-//         return posts.map(post => <PostItem key={post._id} post={post} />);
-//     }
-// }
+const baseUrl = process.env.REACT_APP_BASE;
 
-// PostFeed.propTypes = {
-//     posts: PropTypes.array.isRequired
-// }
+export class PostList extends Component {
+    constructor(props) {
+      super(props);
+       this.state = {
+           posts: [],
+           users: []
+    };
+   }
 
-// export default PostFeed
+  componentDidMount() {
+    console.log("Test1")
+    console.log(baseUrl)
+    axios.get(`http://localhost:5000/api/posts`)
+    .then(res => this.setState({posts: res.data})
+    )
+    .catch(error => console.log(error))
+  }
+    
+render() {
+    return (
+        <div className="posts">
+          {this.state.posts.map(post => (
+            <div className="Posts-Card" key={post._id}>
+                <h1>{post.title}</h1>
+                <h3>{post.username}</h3>
+                <p>{post.text}</p>
+                < br/>
+            </div>
+        ))
+    }
+        < br/>
+        </div>
+      );
+  }
+}
+    
+
+export default PostList
