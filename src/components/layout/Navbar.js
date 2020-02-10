@@ -18,7 +18,7 @@ const Navbar = ({ auth: {isAuthenticated, loading }, logout }) => {
                                     <Link to="#">
                                         <img alt='menu' src={menu}  width="45px" padding='50px'/>
                                     </Link>
-                                    <div className="dropdown-content" >
+                                    <div className="dropdown-content">
                                         <Link to = "/signup">Sign Up</Link>
                                         <Link to = "/login">Login</Link> 
                                     </div>
