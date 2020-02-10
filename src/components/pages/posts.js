@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
+import logo from '../img/logo.jpg';
 
 import PropTypes from 'prop-types';
 import PostList from '../posts/post-feed';
@@ -15,11 +16,13 @@ const posts = ({ auth: { isAuthenticated, loading } }) => {
           This is a place to connect, learn tips and advice from each other
           about being a great wife and mother, and to encourage each other{' '}
         </h3>
-        <div className="Expections">
+        <div className='Expections'>
           <h3>Expectations:</h3>
-           <p className="Expections">~ Be Kind and Courteous to One Another</p>
-           <p className="Expections">~ No Swear Words in Posts or Comments</p>
-           <p className="Expections">~ Keep the Atmosphere for Posts and Comments Peaceful and Uplifting</p> 
+          <p className='Expections'>~ Be Kind and Courteous to One Another</p>
+          <p className='Expections'>~ No Swear Words in Posts or Comments</p>
+          <p className='Expections'>
+            ~ Keep the Atmosphere for Posts and Comments Peaceful and Uplifting
+          </p>
         </div>
         <h5>
           DISCLAIMER: Any posts or comments that are offensive and inappropriate
@@ -38,6 +41,17 @@ const posts = ({ auth: { isAuthenticated, loading } }) => {
       <div className='post-recent'>
         <h2> Posts:</h2>
         <PostList />
+        <div>
+          <h2>
+            <img
+              alt='logo'
+              src={logo}
+              width='70px'
+              height='70px'
+              padding='50px'
+            />
+          </h2>
+        </div>
       </div>
     </div>
   );

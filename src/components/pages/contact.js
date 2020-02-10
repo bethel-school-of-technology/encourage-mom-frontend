@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createMessage } from '../../actions/contact';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import logo from '../img/logo.jpg';
 
 const Contact = ({ createMessage }) => {
   const [firstName, setFirstName] = useState('');
@@ -77,6 +78,17 @@ const Contact = ({ createMessage }) => {
           <input type='submit' className='btn btn-primary' />
         </div>
       </form>
+      <div>
+        <h2>
+          <img
+            alt='logo'
+            src={logo}
+            width='70px'
+            height='70px'
+            padding='50px'
+          />
+        </h2>
+      </div>
     </div>
   );
 };
