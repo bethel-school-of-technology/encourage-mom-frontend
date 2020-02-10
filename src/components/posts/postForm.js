@@ -2,6 +2,7 @@ import React , { useState } from 'react';
 import { connect } from 'react-redux'
 import { createPost } from '../../actions/post'
 import PropTypes from 'prop-types'
+// import {addLike, removeLike} from '../..actions/post';
 
 const CreatePost = ({ createPost }) => {
     const [ username, setUsername] = useState('')
@@ -18,6 +19,8 @@ const CreatePost = ({ createPost }) => {
                     setTitle('');
                     }}
                     >
+                <br/>
+                <br/>
                 <div> Username: 
                     <input 
                         type="text"
@@ -46,12 +49,13 @@ const CreatePost = ({ createPost }) => {
                         required
                         />
                 </div>
+                <br/>
+                <br/>
                     <input 
                         type="submit"
                         className="btn btn-primary"
-                        value="createPost"
+                        value="Create Post"
                         />
-                        <a href='/posts'>Back to Post Page!</a>
                 </form>
             </div>
     )
@@ -61,5 +65,7 @@ CreatePost.propTypes = {
     createPost: PropTypes.func.isRequired,
 }
 
-export default connect(null, {createPost})(CreatePost)
+export default connect(null, {createPost}, 
+    // {addLike, removeLike}
+    )(CreatePost)
 

@@ -75,7 +75,6 @@ Navbar.propTypes = {
     auth: PropTypes.object.isRequired,
     // isAdmin: PropTypes.object.isRequired
 };
-
 const mapStateToProps = state => ({
   auth: state.auth
   // isAdmin: state.isAdmin
