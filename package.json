@@ -49,5 +49,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://crowned-jewels.herokuapp.com"
+  "proxy": "https://crowned-jewels.herokuapp.com/api"
 }
