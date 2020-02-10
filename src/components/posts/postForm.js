@@ -2,6 +2,7 @@ import React , { useState } from 'react';
 import { connect } from 'react-redux'
 import { createPost } from '../../actions/post'
 import PropTypes from 'prop-types'
+// import {addLike, removeLike} from '../..actions/post';
 
 const CreatePost = ({ createPost }) => {
     const [ username, setUsername] = useState('')
@@ -64,5 +65,7 @@ CreatePost.propTypes = {
     createPost: PropTypes.func.isRequired,
 }
 
-export default connect(null, {createPost})(CreatePost)
+export default connect(null, {createPost}, 
+    // {addLike, removeLike}
+    )(CreatePost)
 
