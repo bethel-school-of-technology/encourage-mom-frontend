@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logo from '../img/logo.jpg';
 
 class AuthLanding extends Component {
   render() {
@@ -13,7 +14,7 @@ class AuthLanding extends Component {
         </div>
         <nav className='admin-links'>
           <ul className='admin'>
-          <h1 className="Admin">Admin Links:</h1>
+            <h1 className='Admin'>Admin Links:</h1>
             <a href='/admin-users'> View and Manage Users</a>
             <br />
             <br />
@@ -30,6 +31,17 @@ class AuthLanding extends Component {
             <br />
           </ul>
         </nav>
+        <div>
+          <h2>
+            <img
+              alt='logo'
+              src={logo}
+              width='70px'
+              height='70px'
+              padding='50px'
+            />
+          </h2>
+        </div>
       </div>
     );
   }
