@@ -41,7 +41,6 @@ import { Provider } from 'react-redux';
 import store from './store';
 import './App.css';
 
-
 //check for token
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -52,60 +51,57 @@ const App = () => {
     store.dispatch(loadUser());
   }, []);
 
-  
-return(
-<Provider store={store}>
-
-    
-
-
-<Router>
-  <Fragment>
-      <Navbar/>
-      <Landing />
-      {/* <AuthLanding/> */}
-      <section className="container1">
-      <Route exact path="/" component={home} />
-      <Route exact path="/encouragement" component={Encouragement} />
-      <Route exact path="/posts" component={posts} />
-      <Route exact path="/contact" component={contact} />
-      <Route exact path="/auth-landing" component={AuthLanding}/>
-      </section>
-      <section className="container2">
-      <Alert />
-      <Switch>
-          <Route exact path="/signup" component={Signup}></Route>
-          <Route exact path="/login" component={Login}></Route>
-        </Switch>
-      </section>
-      <section className="container3">
-        <Switch>
-        <Route exact path="/create-post" component={postForm}></Route>
-        {/* <Route exact patch='/posts' component={PostList}/> */}
-        </Switch>
-      </section>
-      <section className="container4">
-        <Switch>
-          <Route exact path='/create-profile' component={CreateProfile} /> 
-           <Route exact path='/edit-profile' component={EditProfile} />
-           <Route exact path='/profile' component={Profile} />
-          <Route exact path='/profiles' component={ProfileList} />
-        </Switch>
-      </section>
-          <Route exact path='/admin-users' component={userAdmin}/>
-          <Route exact path='/admin-profiles' component={profileAdmin} /> 
+  return (
+    <Provider store={store}>
+      <Router>
+        <Fragment>
+          <Navbar />
+          <Landing />
+          {/* <AuthLanding/> */}
+          <section className='container1'>
+            <Route exact path='/' component={home} />
+            <Route exact path='/encouragement' component={Encouragement} />
+            <Route exact path='/posts' component={posts} />
+            <Route exact path='/contact' component={contact} />
+            <Route exact path='/auth-landing' component={AuthLanding} />
+          </section>
+          <section className='container2'>
+            <Alert />
+            <Switch>
+              <Route exact path='/signup' component={Signup}></Route>
+              <Route exact path='/login' component={Login}></Route>
+            </Switch>
+          </section>
+          <section className='container3'>
+            <Switch>
+              <Route exact path='/create-post' component={postForm}></Route>
+              {/* <Route exact patch='/posts' component={PostList}/> */}
+            </Switch>
+          </section>
+          <section className='container4'>
+            <Switch>
+              <Route exact path='/create-profile' component={CreateProfile} />
+              <Route exact path='/edit-profile' component={EditProfile} />
+              <Route exact path='/profile' component={Profile} />
+              <Route exact path='/profiles' component={ProfileList} />
+            </Switch>
+          </section>
+          <Route exact path='/admin-users' component={userAdmin} />
+          <Route exact path='/admin-profiles' component={profileAdmin} />
           <Route exact path='/admin-posts' component={postAdmin} />
-          <Route exact path='/admin-encouragement' component={CreateEncouragement} />
+          <Route
+            exact
+            path='/admin-encouragement'
+            component={CreateEncouragement}
+          />
           <Route exact path='/admin-messages' component={contactAdmin} />
-      <section>
-        <Switch>
-
-        </Switch>
-      </section>
-  </Fragment>
-</Router>
-</Provider>
-)} ;
-
+          <section>
+            <Switch></Switch>
+          </section>
+        </Fragment>
+      </Router>
+    </Provider>
+  );
+};
 
 export default App;
